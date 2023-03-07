@@ -6,14 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Video Streaming</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <nav class="p-5 bg-[#BF62D5]">
-        <div>
-            <span>
-                <img class="" src="">
+    <nav class="p-3 bg-black shadow md:flex md:items-center md:justify-between">
+        <div class="flex justify-between items-center">
+            <a href="">
+                <img class="h-14" src="assets/images/logo/VISTREAM.png" alt="LOGO-VISTREAM">
+            </a>
+            <span class="text-white text-2xl cursor-pointer mx-2 fs-4 md:hidden block">
+                <i class="fa-solid fa-bars" onclick="Menu(this)" name="menu"></i>
             </span>
         </div>
+        <ul class="text-white md:flex md:items-center z-[-1] md:z-auto md:static absolute bg-black w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 top-[-400px] transition-all ease-in duration-500">
+            <li class="text-base hover:text-[#E9AAF8] mx-5 my-6 md:my-0 duration-500"><a href="">Home</a></li>
+            <li class="text-base hover:text-[#E9AAF8] mx-5 my-6 md:my-0 duration-500"><a href="">Genre</a></li>
+            <li class="text-base hover:text-[#E9AAF8] mx-5 my-6 md:my-0 duration-500"><a href="">Country</a></li>
+            <li class="text-base hover:text-[#E9AAF8] mx-5 my-6 md:my-0 duration-500"><a href="">Movies</a></li>
+            <li class="text-base hover:text-[#E9AAF8] mx-5 my-6 md:my-0 duration-500"><a href="">TV-Series</a></li>
+            <button class="px-6 py-3 text-black font-bold rounded bg-[#E36DFF]">
+                Login/Registre
+            </button>
+        </ul>
     </nav>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
