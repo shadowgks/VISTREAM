@@ -1,42 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Video Streaming</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="assets/sass/style.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
     <header>
         <!-- B nav -->
-        <nav class="p-3 bg-black shadow md:flex md:items-center md:justify-between">
-        <div class="flex justify-between items-center">
-            <a href="">
-                <img class="h-14" src="assets/images/logo/VISTREAM.png" alt="LOGO-VISTREAM">
-            </a>
-            <span class="text-white text-2xl cursor-pointer mx-2 fs-4 md:hidden block">
-                <i class="fa-solid fa-bars" onclick="Menu(this)" name="menu"></i>
-            </span>
-        </div>
-        <ul class="text-white md:flex md:items-center z-[-1] md:z-auto md:static absolute bg-black w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 top-[-400px] transition-all ease-in duration-500" id="links-nav">
-            <li class="text-base hover:text-[#E9AAF8] mx-5 my-6 md:my-0 duration-500"><a href="">Home</a></li>
-            <li class="text-base hover:text-[#E9AAF8] mx-5 my-6 md:my-0 duration-500"><a href="">Genre</a></li>
-            <li class="text-base hover:text-[#E9AAF8] mx-5 my-6 md:my-0 duration-500"><a href="">Country</a></li>
-            <li class="text-base hover:text-[#E9AAF8] mx-5 my-6 md:my-0 duration-500"><a href="">Movies</a></li>
-            <li class="text-base hover:text-[#E9AAF8] mx-5 my-6 md:my-0 duration-500"><a href="">TV-Series</a></li>
-            <button class="px-6 py-3 text-black font-bold rounded bg-[#E36DFF]">
-                Login/Registre
-            </button>
-        </ul>
+        <nav class="p-3 bg-color-primary shadow md:flex md:items-center md:justify-between">
+            <div class="flex justify-between items-center">
+                <a href="">
+                    <img class="h-14" src="assets/images/logo/VISTREAM.png" alt="LOGO-VISTREAM">
+                </a>
+                <span class="text-white text-2xl cursor-pointer mx-2 fs-4 md:hidden block">
+                    <i class="fa-solid fa-bars" onclick="Menu(this)"></i>
+                </span>
+            </div>
+            <ul class="text-white md:flex md:items-center z-[-1] md:z-auto md:static absolute w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 top-[-400px] transition-all ease-in duration-500"
+                id="links-nav">
+                <li class="text-base hover:text-color-links mx-3 my-6 md:my-0 duration-500"><a href="">Home</a></li>
+                <li class="text-base hover:text-color-links mx-3 my-6 md:my-0 duration-500"><a href="">Genre</a></li>
+                <li class="text-base hover:text-color-links mx-3 my-6 md:my-0 duration-500"><a href="">Country</a></li>
+                <li class="text-base hover:text-color-links mx-3 my-6 md:my-0 duration-500"><a href="">Movies</a></li>
+                <li class="text-base hover:text-color-links mx-3 my-6 md:my-0 duration-500"><a href="">TV-Series</a>
+                </li>
+                <a href="#"
+                    class="px-6 py-3 text-black text-white font-bold text-xs rounded-full bg-color-secondary hover:bg-gray-200 hover:text-gray-800">
+                    Login/Registre
+                </a>
+            </ul>
         </nav>
         <!-- E nav -->
 
         <!-- B Slider -->
+        <!-- Slider main container -->
+        <div class="swiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">
+                    <div class="flex items-center h-screen bg-cover bg-bottom  h-auto text-white px-10 object-fill bg-bottom"
+                        style="background-image: url(https://images.unsplash.com/photo-1544144433-d50aff500b91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80)">
+                        <div class="md:w-1/2 mb-32 md:ml-14 m-2 text-center">
+                            <p class="font-semibold text-sm uppercase">Services</p>
+                            <p class="md:text-3xl font-bold">Name Movie</p>
+                            <p class="text-xs mt-3 text-gray-300 mb-10 leading-none">Description...</p>
+                            <a href="#"
+                                class="text-[8px] bg-color-secondary py-2 px-8 text-white rounded-full font-bold uppercase md:text-sm hover:bg-gray-200 hover:text-gray-800"><i class="fa-brands fa-google-play"></i> Watch
+                                Now</a>
+                            <a href="#"
+                                class="text-[8px] bg-transparent border border-color-three py-2 px-8 text-white rounded-full font-bold uppercase md:text-sm hover:bg-gray-200 hover:text-gray-800"><i class="fa-regular fa-heart"></i> Add
+                                to list</a>
+                        </div>
+                    </div> <!-- container -->
+                </div>
+                <div class="swiper-slide">
+                    <div class="flex items-center h-screen bg-cover bg-bottom h-auto text-white px-10 object-fill bg-bottom"
+                        style="background-image: url(https://images.unsplash.com/photo-1544427920-c49ccfb85579?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1422&q=80)">
+                        <div class="md:w-1/2 mb-32 md:ml-14 m-2 text-center">
+                            <p class="font-semibold text-sm uppercase">Services</p>
+                            <p class="md:text-3xl font-bold">Name Movie</p>
+                            <p class="text-xs mt-3 text-gray-300 mb-10 leading-none">Description...</p>
+                            <a href="#"
+                                class="text-[8px] bg-color-secondary py-2 px-8 text-white rounded-full font-bold uppercase md:text-sm hover:bg-gray-200 hover:text-gray-800"><i class="fa-brands fa-google-play"></i> Watch
+                                Now</a>
+                            <a href="#"
+                                class="text-[8px] bg-transparent border border-color-three py-2 px-8 text-white rounded-full font-bold uppercase md:text-sm hover:bg-gray-200 hover:text-gray-800"><i class="fa-regular fa-heart"></i> Add
+                                to list</a>
+                        </div>
+                    </div> <!-- container -->
+                </div>
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
 
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
         <!-- B Slider -->
     </header>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
+
 </html>
