@@ -12,9 +12,10 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="assets/sass/style.css">
     <link rel="stylesheet" href="style.css">
+
 </head>
 
-<body>
+<body class="bg-color-primary">
     <header>
         <!-- B nav -->
         <nav class="p-3 bg-color-primary shadow md:flex md:items-center md:justify-between">
@@ -29,8 +30,153 @@
             <ul class="text-white md:flex md:items-center z-[-1] md:z-auto md:static absolute w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 top-[-400px] transition-all ease-in duration-500"
                 id="links-nav">
                 <li class="text-base hover:text-color-links mx-3 my-6 md:my-0 duration-500"><a href="">Home</a></li>
-                <li class="text-base hover:text-color-links mx-3 my-6 md:my-0 duration-500"><a href="">Genre</a></li>
-                <li class="text-base hover:text-color-links mx-3 my-6 md:my-0 duration-500"><a href="">Country</a></li>
+                <li class="text-base hover:text-color-links mx-3 my-6 md:my-0 duration-500">
+                    <button id="genre-menu-dropdown-button" data-dropdown-toggle="genre-menu-dropdown"
+                        href="">Genre</button>
+                    <div id="genre-menu-dropdown"
+                        class="absolute z-10 grid hidden w-auto grid-cols-2 text-sm bg-color-primary rounded-lg shadow-md  md:grid-cols-3">
+                        <div class="p-4 pb-0 text-gray-900 md:pb-4">
+                            <ul class="space-y-4" aria-labelledby="mega-menu-dropdown-button">
+                                <li>
+                                    <a href="#" class="text-gray-400 hover:text-color-links">
+                                        About Us
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-gray-400 hover:text-color-links">
+                                        Library
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-gray-400 hover:text-color-links">
+                                        Resources
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-gray-400 hover:text-color-links">
+                                        Pro Version
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="p-4 pb-0 text-gray-900 md:pb-4 ">
+                            <ul class="space-y-4">
+                                <li>
+                                    <a href="#" class="text-gray-400 hover:text-color-links">
+                                        Blog
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-gray-400 hover:text-color-links">
+                                        Newsletter
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-gray-400 hover:text-color-links">
+                                        Playground
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-gray-400 hover:text-color-links">
+                                        License
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="p-4 text-gray-900">
+                            <ul class="space-y-4">
+                                <li>
+                                    <a href="#" class="text-gray-400 hover:text-color-links">
+                                        Contact Us
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-gray-400 hover:text-color-links">
+                                        Support Center
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-gray-400 hover:text-color-links">
+                                        Terms
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="text-base hover:text-color-links mx-3 my-6 md:my-0 duration-500">
+                    <button id="country-menu-dropdown-button" data-dropdown-toggle="country-menu-dropdown">Country</button>
+                        <div id="country-menu-dropdown"
+                            class="absolute z-10 grid hidden w-auto grid-cols-2 text-sm bg-color-primary rounded-lg shadow-md  md:grid-cols-3">
+                            <div class="p-4 pb-0 text-gray-900 md:pb-4">
+                                <ul class="space-y-4" aria-labelledby="mega-menu-dropdown-button">
+                                    <li>
+                                        <a href="#" class="text-gray-400 hover:text-color-links">
+                                            About Us
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-gray-400 hover:text-color-links">
+                                            Library
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-gray-400 hover:text-color-links">
+                                            Resources
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-gray-400 hover:text-color-links">
+                                            Pro Version
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="p-4 pb-0 text-gray-900 md:pb-4 ">
+                                <ul class="space-y-4">
+                                    <li>
+                                        <a href="#" class="text-gray-400 hover:text-color-links">
+                                            Blog
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-gray-400 hover:text-color-links">
+                                            Newsletter
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-gray-400 hover:text-color-links">
+                                            Playground
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-gray-400 hover:text-color-links">
+                                            License
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="p-4 text-gray-900">
+                                <ul class="space-y-4">
+                                    <li>
+                                        <a href="#" class="text-gray-400 hover:text-color-links">
+                                            Contact Us
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-gray-400 hover:text-color-links">
+                                            Support Center
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-gray-400 hover:text-color-links">
+                                            Terms
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                </li>
                 <li class="text-base hover:text-color-links mx-3 my-6 md:my-0 duration-500"><a href="">Movies</a></li>
                 <li class="text-base hover:text-color-links mx-3 my-6 md:my-0 duration-500"><a href="">TV-Series</a>
                 </li>
@@ -56,10 +202,12 @@
                             <p class="md:text-3xl font-bold">Name Movie</p>
                             <p class="text-xs mt-3 text-gray-300 mb-10 leading-none">Description...</p>
                             <a href="#"
-                                class="text-[8px] bg-color-secondary py-2 px-8 text-white rounded-full font-bold uppercase md:text-sm hover:bg-gray-200 hover:text-gray-800"><i class="fa-brands fa-google-play"></i> Watch
+                                class="text-[8px] bg-color-secondary py-2 px-8 text-white rounded-full font-bold uppercase md:text-sm hover:bg-gray-200 hover:text-gray-800"><i
+                                    class="fa-brands fa-google-play"></i> Watch
                                 Now</a>
                             <a href="#"
-                                class="text-[8px] bg-transparent border border-color-three py-2 px-8 text-white rounded-full font-bold uppercase md:text-sm hover:bg-gray-200 hover:text-gray-800"><i class="fa-regular fa-heart"></i> Add
+                                class="text-[8px] bg-transparent border border-color-three py-2 px-8 text-white rounded-full font-bold uppercase md:text-sm hover:bg-gray-200 hover:text-gray-800"><i
+                                    class="fa-regular fa-heart"></i> Add
                                 to list</a>
                         </div>
                     </div> <!-- container -->
@@ -72,10 +220,12 @@
                             <p class="md:text-3xl font-bold">Name Movie</p>
                             <p class="text-xs mt-3 text-gray-300 mb-10 leading-none">Description...</p>
                             <a href="#"
-                                class="text-[8px] bg-color-secondary py-2 px-8 text-white rounded-full font-bold uppercase md:text-sm hover:bg-gray-200 hover:text-gray-800"><i class="fa-brands fa-google-play"></i> Watch
+                                class="text-[8px] bg-color-secondary py-2 px-8 text-white rounded-full font-bold uppercase md:text-sm hover:bg-gray-200 hover:text-gray-800"><i
+                                    class="fa-brands fa-google-play"></i> Watch
                                 Now</a>
                             <a href="#"
-                                class="text-[8px] bg-transparent border border-color-three py-2 px-8 text-white rounded-full font-bold uppercase md:text-sm hover:bg-gray-200 hover:text-gray-800"><i class="fa-regular fa-heart"></i> Add
+                                class="text-[8px] bg-transparent border border-color-three py-2 px-8 text-white rounded-full font-bold uppercase md:text-sm hover:bg-gray-200 hover:text-gray-800"><i
+                                    class="fa-regular fa-heart"></i> Add
                                 to list</a>
                         </div>
                     </div> <!-- container -->
@@ -90,8 +240,13 @@
         </div>
         <!-- B Slider -->
     </header>
+
+    <div>
+        <section></section>
+    </div>
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
 
