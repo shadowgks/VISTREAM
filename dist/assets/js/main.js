@@ -77,10 +77,14 @@ $(window).ready(function () {
 const swiper = new Swiper('.swiper', {
     // Optional parameters
     loop: true,
-
+    autoplay:{
+        delay:5000,
+    },
+    
     // If we need pagination
     pagination: {
         el: '.swiper-pagination',
+        clickable: true,
     },
 
     // Navigation arrows
