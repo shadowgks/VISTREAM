@@ -257,15 +257,10 @@
                     style="min-height: 524px;">
                     <div class="sm:w-full text-left m-auto lg:m-0">
                         <h1 class="text-3xl md:text-4xl font-bold mb-3">Login to your account</h1>
-                        <p class="mb-10">Not a member yet? <a class="no-underline tw-blue text-color-three"
-                                href="">Get
-                                started free now!</a></p>
+                        <p class="mb-10">Not a member yet? <a class="no-underline tw-blue text-color-three" href="">Sign
+                                up</a></p>
                         <div class="w-full">
-                            <form action="/login/check" method="POST" id="login-form">
-                                <input type="hidden" name="redirect_to" value="">
-                                <input type="hidden" name="attempts" value="">
-                                <input type="hidden" name="cust_id" id="cust_id" value="">
-                                <input type="hidden" name="token" id="token" value="">
+                            <form action="" method="POST" id="login-form">
                                 <div>
                                     <label for="email" class="block text-sm font-medium leading-8">
                                         Email address
@@ -307,7 +302,7 @@
 
                                 <div class="mt-10">
                                     <span class="block w-full rounded-md">
-                                        <button type="submit"
+                                        <button type="submit" name="login"
                                             class="w-full flex justify-center py-2 px-4 border border-transparent text-md font-medium rounded-md text-white bg-color-secondary hover:bg-color-three transition duration-500">
                                             Log in
                                         </button>
@@ -318,8 +313,7 @@
                     </div>
                 </div>
                 <div class="text-center pt-10 md:pt-0 lg:pt-0 m-auto md:m-0 lg:m-0 hidden md:block lg:block">
-                    <img class="rounded-lg md:ml-4 lg:ml-4 h-[524px]"
-                        src="../assets/images/svg/login.svg"
+                    <img class="rounded-lg md:ml-4 lg:ml-4 h-[524px]" src="../assets/images/svg/login.svg"
                         alt="svg login">
                 </div>
             </div>
