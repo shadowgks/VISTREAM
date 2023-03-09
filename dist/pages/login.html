@@ -18,180 +18,316 @@
     <!-- header -->
     <header>
         <!-- B nav -->
-        <nav class="p-3 bg-color-primary shadow md:flex md:items-center md:justify-between">
-            <div class="flex justify-between items-center">
-                <a href="">
-                    <img class="h-14" src="../assets/images/logo/VISTREAM.png" alt="LOGO-VISTREAM">
+        <nav class="bg-color-primary-75 px-2 sm:px-4 py-2.5">
+            <div class="container flex flex-wrap items-center justify-between mx-auto">
+                <a href="#" class="flex items-center">
+                    <img src="../assets/images/logo/VISTREAM.png" class="h-12 mr-3 sm:h-14" alt="VISTREAM" />
                 </a>
-                <span class="text-white text-2xl cursor-pointer mx-2 fs-4 md:hidden block">
-                    <i class="fa-solid fa-bars" onclick="Menu(this)"></i>
-                </span>
+
+                <!-- search -->
+                <div class="flex items-center md:order-2 md:gap-5">
+                    <div class="relative hidden md:block">
+                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                            <svg class="w-5 h-5 text-gray-500" aria-hidden="true" fill="currentColor"
+                                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="sr-only">Search icon</span>
+                        </div>
+                        <input type="text" id="search-navbar"
+                            class="block w-full p-2 pl-10 text-sm outline-none rounded-lg bg-gray-700 border-gray-600 placeholder-gray-400 text-white hover:bg-white hover:text-black duration-500"
+                            placeholder="Search...">
+                    </div>
+                    <a href="">
+                        <i class="fa-solid fa-circle-user text-white text-2xl md:text-3xl"></i>
+                    </a>
+
+                    <button data-collapse-toggle="navbar-search" type="button"
+                        class="inline-flex items-center p-2 text-sm text-white rounded-lg md:hidden "
+                        aria-controls="navbar-search" aria-expanded="false">
+                        <span class="sr-only">Open menu</span>
+                        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-search">
+                    <div class="relative mt-3 md:hidden">
+                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                            <svg class="w-5 h-5 text-gray-500" aria-hidden="true" fill="currentColor"
+                                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <input type="text" id="search-navbar"
+                            class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50"
+                            placeholder="Search...">
+                    </div>
+                    <ul
+                        class="flex flex-col p-4 mt-4 rounded-lg bg-color-primary-75 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
+                        <li>
+                            <a href="#"
+                                class="block py-2 pl-3 pr-4 text-white bg-color-secondary hover:text-color-links rounded md:bg-transparent md:p-0"
+                                aria-current="page">Home</a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="block py-2 pl-3 pr-4 text-gray-400 hover:text-color-links rounded md:bg-transparent md:p-0">Movies</a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="block py-2 pl-3 pr-4 text-gray-400 rounded md:hover:bg-transparent hover:text-color-links md:p-0">TV-Series</a>
+                        </li>
+                        <li>
+                            <button
+                                class="block py-2 pl-3 pr-4 text-gray-400 rounded md:hover:bg-transparent hover:text-color-links md:p-0"
+                                id="genre-menu-dropdown-button"
+                                data-dropdown-toggle="genre-menu-dropdown">Genre</button>
+                            <div id="genre-menu-dropdown"
+                                class="absolute z-10 grid hidden w-auto grid-cols-2 text-sm bg-color-primary rounded-lg shadow-md  md:grid-cols-3">
+                                <div class="p-4 pb-0 text-gray-900 md:pb-4">
+                                    <ul class="space-y-4" aria-labelledby="mega-menu-dropdown-button">
+                                        <li>
+                                            <a href="#" class="text-gray-400 hover:text-color-links">
+                                                About Us
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text-gray-400 hover:text-color-links">
+                                                Library
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text-gray-400 hover:text-color-links">
+                                                Resources
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text-gray-400 hover:text-color-links">
+                                                Pro Version
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="p-4 pb-0 text-gray-900 md:pb-4 ">
+                                    <ul class="space-y-4">
+                                        <li>
+                                            <a href="#" class="text-gray-400 hover:text-color-links">
+                                                Blog
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text-gray-400 hover:text-color-links">
+                                                Newsletter
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text-gray-400 hover:text-color-links">
+                                                Playground
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text-gray-400 hover:text-color-links">
+                                                License
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="p-4 text-gray-900">
+                                    <ul class="space-y-4">
+                                        <li>
+                                            <a href="#" class="text-gray-400 hover:text-color-links">
+                                                Contact Us
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text-gray-400 hover:text-color-links">
+                                                Support Center
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text-gray-400 hover:text-color-links">
+                                                Terms
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <button
+                                class="block py-2 pl-3 pr-4 text-gray-400 rounded md:hover:bg-transparent hover:text-color-links md:p-0"
+                                id="country-menu-dropdown-button"
+                                data-dropdown-toggle="country-menu-dropdown">Country</button>
+                            <div id="country-menu-dropdown"
+                                class="absolute z-10 grid hidden w-auto grid-cols-2 text-sm bg-color-primary rounded-lg shadow-md  md:grid-cols-3">
+                                <div class="p-4 pb-0 text-gray-900 md:pb-4">
+                                    <ul class="space-y-4" aria-labelledby="mega-menu-dropdown-button">
+                                        <li>
+                                            <a href="#" class="text-gray-400 hover:text-color-links">
+                                                About Us
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text-gray-400 hover:text-color-links">
+                                                Library
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text-gray-400 hover:text-color-links">
+                                                Resources
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text-gray-400 hover:text-color-links">
+                                                Pro Version
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="p-4 pb-0 text-gray-900 md:pb-4 ">
+                                    <ul class="space-y-4">
+                                        <li>
+                                            <a href="#" class="text-gray-400 hover:text-color-links">
+                                                Blog
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text-gray-400 hover:text-color-links">
+                                                Newsletter
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text-gray-400 hover:text-color-links">
+                                                Playground
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text-gray-400 hover:text-color-links">
+                                                License
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="p-4 text-gray-900">
+                                    <ul class="space-y-4">
+                                        <li>
+                                            <a href="#" class="text-gray-400 hover:text-color-links">
+                                                Contact Us
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text-gray-400 hover:text-color-links">
+                                                Support Center
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="text-gray-400 hover:text-color-links">
+                                                Terms
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="block py-2 pl-3 pr-4 text-gray-400 rounded md:hover:bg-transparent hover:text-color-links md:p-0">About
+                                us</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <ul class="text-white bg-color-primary md:flex md:items-center z-[2] md:z-auto md:static absolute w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 top-[-400px] transition-all ease-in duration-500"
-                id="links-nav">
-                <li class="text-base hover:text-color-links mx-3 my-6 md:my-0 duration-500"><a href="">Home</a></li>
-                <li class="text-base hover:text-color-links mx-3 my-6 md:my-0 duration-500">
-                    <button id="genre-menu-dropdown-button" data-dropdown-toggle="genre-menu-dropdown"
-                        href="">Genre</button>
-                    <div id="genre-menu-dropdown"
-                        class="absolute z-10 grid hidden w-auto grid-cols-2 text-sm bg-color-primary rounded-lg shadow-md  md:grid-cols-3">
-                        <div class="p-4 pb-0 text-gray-900 md:pb-4">
-                            <ul class="space-y-4" aria-labelledby="mega-menu-dropdown-button">
-                                <li>
-                                    <a href="#" class="text-gray-400 hover:text-color-links">
-                                        About Us
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="text-gray-400 hover:text-color-links">
-                                        Library
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="text-gray-400 hover:text-color-links">
-                                        Resources
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="text-gray-400 hover:text-color-links">
-                                        Pro Version
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="p-4 pb-0 text-gray-900 md:pb-4 ">
-                            <ul class="space-y-4">
-                                <li>
-                                    <a href="#" class="text-gray-400 hover:text-color-links">
-                                        Blog
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="text-gray-400 hover:text-color-links">
-                                        Newsletter
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="text-gray-400 hover:text-color-links">
-                                        Playground
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="text-gray-400 hover:text-color-links">
-                                        License
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="p-4 text-gray-900">
-                            <ul class="space-y-4">
-                                <li>
-                                    <a href="#" class="text-gray-400 hover:text-color-links">
-                                        Contact Us
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="text-gray-400 hover:text-color-links">
-                                        Support Center
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="text-gray-400 hover:text-color-links">
-                                        Terms
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </li>
-                <li class="text-base hover:text-color-links mx-3 my-6 md:my-0 duration-500">
-                    <button id="country-menu-dropdown-button"
-                        data-dropdown-toggle="country-menu-dropdown">Country</button>
-                    <div id="country-menu-dropdown"
-                        class="absolute z-10 grid hidden w-auto grid-cols-2 text-sm bg-color-primary rounded-lg shadow-md  md:grid-cols-3">
-                        <div class="p-4 pb-0 text-gray-900 md:pb-4">
-                            <ul class="space-y-4" aria-labelledby="mega-menu-dropdown-button">
-                                <li>
-                                    <a href="#" class="text-gray-400 hover:text-color-links">
-                                        About Us
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="text-gray-400 hover:text-color-links">
-                                        Library
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="text-gray-400 hover:text-color-links">
-                                        Resources
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="text-gray-400 hover:text-color-links">
-                                        Pro Version
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="p-4 pb-0 text-gray-900 md:pb-4 ">
-                            <ul class="space-y-4">
-                                <li>
-                                    <a href="#" class="text-gray-400 hover:text-color-links">
-                                        Blog
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="text-gray-400 hover:text-color-links">
-                                        Newsletter
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="text-gray-400 hover:text-color-links">
-                                        Playground
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="text-gray-400 hover:text-color-links">
-                                        License
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="p-4 text-gray-900">
-                            <ul class="space-y-4">
-                                <li>
-                                    <a href="#" class="text-gray-400 hover:text-color-links">
-                                        Contact Us
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="text-gray-400 hover:text-color-links">
-                                        Support Center
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="text-gray-400 hover:text-color-links">
-                                        Terms
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </li>
-                <li class="text-base hover:text-color-links mx-3 my-6 md:my-0 duration-500"><a href="">Movies</a></li>
-                <li class="text-base hover:text-color-links mx-3 my-6 md:my-0 duration-500"><a href="">TV-Series</a>
-                </li>
-                <a href="#"
-                    class="px-6 py-3 text-black text-white font-bold text-xs rounded-full bg-color-secondary hover:bg-gray-200 hover:text-gray-800">
-                    Login/Registre
-                </a>
-            </ul>
         </nav>
         <!-- E nav -->
     </header>
 
+    <!-- login -->
+    <div id="login-page">
+        <div class="max-w-6xl relative z-10 m-auto px-6 mt-16">
+            <div class="flex justify-center items-center login-section">
+                <div class="bg-color-primary-75 text-white p-10 sm:m-auto md:m-auto lg:m-0 shadow"
+                    style="min-height: 524px;">
+                    <div class="sm:w-full text-left m-auto lg:m-0">
+                        <h1 class="text-3xl md:text-4xl font-bold mb-3">Login to your account</h1>
+                        <p class="mb-10">Not a member yet? <a class="no-underline tw-blue text-color-three"
+                                href="">Get
+                                started free now!</a></p>
+                        <div class="w-full">
+                            <form action="/login/check" method="POST" id="login-form">
+                                <input type="hidden" name="redirect_to" value="">
+                                <input type="hidden" name="attempts" value="">
+                                <input type="hidden" name="cust_id" id="cust_id" value="">
+                                <input type="hidden" name="token" id="token" value="">
+                                <div>
+                                    <label for="email" class="block text-sm font-medium leading-8">
+                                        Email address
+                                    </label>
+                                    <div class="mt-1 rounded-md">
+                                        <input id="email" value="" type="email" placeholder="Email" name="email"
+                                            autocomplete="email" autofocus="" required=""
+                                            class="appearance-none block w-full px-3 py-2 text-gray-700 rounded-md placeholder-gray-400 focus:outline-none focus:outline-color-three transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                                    </div>
+                                </div>
+
+                                <div class="mt-2">
+                                    <label for="password" class="block text-sm font-medium leading-8">
+                                        Password
+                                    </label>
+                                    <div class="mt-1 rounded-md">
+                                        <input type="password" placeholder="Password" name="password" required=""
+                                            autocomplete="current-password"
+                                            class="appearance-none block w-full px-3 py-2 text-gray-700 rounded-md placeholder-gray-400 focus:outline-none focus:outline-color-three transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                                    </div>
+                                </div>
+
+                                <div class="mt-2 flex flex-col md:flex-row justify-between">
+                                    <div class="flex items-center">
+                                        <input id="remember-me" type="checkbox"
+                                            class="form-checkbox h-4 w-4 tw-blue transition duration-150 ease-in-out">
+                                        <label for="remember-me" class="ml-2 block text-sm leading-5">
+                                            Remember me
+                                        </label>
+                                    </div>
+
+                                    <div class="text-sm leading-5 mt-4 md:mt-0">
+                                        <a href="/password-reset/"
+                                            class="font-medium tw-blue focus:outline-none no-underline transition ease-in-out duration-150">
+                                            Forgot password?
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="mt-10">
+                                    <span class="block w-full rounded-md">
+                                        <button type="submit"
+                                            class="w-full flex justify-center py-2 px-4 border border-transparent text-md font-medium rounded-md text-white bg-color-secondary hover:bg-color-three transition duration-500">
+                                            Log in
+                                        </button>
+                                    </span>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center pt-10 md:pt-0 lg:pt-0 m-auto md:m-0 lg:m-0 hidden md:block lg:block">
+                    <img class="rounded-lg md:ml-4 lg:ml-4 h-[524px]"
+                        src="../assets/images/svg/login.svg"
+                        alt="svg login">
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
-    <footer class="p-8 mt-20 sm:p-6 bg-color-primary shadow">
+    <footer class="p-8 mt-20 sm:p-6 bg-color-primary-75 shadow">
         <div class="md:flex md:justify-between">
             <div class="mb-6 md:mb-0">
                 <a href="" class="flex items-center">
@@ -234,7 +370,7 @@
                 </div>
             </div>
         </div>
-        <hr class="my-6 sm:mx-autoborder-gray-700 lg:my-8" />
+        <hr class="my-6 border-2 border-color-three lg:my-8" />
         <div class="sm:flex sm:items-center sm:justify-between">
             <span class="text-sm sm:text-center text-gray-400">© 2023 <a href="https://flowbite.com/"
                     class="hover:underline">Flowbite™</a>. All Rights Reserved.
