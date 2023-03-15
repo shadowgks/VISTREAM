@@ -1,0 +1,26 @@
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  color: #fff;
+  background-color: #88188f;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 auto;
+  font-size: 12px;
+}
+
+.swiper-pagination-bullet {
+  width: 30px;
+  height: 5px;
+  border-radius: 12px;
+  background-color: #fff;
+}
+
+.swiper {
+  height: 60vh;
+}
+
+/*# sourceMappingURL=style.css.map */
