@@ -14,3 +14,9 @@
     @extend %swiper-pagination;
 }
 //E swiper carousel
+
+.img-media{
+    width: 500px;
+    height: 350px;
+    object-fit: cover;
+}
