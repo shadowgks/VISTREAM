@@ -23,4 +23,9 @@
   height: 60vh;
 }
 
-/*# sourceMappingURL=style.css.map */
+.img-media {
+  width: 500px;
+  height: 350px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}/*# sourceMappingURL=style.css.map */
