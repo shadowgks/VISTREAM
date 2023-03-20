@@ -2,7 +2,8 @@
     "private": true,
     "scripts": {
         "dev": "vite",
-        "build": "vite build"
+        "build": "vite build",
+        "start": "tailwindcss -i ./resources/css/app.css -o ./public/build/assets/css/style.css --watch"
     },
     "devDependencies": {
         "@alpinejs/focus": "^3.10.5",
