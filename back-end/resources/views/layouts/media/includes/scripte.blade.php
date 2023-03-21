@@ -4,4 +4,4 @@
 <script src="{{ asset('build/assets/js/main.js') }}"></script>
 
 {{-- if you need ad more scriptes --}}
-@yield('script')
+@yield('scripte')
