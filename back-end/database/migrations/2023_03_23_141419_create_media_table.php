@@ -15,6 +15,33 @@ return new class extends Migration
     {
         Schema::create('media', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->float('time');
+            $table->text('poster_path');
+            $table->text('picture');
+            $table->text('description');
+            $table->text('director');
+            $table->text('production');
+            $table->date('release_year');
+            $table->boolean('type');
+
+            //Foreign-keys
+            //country
+            $table->foreignId('country_id')
+                ->constrained('Country')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            //type-quality
+            $table->foreignId('quality_id')
+                ->constrained('TypeQuality')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            //type-media
+            $table->foreignId('type_id')
+                ->constrained('Type')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+
             $table->timestamps();
         });
     }

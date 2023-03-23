@@ -15,6 +15,18 @@ return new class extends Migration
     {
         Schema::create('watchlists', function (Blueprint $table) {
             $table->id();
+
+            //foreign-key
+            //user
+            $table->foreignId('user_id')
+                ->constrained('User')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            //media
+            $table->foreignId('media_id')
+                ->constrained('Media')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }
