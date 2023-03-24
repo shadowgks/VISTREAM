@@ -15,10 +15,10 @@
             </div>
 
             <div>
-                <div class="bg-white p-8 border border-gray-200 dark:bg-gray-800 dark:border-gray-800">
+                <div class="bg-white p-8 border dark:bg-color-primary-75 dark:border-gray-800">
                     <table class="table-sorter table-bordered w-full ltr:text-left rtl:text-right text-gray-500 dark:text-gray-400">
                       <thead>
-                        <tr class="bg-gray-200 dark:bg-gray-900 dark:bg-opacity-40">
+                        <tr class="bg-gray-200 dark:bg-gray-700 dark:bg-opacity-40">
                           <th>Title</th>
                           <th>Author</th>
                           <th>Views</th>
@@ -41,71 +41,35 @@
                           <td>1,280</td>
                         </tr>
                         <tr>
-                            <td>Intro to JavaScript</td>
-                            <td>Chris</td>
-                            <td>1,280</td>
-                          </tr>
-                          <tr>
-                            <td>Intro to JavaScript</td>
-                            <td>Chris</td>
-                            <td>1,280</td>
-                          </tr>
-                          <tr>
-                            <td>Intro to JavaScript</td>
-                            <td>Chris</td>
-                            <td>1,280</td>
-                          </tr>
-
-                                                  <tr>
                           <td>Intro to JavaScript</td>
                           <td>Chris</td>
                           <td>1,280</td>
-                        </tr>                        <tr>
-                            <td>Intro to JavaScript</td>
-                            <td>Chris</td>
-                            <td>1,280</td>
-                          </tr>
-                          <tr>
-                            <td>Intro to JavaScript</td>
-                            <td>Chris</td>
-                            <td>1,280</td>
-                          </tr>                        <tr>
-                            <td>Intro to JavaScript</td>
-                            <td>Chris</td>
-                            <td>1,280</td>
-                          </tr>                        <tr>
-                            <td>Intro to JavaScript</td>
-                            <td>Chris</td>
-                            <td>1,280</td>
-                          </tr>                        <tr>
-                            <td>Intro to JavaScript</td>
-                            <td>Chris</td>
-                            <td>1,280</td>
-                          </tr>                        <tr>
-                            <td>Intro to JavaScript</td>
-                            <td>Chris</td>
-                            <td>1,280</td>
-                          </tr>                        <tr>
-                            <td>Intro to JavaScript</td>
-                            <td>Chris</td>
-                            <td>1,280</td>
-                          </tr>                        <tr>
-                            <td>Intro to JavaScript</td>
-                            <td>Chris</td>
-                            <td>1,280</td>
-                          </tr>                        <tr>
-                            <td>Intro to JavaScript</td>
-                            <td>Chris</td>
-                            <td>1,280</td>
-                          </tr>                        <tr>
-                            <td>Intro to JavaScript</td>
-                            <td>Chris</td>
-                            <td>1,280</td>
-                          </tr>                        <tr>
-                            <td>Intro to JavaScript</td>
-                            <td>Chris</td>
-                            <td>1,280</td>
-
+                        </tr>
+                        <tr>
+                          <td>Intro to JavaScript</td>
+                          <td>Chris</td>
+                          <td>1,280</td>
+                        </tr>
+                        <tr>
+                          <td>Intro to JavaScript</td>
+                          <td>Chris</td>
+                          <td>1,280</td>
+                        </tr>
+                        <tr>
+                          <td>Intro to JavaScript</td>
+                          <td>Chris</td>
+                          <td>1,280</td>
+                        </tr>
+                        <tr>
+                          <td>Intro to JavaScript</td>
+                          <td>Chris</td>
+                          <td>1,280</td>
+                        </tr>
+                        <tr>
+                          <td>Intro to JavaScript</td>
+                          <td>Chris</td>
+                          <td>1,280</td>
+                        </tr>
                       </tbody>
                     </table>
                   </div>
