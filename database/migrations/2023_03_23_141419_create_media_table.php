@@ -23,7 +23,6 @@ return new class extends Migration
             $table->text('director');
             $table->text('production');
             $table->date('release_year');
-            $table->boolean('type');
 
             //Foreign-keys
             //country
