@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Media extends Model
 {
     use HasFactory;
+
+    function country(){
+        return $this->belongsTo(Country::class);
+    }
 }

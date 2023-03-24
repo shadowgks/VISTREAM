@@ -14,7 +14,8 @@ class CountryController extends Controller
      */
     public function index()
     {
-        //
+        $country = Country::All();
+        return view('dashboard.country',compact('country'));
     }
 
     /**

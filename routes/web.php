@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ActorController;
+use App\Http\Controllers\CountryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +19,12 @@ Route::get('/', function () {
     return view('index');
 });
 
+//Ressources
+Route::resource('/country',CountryController::class);
+Route::resource('/actor',ActorController::class);
+
+
+//Auth
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

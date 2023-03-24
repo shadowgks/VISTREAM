@@ -14,7 +14,8 @@ class ActorController extends Controller
      */
     public function index()
     {
-        //
+        $actor = Actor::All();
+        return view('dashboard.actor',compact('actor'));
     }
 
     /**
