@@ -8,6 +8,7 @@
 
 <!-- Minify Global javascript (for production purpose) -->
 <!--start::Demo javascript ( initialize global javascript )-->
+
 <script src="{{asset('build/assets/js/demo.js')}}"></script>
 
 <script src="{{asset('build/assets/vendors/chart.js/dist/chart.min.js')}}"></script><!-- charts -->

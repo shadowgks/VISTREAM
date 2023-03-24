@@ -9,5 +9,10 @@ class Actor extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['fullname','date_birthday'];
+    protected $fillable = [
+        'fullname'
+        ,'picture'
+        ,'imdb_path'
+        ,'date_birthday'
+    ];
 }
