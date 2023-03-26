@@ -50,7 +50,7 @@ class ActorController extends Controller
         //----------E Upload pictures--------------
         Actor::create($actor);
 
-        return redirect('actor');
+        return redirect('dashboard/actor');
     }
 
     /**

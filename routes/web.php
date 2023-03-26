@@ -20,8 +20,8 @@ Route::get('/', function () {
 });
 
 //Ressources
-Route::resource('/country',CountryController::class);
-Route::resource('/actor',ActorController::class);
+Route::resource('/dashboard/country',CountryController::class);
+Route::resource('/dashboard/actor',ActorController::class);
 
 
 //Auth

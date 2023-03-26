@@ -38,8 +38,8 @@
                                     <td>{{ $key + 1 }}</td>
                                     <td>
                                         <a href="{{ $item->imdb_path }}">
-                                            <img class="inline-block rounded-full shadow-xl w-12 h-12 max-w-full bg-gray-300 dark:bg-gray-800 border-2 border-gray-200"
-                                                src="{{ $item->picture }}" alt="Image Description">
+                                            <img class="object-cover inline-block rounded-full shadow-xl w-12 h-12 max-w-full bg-gray-300 border-gray-200 dark:bg-gray-800 border-2 dark:border-gray-600"
+                                                src="{{ URL::asset($item->picture) }}" alt="Image Description">
                                         </a>
                                         {{ $item->fullname }}
                                     </td>
@@ -81,13 +81,13 @@
                                     <label for="exampleInput1" class="inline-block mb-2">Full Name</label>
                                     <input type="text" name="fullname"
                                         class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600"
-                                        id="exampleInput1" placeholder="John Doe">
+                                        id="exampleInput1" placeholder="Full Name" required>
                                 </div>
                                 <div class="mb-6 mx-7">
                                     <label for="exampleInput1" class="inline-block mb-2">Imdb Actor</label>
                                     <input type="text" name="imdb_path"
                                         class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600"
-                                        id="exampleInput1" placeholder="Link Actor">
+                                        id="exampleInput1" placeholder="Link Here">
                                 </div>
                                 <div class="mb-6 mx-7">
                                     <label for="exampleInput1" class="inline-block mb-2">Date Birthday</label>
@@ -96,7 +96,7 @@
                                         id="exampleInput1">
                                 </div>
                                 <div class="mb-6 mx-7">
-                                    <label for="formFileMultiple" class="inline-block mb-2">Picture</label>
+                                    <label for="formFileMultiple" class="inline-block mb-2">Picture (Optional)</label>
                                     <input name="picture" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" type="file" id="formFileMultiple" multiple>
                                 </div>
                                 <!-- modal footer -->
