@@ -16,8 +16,8 @@
 
             <div x-data="{ open: false }">
                 {{-- dataTable --}}
-                <div class="bg-white p-8 border dark:bg-color-primary-75 dark:border-gray-800">
-                    <div class="text-end">
+                <div class="bg-white p-8 dark:bg-color-primary-75">
+                    <div class="text-right">
                         <button @click="open = true" type="button"
                             class="py-2 px-4 inline-block text-center mb-3 rounded leading-5 text-gray-100 bg-color-secondary border border-color-secondary hover:text-white hover:bg-color-three hover:ring-0 hover:border-color-three focus:bg-color-secondary focus:border-color-secondary focus:outline-none focus:ring-0"><i
                                 class="fa-solid fa-plus fa-lg"></i></button>
@@ -45,7 +45,7 @@
                                     </td>
                                     <td>{{ $item->date_birthday }}</td>
                                     <td>
-                                        <button type="button"
+                                        <button type="button" @click="open = true" onclick="modalActorEdit('{{ $item->fullname }}','{{ $item->date_birthday}}','{{ $item->imdb_path }}')"
                                             class="py-2 px-4 inline-block text-center mb-3 rounded leading-5 text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-white hover:bg-indigo-600 hover:ring-0 hover:border-indigo-600 focus:bg-indigo-600 focus:border-indigo-600 focus:outline-none focus:ring-0"><i
                                                 class="fa-sharp fa-solid fa-pen-to-square"></i></button>
                                         <button type="button"
@@ -74,40 +74,41 @@
                                 class="fill-current h-6 w-6 absolute ltr:right-0 rtl:left-0 top-0 m-6 font-3xl font-bold">×</button>
                             <!-- modal title -->
                             <div class="px-6 py-3 text-xl border-b dark:border-gray-700 font-bold">Modal Actor</div>
-                            <!-- modal content -->
-                            <div class="my-6 mx-7">
-                                <label for="exampleInput1" class="inline-block mb-2">Full Name</label>
-                                <input type="text"
-                                    class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600"
-                                    id="exampleInput1" placeholder="John Doe">
-                            </div>
-                            <div class="mb-6 mx-7">
-                                <label for="exampleInput1" class="inline-block mb-2">Imdb Actor</label>
-                                <input type="text"
-                                    class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600"
-                                    id="exampleInput1" placeholder="Link Actor">
-                            </div>
-                            <div class="mb-6 mx-7">
-                                <label for="exampleInput1" class="inline-block mb-2">Date Birthday</label>
-                                <input type="date"
-                                    class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600"
-                                    id="exampleInput1">
-                            </div>
-                            <div class="mb-6 mx-7">
-                                <label for="formFileMultiple" class="inline-block mb-2">Multiple files input example</label>
-                                <input class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" type="file" id="formFileMultiple" multiple>
-                            </div>
-                            <!-- modal footer -->
-                            <div class="px-6 py-3 border-t dark:border-gray-700 flex justify-end">
-                                <button @click="open = false" type="button"
-                                    class="py-2 px-4 inline-block text-center rounded leading-5 text-gray-800 bg-gray-100 border border-gray-100 hover:text-gray-900 hover:bg-gray-200 hover:ring-0 hover:border-gray-200 focus:bg-gray-200 focus:border-gray-200 focus:outline-none focus:ring-0 ltr:mr-2 rtl:ml-2">Close</Button>
-                                <button type="button"
-                                    class="py-2 px-4 inline-block text-center rounded leading-5 text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-white hover:bg-indigo-600 hover:ring-0 hover:border-indigo-600 focus:bg-indigo-600 focus:border-indigo-600 focus:outline-none focus:ring-0">Saves
-                                    Changes</Button>
-                            </div>
+                            <form method="POST" action="{{route('actor.store')}}" enctype="multipart/form-data">
+                                @csrf
+                                <!-- modal content -->
+                                <div class="my-6 mx-7">
+                                    <label for="exampleInput1" class="inline-block mb-2">Full Name</label>
+                                    <input type="text" name="fullname"
+                                        class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600"
+                                        id="exampleInput1" placeholder="John Doe">
+                                </div>
+                                <div class="mb-6 mx-7">
+                                    <label for="exampleInput1" class="inline-block mb-2">Imdb Actor</label>
+                                    <input type="text" name="imdb_path"
+                                        class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600"
+                                        id="exampleInput1" placeholder="Link Actor">
+                                </div>
+                                <div class="mb-6 mx-7">
+                                    <label for="exampleInput1" class="inline-block mb-2">Date Birthday</label>
+                                    <input type="date" name="date_birthday"
+                                        class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600"
+                                        id="exampleInput1">
+                                </div>
+                                <div class="mb-6 mx-7">
+                                    <label for="formFileMultiple" class="inline-block mb-2">Picture</label>
+                                    <input name="picture" class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600" type="file" id="formFileMultiple" multiple>
+                                </div>
+                                <!-- modal footer -->
+                                <div class="px-6 py-3 border-t dark:border-gray-700 flex justify-end">
+                                    <button @click="open = false" type="button"
+                                        class="py-2 px-4 inline-block text-center rounded leading-5 text-gray-800 bg-gray-100 hover:text-gray-900 hover:bg-gray-200 hover:ring-0 hover:border-gray-200 focus:bg-gray-200 focus:border-gray-200 focus:outline-none focus:ring-0 ltr:mr-2 rtl:ml-2">Close</Button>
+                                    <button type="submit"
+                                        class="py-2 px-4 inline-block text-center rounded leading-5 text-gray-100 bg-indigo-500 hover:text-white hover:bg-indigo-600 hover:ring-0 hover:border-indigo-600 focus:bg-indigo-600 focus:border-indigo-600 focus:outline-none focus:ring-0">Saves
+                                        Changes</Button>
+                                </div>
+                            </form>
                         </div>
-                    </div>
-                    <div class="z-40 overflow-auto left-0 top-0 bottom-0 right-0 w-full h-full fixed bg-black opacity-50">
                     </div>
                 </div>
             </div>

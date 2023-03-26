@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ActorRequest;
 use App\Models\Actor;
 use Illuminate\Http\Request;
 
@@ -34,9 +35,22 @@ class ActorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ActorRequest $request)
     {
-        //
+        $actor = $request->all();
+        //----------B Upload pictures--------------
+        $picture = $request->picture;
+        if($picture == null){
+            $actor["picture"] = 'build/assets/images/default/actor.jpg';
+        }else{
+            $fileName = time() . $picture->getClientOriginalName();
+            $path = $picture->storeAs('images', $fileName, 'public');
+            $actor["picture"] = 'storage/' . $path;
+        }
+        //----------E Upload pictures--------------
+        Actor::create($actor);
+
+        return redirect('actor');
     }
 
     /**
