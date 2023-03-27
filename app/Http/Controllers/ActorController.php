@@ -82,9 +82,23 @@ class ActorController extends Controller
      * @param  \App\Models\Actor  $actor
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Actor $actor)
+    public function update(ActorRequest $request)
     {
-        //
+        $inputs = $request->all();
+        $picture = $request->picture;
+        //----------B Upload pictures--------------
+        if ($picture) {
+            $fileName = time() . $picture->getClientOriginalName();
+            $path = $picture->storeAs('images', $fileName, 'public');
+            $inputs["picture"] = 'storage/' . $path;
+        } else {
+            unset($inputs["picture"]);
+        }
+        //----------E Upload pictures--------------
+        
+        $actor = Actor::find($request->id);
+        $actor->update($inputs);
+        return redirect('dashboard/actor');
     }
 
     /**
@@ -95,6 +109,8 @@ class ActorController extends Controller
      */
     public function destroy(Actor $actor)
     {
-        //
+        $actor = Actor::find($actor->id);
+        $actor->delete();
+        return redirect('dashboard/actor');
     }
 }

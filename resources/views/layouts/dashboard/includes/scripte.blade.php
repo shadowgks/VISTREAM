@@ -17,6 +17,6 @@
 
 <!--start::Customizer js ( Only for demo purpose )-->
 <script src="{{asset('build/assets/js/customizer.js')}}"></script>
-<script src="{{asset('build/assets/js/main.js')}}"></script><!-- core js -->
+<script src="{{asset('build/assets/js/modal.js')}}"></script> <!--modal js-->
 
 @yield('scripte')
