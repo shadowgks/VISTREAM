@@ -95,7 +95,7 @@ class ActorController extends Controller
             unset($inputs["picture"]);
         }
         //----------E Upload pictures--------------
-        
+
         $actor = Actor::find($request->id);
         $actor->update($inputs);
         return redirect('dashboard/actor');
@@ -109,7 +109,6 @@ class ActorController extends Controller
      */
     public function destroy(Actor $actor)
     {
-        $actor = Actor::find($actor->id);
         $actor->delete();
         return redirect('dashboard/actor');
     }

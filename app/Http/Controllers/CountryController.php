@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CountryRequest;
 use App\Models\Country;
 use Illuminate\Http\Request;
 
@@ -34,9 +35,10 @@ class CountryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CountryRequest $request)
     {
-        //
+        Country::create($request->all());
+        return redirect('dashboard/country');
     }
 
     /**
@@ -68,9 +70,11 @@ class CountryController extends Controller
      * @param  \App\Models\Country  $country
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Country $country)
+    public function update(CountryRequest $request)
     {
-        //
+        $country = Country::find($request->id);
+        $country->update($request->all());
+        return redirect('dashboard/country');
     }
 
     /**
@@ -81,6 +85,7 @@ class CountryController extends Controller
      */
     public function destroy(Country $country)
     {
-        //
+        $country->delete();
+        return redirect('dashboard/country');
     }
 }

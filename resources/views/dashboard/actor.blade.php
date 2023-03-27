@@ -16,7 +16,7 @@
 
             {{-- Modal add --}}
             <div x-data='{ open2: false }'>
-                <div id="show_modal" x-data='{ open: false }'>
+                <div x-data='{ open: false }'>
                     {{-- dataTable --}}
                     <div class="bg-white p-8 dark:bg-color-primary-75">
                         <div class="text-right">
@@ -64,7 +64,7 @@
                     </div>
 
                     <!-- Modal add -->
-                    <div id="modal_add" x-show="open" tabindex="0"
+                    <div x-show="open" tabindex="0"
                         class="z-50 overflow-auto inset-0 w-full h-full fixed py-6">
                         <div @click.away="open = false" class="z-50 relative p-3 mx-auto my-0 w-[40%]"
                             style="min-width: 500px;display: none" x-show="open"
@@ -81,12 +81,12 @@
                                 <!-- modal title -->
                                 <div class="px-6 py-3 text-xl border-b dark:border-gray-700 font-bold">Modal Actor</div>
                                 {{-- actions --}}
-                                <input type="hidden" id="route_store" value="{{ route('actor.store') }}">
-                                <input type="hidden" id="route_update" value="{{ route('actor.update', '') }}">
+                                <input type="hidden" id="route_store_actor" value="{{ route('actor.store') }}">
+                                <input type="hidden" id="route_update_actor" value="{{ route('actor.update', '') }}">
                                 <form method="POST" action="{{ route('actor.store') }}" enctype="multipart/form-data"
                                     name="form_actor">
                                     @csrf
-                                    <div id="methode_put">
+                                    <div id="methode_put_actor">
                                         {{-- here add methode put in js --}}
                                     </div>
                                     <!-- modal content -->
@@ -129,7 +129,7 @@
                     </div>
 
                     {{-- Modal delete --}}
-                    <div id="modal_delete" x-show="open2" tabindex="0"
+                    <div x-show="open2" tabindex="0"
                         class="z-50 overflow-auto inset-0 w-full h-full fixed py-6">
                         <div @click.away="open2 = false" class="z-50 relative p-3 mx-auto my-0 w-[40%]"
                             style="min-width: 500px;display: none" x-show="open2"
@@ -151,8 +151,8 @@
                                     <p>Are you sure you went deleted this actor!</p>
                                 </div>
                                 {{-- methode --}}
-                                <input type="hidden" id="route_destroy" value="{{ route('actor.destroy', '') }}">
-                                <form action="{{ route('actor.store') }}" method="POST" name="form2_actor">
+                                <input type="hidden" id="route_destroy_actor" value="{{ route('actor.destroy', '') }}">
+                                <form action="{{ route('actor.destroy','') }}" method="POST" name="form2_actor">
                                     <div class="px-6 py-3 border-t dark:border-gray-700 flex justify-end">
                                         @csrf
                                         @method('DELETE')
