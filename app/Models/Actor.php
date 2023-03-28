@@ -15,4 +15,9 @@ class Actor extends Model
         ,'imdb_path'
         ,'date_birthday'
     ];
+
+    function medias(){
+        return $this->belongsToMany(Media::class, 'cast')
+        ->withTimestamps();
+    }
 }

@@ -8,8 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Media extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        ''
+    ];
 
-    function country(){
+    function countries(){
         return $this->belongsTo(Country::class);
+    }
+
+    function actors(){
+        return $this->belongsToMany(Actor::class, 'cast')
+        ->withTimestamps();
     }
 }
