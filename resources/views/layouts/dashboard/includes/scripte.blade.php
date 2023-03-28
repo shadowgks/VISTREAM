@@ -1,3 +1,4 @@
+
 <!--start::Global javascript (used in all pages)-->
 <script src="{{asset('build/assets/vendors/alpinejs/dist/cdn.min.js')}}"></script><!-- core js -->
 <script src="{{asset('build/assets/vendors/flatpickr/dist/flatpickr.min.js')}}"></script><!-- input date -->
