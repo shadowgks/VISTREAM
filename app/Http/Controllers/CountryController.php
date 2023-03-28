@@ -70,9 +70,8 @@ class CountryController extends Controller
      * @param  \App\Models\Country  $country
      * @return \Illuminate\Http\Response
      */
-    public function update(CountryRequest $request)
+    public function update(CountryRequest $request, Country $country)
     {
-        $country = Country::find($request->id);
         $country->update($request->all());
         return redirect('dashboard/country');
     }

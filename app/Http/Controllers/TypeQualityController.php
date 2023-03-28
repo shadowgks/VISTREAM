@@ -14,7 +14,8 @@ class TypeQualityController extends Controller
      */
     public function index()
     {
-        //
+        $quality = TypeQuality::All();
+        return view('dashboard.quality',compact('quality'));
     }
 
     /**
@@ -35,7 +36,8 @@ class TypeQualityController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        TypeQuality::create($request->all());
+        return redirect('dashboard/quality');
     }
 
     /**
@@ -67,9 +69,10 @@ class TypeQualityController extends Controller
      * @param  \App\Models\TypeQuality  $typeQuality
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TypeQuality $typeQuality)
+    public function update(Request $request, TypeQuality $quality)
     {
-        //
+        $quality->update($request->all());
+        return redirect('dashboard/quality');
     }
 
     /**
@@ -78,8 +81,9 @@ class TypeQualityController extends Controller
      * @param  \App\Models\TypeQuality  $typeQuality
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TypeQuality $typeQuality)
+    public function destroy(TypeQuality $quality)
     {
-        //
+        $quality->delete();
+        return redirect('dashboard/quality');
     }
 }

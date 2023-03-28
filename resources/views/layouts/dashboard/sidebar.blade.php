@@ -6,7 +6,7 @@
                 <!--logo-->
                 <div class="mh-18 text-center py-5">
                     <a href="#" class="flex items-center justify-center">
-                        <img src="../assets/images/logo/VISTREAM.png" class="h-12 mr-3 sm:h-14" alt="VISTREAM" />
+                        <img src="{{asset('build/assets/images/logo/VISTREAM.png')}}" class="h-12 mr-3 sm:h-14" alt="VISTREAM" />
                     </a>
                 </div>
 

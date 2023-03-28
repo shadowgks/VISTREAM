@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ActorController;
 use App\Http\Controllers\CountryController;
+use App\Http\Controllers\GenreController;
+use App\Http\Controllers\TypeQualityController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,6 +24,8 @@ Route::get('/', function () {
 //Ressources
 Route::resource('/dashboard/country',CountryController::class);
 Route::resource('/dashboard/actor',ActorController::class);
+Route::resource('/dashboard/quality',TypeQualityController::class);
+Route::resource('/dashboard/genre',GenreController::class);
 
 
 //Auth

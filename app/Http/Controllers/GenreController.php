@@ -14,7 +14,8 @@ class GenreController extends Controller
      */
     public function index()
     {
-        //
+        $genre = Genre::All();
+        return view('dashboard.genre',compact('genre'));
     }
 
     /**
@@ -35,7 +36,8 @@ class GenreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Genre::create($request->all());
+        return redirect('dashboard/genre');
     }
 
     /**
@@ -69,7 +71,8 @@ class GenreController extends Controller
      */
     public function update(Request $request, Genre $genre)
     {
-        //
+        $genre->update($request->all());
+        return redirect('dashboard/genre');
     }
 
     /**
@@ -80,6 +83,7 @@ class GenreController extends Controller
      */
     public function destroy(Genre $genre)
     {
-        //
+        $genre->delete();
+        return redirect('dashboard/genre');
     }
 }

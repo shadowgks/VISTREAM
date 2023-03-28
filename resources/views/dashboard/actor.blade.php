@@ -18,7 +18,7 @@
             <div x-data='{ open2: false }'>
                 <div x-data='{ open: false }'>
                     {{-- dataTable --}}
-                    <div class="bg-white p-8 dark:bg-color-primary-75">
+                    <div class="bg-white p-8 dark:bg-color-primary-75 h-screen">
                         <div class="text-right">
                             <button @click="open = true" type="button" onclick="addActor()"
                                 class="py-2 px-4 inline-block text-center mb-3 rounded leading-5 text-gray-100 bg-color-secondary border border-color-secondary hover:text-white hover:bg-color-three hover:ring-0 hover:border-color-three focus:bg-color-secondary focus:border-color-secondary focus:outline-none focus:ring-0"><i
@@ -64,8 +64,7 @@
                     </div>
 
                     <!-- Modal add -->
-                    <div x-show="open" tabindex="0"
-                        class="z-50 overflow-auto inset-0 w-full h-full fixed py-6">
+                    <div x-show="open" tabindex="0" class="z-50 overflow-auto inset-0 w-full h-full fixed py-6">
                         <div @click.away="open = false" class="z-50 relative p-3 mx-auto my-0 w-[40%]"
                             style="min-width: 500px;display: none" x-show="open"
                             x-transition:enter="transition duration-500"
@@ -129,8 +128,7 @@
                     </div>
 
                     {{-- Modal delete --}}
-                    <div x-show="open2" tabindex="0"
-                        class="z-50 overflow-auto inset-0 w-full h-full fixed py-6">
+                    <div x-show="open2" tabindex="0" class="z-50 overflow-auto inset-0 w-full h-full fixed py-6">
                         <div @click.away="open2 = false" class="z-50 relative p-3 mx-auto my-0 w-[40%]"
                             style="min-width: 500px;display: none" x-show="open2"
                             x-transition:enter="transition duration-500"
@@ -152,7 +150,7 @@
                                 </div>
                                 {{-- methode --}}
                                 <input type="hidden" id="route_destroy_actor" value="{{ route('actor.destroy', '') }}">
-                                <form action="{{ route('actor.destroy','') }}" method="POST" name="form2_actor">
+                                <form action="{{ route('actor.destroy', '') }}" method="POST" name="form2_actor">
                                     <div class="px-6 py-3 border-t dark:border-gray-700 flex justify-end">
                                         @csrf
                                         @method('DELETE')
