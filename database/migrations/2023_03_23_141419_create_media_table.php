@@ -16,13 +16,18 @@ return new class extends Migration
         Schema::create('media', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->float('time');
-            $table->text('poster_path');
+            $table->integer('duration');
+            $table->text('link_media');
+            $table->text('link_imdb');
             $table->text('picture');
             $table->text('description');
+            $table->date('released_year');
             $table->text('director');
             $table->text('production');
-            $table->date('release_year');
+            $table->text('trailer');
+            $table->boolean('status')->default(0);
+            $table->integer('click')->default(0);
+
 
             //Foreign-keys
             //country

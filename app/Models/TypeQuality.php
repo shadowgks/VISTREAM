@@ -11,4 +11,8 @@ class TypeQuality extends Model
     protected $fillable = [
         'name',
     ];
+
+    function media(){
+        return $this->hasMany(Media::class);
+    }
 }

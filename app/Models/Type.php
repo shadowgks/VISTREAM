@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Type extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'name',
+    ];
+
+    function media()
+    {
+        return $this->hasMany(Media::class);
+    }
 }
