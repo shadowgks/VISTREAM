@@ -15,6 +15,14 @@ return new class extends Migration
     {
         Schema::create('cast', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('media_id')
+            ->constrained('media')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+            $table->foreignId('actor_id')
+            ->constrained('actors')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
             $table->timestamps();
         });
     }

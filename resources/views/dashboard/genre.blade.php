@@ -69,7 +69,6 @@
                                         {{-- here add methode put in js --}}
                                     </div>
                                     <!-- modal content -->
-                                    <input type="hidden" name="id">
                                     <div class="my-6 mx-7">
                                         <label for="exampleInput1" class="inline-block mb-2">Name</label>
                                         <input type="text" name="name"

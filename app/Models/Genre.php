@@ -11,4 +11,10 @@ class Genre extends Model
     protected $fillable = [
         'name'
     ];
+
+    function medias()
+    {
+        return $this->belongsToMany(Media::class, 'genre_media')
+            ->withTimestamps();
+    }
 }

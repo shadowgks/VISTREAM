@@ -2,7 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\MediaRequest;
+use App\Models\Actor;
+use App\Models\Country;
+use App\Models\Genre;
 use App\Models\Media;
+use App\Models\Type;
+use App\Models\TypeQuality;
 use Illuminate\Http\Request;
 
 class MediaController extends Controller
@@ -15,7 +21,12 @@ class MediaController extends Controller
     public function index()
     {
         $media = Media::all();
-        return view('dashboard.media', compact('media'));
+        $country = Country::all();
+        $quality = TypeQuality::all();
+        $type = Type::all();
+        $genre = Genre::all();
+        $actor = Actor::all();
+        return view('dashboard.media', compact('media', 'country', 'quality', 'type', 'genre','actor'));
     }
 
     /**
@@ -34,9 +45,22 @@ class MediaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MediaRequest $request)
     {
-        //
+        $media = $request->all();
+        //----------B Upload pictures--------------
+        $picture = $request->picture;
+        $fileName = time() . $picture->getClientOriginalName();
+        $path = $picture->storeAs('images', $fileName, 'public');
+        $media["picture"] = 'storage/' . $path;
+        //----------E Upload pictures--------------
+        $this_media = Media::create($media);
+        $this_media->actors()
+        ->syncWithoutDetaching($request->actors);
+        $this_media->genres()
+        ->syncWithoutDetaching($request->genres);
+
+        return redirect('dashboard/media');
     }
 
     /**

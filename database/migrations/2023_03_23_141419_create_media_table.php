@@ -25,7 +25,7 @@ return new class extends Migration
             $table->text('director');
             $table->text('production');
             $table->text('trailer');
-            $table->boolean('status')->default(0);
+            $table->boolean('status');
             $table->integer('click')->default(0);
 
 

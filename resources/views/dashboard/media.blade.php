@@ -86,88 +86,119 @@
                                 {{-- actions --}}
                                 <input type="hidden" id="route_store_media" value="{{ route('media.store') }}">
                                 <input type="hidden" id="route_update_media" value="{{ route('media.update', '') }}">
-                                <form class="flex flex-wrap flex-row m-6" method="POST" action="{{ route('media.store') }}" enctype="multipart/form-data" name="form_media">
+                                <form method="POST" action="{{ route('media.store') }}" enctype="multipart/form-data" name="form_media">
                                     @csrf
                                     <div id="methode_put_media">
                                         {{-- here add methode put in js --}}
                                     </div>
                                     <!-- modal content -->
-                                    <input type="hidden" name="id">
-                                    <div class="flex-shrink max-w-full px-4 w-full md:w-1/2 mb-6">
-                                        <label class="inline-block mb-2">Name</label>
-                                        <input type="text"
-                                            class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600"
-                                            >
-                                    </div>
-                                    <div class="flex-shrink max-w-full px-4 w-full md:w-1/2 mb-6">
-                                        <label class="inline-block mb-2">Link Media</label>
-                                        <input type="text"
-                                            class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600"
-                                            >
-                                    </div>
-                                    <div class="flex-shrink max-w-full px-4 w-full md:w-1/2 mb-6">
-                                        <label class="inline-block mb-2">Released</label>
-                                        <input type="date"
-                                            class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600"
-                                            >
-                                    </div>
-                                    <div class="flex-shrink max-w-full px-4 w-full md:w-1/2 mb-6">
-                                        <label class="inline-block mb-2">Picture</label>
-                                        <input type="file"
-                                            class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600"
-                                            >
-                                    </div>
-                                    <div class="flex-shrink max-w-full px-4 w-full md:w-1/2 mb-6">
-                                        <label>Link Imdb</label>
-                                        <input type="text"
-                                            class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600"
-                                            >
-                                    </div>
-                                    <div class="flex-shrink max-w-full px-4 w-full md:w-1/2 mb-6">
-                                        <label>Trailer</label>
-                                        <input type="text"
-                                            class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600"
-                                            >
-                                    </div>
-                                    <div class="flex-shrink max-w-full px-4 w-full md:w-1/2 mb-6">
-                                        <label class="inline-block mb-2">Director</label>
-                                        <input type="text"
-                                            class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600"
-                                            >
-                                    </div>
-                                    <div class="flex-shrink max-w-full px-4 w-full md:w-1/2 mb-6">
-                                        <label class="inline-block mb-2">Production</label>
-                                        <input type="text"
-                                            class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600"
-                                            >
-                                    </div>
-                                    <div class="flex-shrink max-w-full px-4 w-full mb-6">
-                                        <label class="inline-block mb-2">Description</label>
-                                        <textarea cols="30" rows="4"
-                                            class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600"
-                                            placeholder="Description"></textarea>
-                                    </div>
-                                    <div class="flex-shrink max-w-full px-4 w-full md:w-1/3 mb-6">
-                                        <label class="inline-block mb-2">Quality</label>
-                                        <select
-                                            class="inline-block w-full leading-5 relative py-2 pl-3 pr-8 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600 select-caret appearance-none">
-                                            <option selected>Choose...</option>
-                                            <option>...</option>
-                                        </select>
-                                    </div>
-                                    <div class="flex-shrink max-w-full px-4 w-full md:w-1/3 mb-6">
-                                        <label class="inline-block mb-2">Country</label>
-                                        <select
-                                            class="inline-block w-full leading-5 relative py-2 pl-3 pr-8 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600 select-caret appearance-none">
-                                            <option selected>Choose...</option>
-                                            <option>...</option>
-                                        </select>
-                                    </div>
-                                    <div class="flex-shrink max-w-full px-4 w-full md:w-1/6 mb-6">
-                                        <label class="inline-block mb-2">Duration</label>
-                                        <input type="number"
-                                            class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600"
-                                            >
+                                    <div class="flex flex-wrap flex-row m-6">
+                                        <div class="flex-shrink max-w-full px-4 w-full md:w-1/2 mb-6">
+                                            <label class="inline-block mb-2">Name</label>
+                                            <input type="text" name="name"
+                                                class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600">
+                                        </div>
+                                        <div class="flex-shrink max-w-full px-4 w-full md:w-1/2 mb-6">
+                                            <label class="inline-block mb-2">Link Media</label>
+                                            <input type="text" name="link_media"
+                                                class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600">
+                                        </div>
+                                        <div class="flex-shrink max-w-full px-4 w-full md:w-1/2 mb-6">
+                                            <label class="inline-block mb-2">Released</label>
+                                            <input type="date" name="released_year"
+                                                class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600">
+                                        </div>
+                                        <div class="flex-shrink max-w-full px-4 w-full md:w-1/2 mb-6">
+                                            <label class="inline-block mb-2">Picture</label>
+                                            <input type="file" name="picture"
+                                                class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600">
+                                        </div>
+                                        <div class="flex-shrink max-w-full px-4 w-full md:w-1/2 mb-6">
+                                            <label>Link Imdb (optional)</label>
+                                            <input type="text" name="link_imdb"
+                                                class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600">
+                                        </div>
+                                        <div class="flex-shrink max-w-full px-4 w-full md:w-1/2 mb-6">
+                                            <label>Trailer (optional)</label>
+                                            <input type="text" name="trailer"
+                                                class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600">
+                                        </div>
+                                        <div class="flex-shrink max-w-full px-4 w-full md:w-1/2 mb-6">
+                                            <label class="inline-block mb-2">Director (optional)</label>
+                                            <input type="text" name="director"
+                                                class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600">
+                                        </div>
+                                        <div class="flex-shrink max-w-full px-4 w-full md:w-1/2 mb-6">
+                                            <label class="inline-block mb-2">Production (optional)</label>
+                                            <input type="text" name="production"
+                                                class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600">
+                                        </div>
+                                        <div class="flex-shrink max-w-full px-4 w-full mb-6">
+                                            <p class="mb-2">Genres</p>
+                                            <select class="js-example-basic-multiple" name="genres[]" multiple="multiple">
+                                                @foreach ($genre as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="flex-shrink max-w-full px-4 w-full mb-6">
+                                            <p class="mb-2">Actors</p>
+                                            <select class="js-example-basic-multiple" name="actors[]" multiple="multiple">
+                                                @foreach ($actor as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->fullname }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="flex-shrink max-w-full px-4 w-full md:w-1/3 mb-6">
+                                            <label class="inline-block mb-2">Quality</label>
+                                            <select name="quality_id"
+                                                class="inline-block w-full leading-5 relative py-2 pl-3 pr-8 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600 select-caret appearance-none">
+                                                <option selected>Choose...</option>
+                                                @foreach ($quality as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="flex-shrink max-w-full px-4 w-full md:w-1/3 mb-6">
+                                            <label class="inline-block mb-2">Country</label>
+                                            <select name="country_id"
+                                                class="inline-block w-full leading-5 relative py-2 pl-3 pr-8 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600 select-caret appearance-none">
+                                                <option selected>Choose...</option>
+                                                @foreach ($country as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="flex-shrink max-w-full px-4 w-full md:w-1/3 mb-6">
+                                            <label class="inline-block mb-2">Duration</label>
+                                            <input type="number" name="duration" min="0"
+                                                class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600">
+                                        </div>
+                                        <div class="flex-shrink max-w-full px-4 w-full md:w-1/3 mb-6">
+                                            <label class="inline-block mb-2">Type</label>
+                                            <select name="type_id"
+                                                class="inline-block w-full leading-5 relative py-2 pl-3 pr-8 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600 select-caret appearance-none">
+                                                <option selected>Choose...</option>
+                                                @foreach ($type as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="flex-shrink max-w-full px-4 w-full md:w-1/3 mb-6">
+                                            <label class="inline-block mb-2">Status</label>
+                                            <select name="status" name="status"
+                                                class="inline-block w-full leading-5 relative py-2 pl-3 pr-8 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600 select-caret appearance-none">
+                                                <option selected>Choose...</option>
+                                                <option value="0">Active</option>
+                                                <option value="1">Disable</option>
+                                            </select>
+                                        </div>
+                                        <div class="flex-shrink max-w-full px-4 w-full mb-6">
+                                            <label class="inline-block mb-2">Description</label>
+                                            <textarea cols="30" rows="4" name="description"
+                                                class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600"
+                                                placeholder="Description"></textarea>
+                                        </div>
                                     </div>
                                     <!-- modal footer -->
                                     <div class="px-6 py-3 border-t dark:border-gray-700 flex justify-end">

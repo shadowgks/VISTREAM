@@ -46,4 +46,10 @@ class Media extends Model
         return $this->belongsToMany(Actor::class, 'cast')
             ->withTimestamps();
     }
+
+    function genres()
+    {
+        return $this->belongsToMany(Genre::class, 'genre_media')
+            ->withTimestamps();
+    }
 }

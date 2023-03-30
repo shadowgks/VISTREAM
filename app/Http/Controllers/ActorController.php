@@ -82,7 +82,7 @@ class ActorController extends Controller
      * @param  \App\Models\Actor  $actor
      * @return \Illuminate\Http\Response
      */
-    public function update(ActorRequest $request)
+    public function update(ActorRequest $request, Actor $actor)
     {
         $inputs = $request->all();
         $picture = $request->picture;
@@ -96,7 +96,6 @@ class ActorController extends Controller
         }
         //----------E Upload pictures--------------
 
-        $actor = Actor::find($request->id);
         $actor->update($inputs);
         return redirect('dashboard/actor');
     }
