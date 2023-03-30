@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('media', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('slug');
             $table->integer('duration');
             $table->text('link_media');
             $table->text('link_imdb');

@@ -20,13 +20,15 @@ class MediaController extends Controller
      */
     public function index()
     {
-        $media = Media::all();
+        //join
+        $media = Media::with('actors')->with('genres')->get();
         $country = Country::all();
         $quality = TypeQuality::all();
         $type = Type::all();
         $genre = Genre::all();
         $actor = Actor::all();
-        return view('dashboard.media', compact('media', 'country', 'quality', 'type', 'genre','actor'));
+
+        return view('dashboard.media', compact('media', 'country', 'quality', 'type', 'genre', 'actor'));
     }
 
     /**
@@ -46,8 +48,19 @@ class MediaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(MediaRequest $request)
-    {
+    {dd($request->all());
         $media = $request->all();
+
+        //B Random data
+        $chars = array_merge(range('0', '9'), range('a', 'z'), range('A', 'Z'), array('!', '@', '#', '$', '%', '^', '&', '*', '(', ')'));
+        $random_string = '';
+        for ($i = 0; $i < 4; $i++) {
+            $random_index = random_int(0, count($chars) - 1);
+            $random_string .= $chars[$random_index];
+        }
+        //E Random data
+        $url_media = $request->name.' '.$random_string;
+        $media['slug'] = str_replace(' ', '-', $url_media);
         //----------B Upload pictures--------------
         $picture = $request->picture;
         $fileName = time() . $picture->getClientOriginalName();
@@ -56,9 +69,9 @@ class MediaController extends Controller
         //----------E Upload pictures--------------
         $this_media = Media::create($media);
         $this_media->actors()
-        ->syncWithoutDetaching($request->actors);
+            ->syncWithoutDetaching($request->actors);
         $this_media->genres()
-        ->syncWithoutDetaching($request->genres);
+            ->syncWithoutDetaching($request->genres);
 
         return redirect('dashboard/media');
     }

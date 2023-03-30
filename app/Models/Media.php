@@ -10,6 +10,7 @@ class Media extends Model
     use HasFactory;
     protected $fillable = [
         'name',
+        'slug',
         'duration',
         'link_media',
         'link_imdb',
