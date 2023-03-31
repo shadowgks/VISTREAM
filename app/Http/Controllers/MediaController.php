@@ -139,9 +139,10 @@ class MediaController extends Controller
      * @param  \App\Models\Media  $media
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Media $media)
+    public function destroy($media)
     {
-        $media->delete();
-        return redirect('dashboard/actor');
+        $this_media = Media::find($media);
+        $this_media->delete();
+        return redirect('dashboard/media');
     }
 }
