@@ -42,7 +42,7 @@
                             <tbody>
                                 @foreach ($media as $key => $item)
                                     <tr>
-                                        <td>{{ $key + 1 }}</td>
+                                        <td>{{ $key }}</td>
                                         <a href="{{ $item->link_media }}">
                                             <td>
                                                 <img class="object-cover inline-block rounded-full shadow-xl w-12 h-12 max-w-full bg-gray-300 border-gray-200 dark:bg-gray-800 border-2 dark:border-gray-600" src="{{ URL::asset($item->picture) }}" alt="Image Description">
@@ -58,12 +58,31 @@
                                             <p title="{{ $item->description }}">Description</p>
                                         </td>
                                         <td>{{ $item->click }}</td>
-                                        {{-- {{dd($item->genres)}} --}}
+
+                                        {{-- B fetch data Actors & Genres --}}
+                                        @php
+                                            //genres
+                                            $tags_genres = [];
+                                            foreach ($item->genres as $key => $item2) {
+                                                $tags_genres[$key] = $item2->id;
+                                            }
+                                            $convert_genres = implode(' ', $tags_genres);
+
+                                            //==================
+                                            //actors
+                                            $tags_actors = [];
+                                            foreach ($item->actors as $key => $item2) {
+                                                $tags_actors[$key] = $item2->id;
+                                            }
+                                            $convert_actors = implode(' ', $tags_actors);
+                                        @endphp
+                                        {{-- E fetch data Actors & Genres --}}
+
                                         <td class="text-center">
                                             <button type="button" @click="open = !open"
                                                 onclick="modalMediaEdit('{{ $item->id }}','{{ $item->name }}','{{ $item->duration }}','{{ $item->link_media }}'
                                             ,'{{ $item->link_imdb }}','{{ $item->description }}','{{ $item->released_year }}','{{ $item->director }}'
-                                            ,'{{ $item->production }}','{{ $item->trailer }}','{{ $item->status }}','{{ $item->genres[0]->id }}','{{ $item->actors }}','{{ $item->country_id }}','{{ $item->quality_id }}','{{ $item->type_id }}')"
+                                            ,'{{ $item->production }}','{{ $item->trailer }}','{{ $item->status }}','{{ $convert_genres }}','{{ $convert_actors }}','{{ $item->country_id }}','{{ $item->quality_id }}','{{ $item->type_id }}')"
                                                 class="inline-block ltr:mr-2 rtl:ml-2 hover:text-green-500" title="Edit">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                                                     <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"></path>
@@ -154,7 +173,7 @@
                                         </div>
                                         <div class="flex-shrink max-w-full px-4 w-full mb-6">
                                             <p class="mb-2">Genres</p>
-                                            <select name="genres[]" id="genres" multiple>
+                                            <select class="js-example-basic-multiple" name="genres[]" id="genres" multiple>
                                                 @foreach ($genre as $item)
                                                     <option value="{{ $item->id }}">{{ $item->name }}</option>
                                                 @endforeach
@@ -162,7 +181,7 @@
                                         </div>
                                         <div class="flex-shrink max-w-full px-4 w-full mb-6">
                                             <p class="mb-2">Actors</p>
-                                            <select name="actors[]" id="actors" multiple="multiple">
+                                            <select class="js-example-basic-multiple" name="actors[]" id="actors" multiple="multiple">
                                                 @foreach ($actor as $item)
                                                     <option value="{{ $item->id }}">{{ $item->fullname }}</option>
                                                 @endforeach

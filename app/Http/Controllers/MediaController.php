@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\MediaRequest;
-use App\Models\Actor;
+use App\Models\Media;
 use App\Models\Country;
 use App\Models\Genre;
-use App\Models\Media;
+use App\Models\Actor;
 use App\Models\Type;
 use App\Models\TypeQuality;
 use Illuminate\Http\Request;
@@ -22,6 +22,7 @@ class MediaController extends Controller
     {
         //join
         $media = Media::with('actors')->with('genres')->get();
+
         $country = Country::all();
         $quality = TypeQuality::all();
         $type = Type::all();
@@ -48,7 +49,7 @@ class MediaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(MediaRequest $request)
-    {dd($request->all());
+    {
         $media = $request->all();
 
         //B Random data
@@ -59,7 +60,7 @@ class MediaController extends Controller
             $random_string .= $chars[$random_index];
         }
         //E Random data
-        $url_media = $request->name.' '.$random_string;
+        $url_media = $request->name . ' ' . $random_string;
         $media['slug'] = str_replace(' ', '-', $url_media);
         //----------B Upload pictures--------------
         $picture = $request->picture;
@@ -67,6 +68,7 @@ class MediaController extends Controller
         $path = $picture->storeAs('images', $fileName, 'public');
         $media["picture"] = 'storage/' . $path;
         //----------E Upload pictures--------------
+
         $this_media = Media::create($media);
         $this_media->actors()
             ->syncWithoutDetaching($request->actors);
@@ -105,9 +107,30 @@ class MediaController extends Controller
      * @param  \App\Models\Media  $media
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Media $media)
+    public function update(MediaRequest $request, $media)
     {
-        //
+        $inputs = $request->all();
+
+        $picture = $request->picture;
+        //----------B Upload pictures--------------
+        if ($picture) {
+            $fileName = time() . $picture->getClientOriginalName();
+            $path = $picture->storeAs('images', $fileName, 'public');
+            $inputs["picture"] = 'storage/' . $path;
+        } else {
+            unset($inputs["picture"]);
+        }
+        //----------E Upload pictures--------------
+        // dd($inputs);
+        $this_media = Media::find($media);
+        // $id = $this_media->id;
+        $this_media->update($inputs);
+        $this_media->actors()
+            ->sync($request->actors);
+        $this_media->genres()
+            ->sync($request->genres);
+
+        return redirect('dashboard/media');
     }
 
     /**
@@ -118,6 +141,7 @@ class MediaController extends Controller
      */
     public function destroy(Media $media)
     {
-        //
+        $media->delete();
+        return redirect('dashboard/actor');
     }
 }

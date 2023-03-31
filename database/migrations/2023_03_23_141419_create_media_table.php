@@ -28,25 +28,6 @@ return new class extends Migration
             $table->text('trailer');
             $table->boolean('status');
             $table->integer('click')->default(0);
-
-
-            //Foreign-keys
-            //country
-            $table->foreignId('country_id')
-                ->constrained('Country')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-            //type-quality
-            $table->foreignId('quality_id')
-                ->constrained('TypeQuality')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-            //type-media
-            $table->foreignId('type_id')
-                ->constrained('Type')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
-
             $table->timestamps();
         });
     }
