@@ -18,7 +18,7 @@
             <div x-data='{ open2: false }'>
                 <div x-data='{ open: false }'>
                     {{-- dataTable --}}
-                    <div class="bg-white p-8 dark:bg-color-primary-75 h-screen">
+                    <div class="bg-white p-8 dark:bg-color-primary-75 h-fit">
                         <div class="text-right">
                             <button @click="open = true" type="button" onclick="addCountry()"
                                 class="py-2 px-4 inline-block text-center mb-3 rounded leading-5 text-gray-100 bg-color-secondary border border-color-secondary hover:text-white hover:bg-color-three hover:ring-0 hover:border-color-three focus:bg-color-secondary focus:border-color-secondary focus:outline-none focus:ring-0"><i

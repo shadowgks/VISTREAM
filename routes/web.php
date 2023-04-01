@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ActorController;
+use App\Http\Controllers\Auth\UserController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\MediaController;
@@ -28,6 +29,8 @@ Route::resource('/dashboard/actor',ActorController::class);
 Route::resource('/dashboard/quality',TypeQualityController::class);
 Route::resource('/dashboard/genre',GenreController::class);
 Route::resource('/dashboard/media',MediaController::class);
+Route::resource('/dashboard/user',UserController::class);
+Route::resource('/dashboard/type',UserController::class);
 
 
 //Auth
