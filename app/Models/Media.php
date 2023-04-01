@@ -42,6 +42,11 @@ class Media extends Model
         return $this->belongsTo(Type::class);
     }
 
+
+    function sliders(){
+        return $this->hasOne(Slider::class);
+    }
+
     function actors()
     {
         return $this->belongsToMany(Actor::class, 'cast')

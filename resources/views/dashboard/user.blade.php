@@ -4,6 +4,10 @@
     User
 @endsection
 
+@section('user-active')
+    dark:text-gray-300
+@endsection
+
 @section('content')
     <main class="pt-20 -mt-2">
         <div class="mx-auto p-2">
@@ -19,8 +23,7 @@
                 <div x-data='{ open: false }'>
                     {{-- dataTable --}}
                     <div class="bg-white p-8 dark:bg-color-primary-75 h-fit">
-                        <table
-                            class="table-sorter table-bordered w-full ltr:text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                        <table class="table-sorter table-bordered w-full ltr:text-left rtl:text-right text-gray-500 dark:text-gray-400">
                             <thead>
                                 <tr class="bg-gray-200 dark:bg-gray-700 dark:bg-opacity-40 uppercase">
                                     <th>#</th>
@@ -36,8 +39,7 @@
                                         <td>{{ $key + 1 }}</td>
                                         <td>
                                             <a href="#">
-                                                <img class="object-cover inline-block rounded-full shadow-xl w-12 h-12 max-w-full bg-gray-300 border-gray-200 dark:bg-gray-800 border-2 dark:border-gray-600"
-                                                    src="{{ URL::asset($item->profile_photo_path) }}" alt="Image Description">
+                                                <img class="object-cover inline-block rounded-full shadow-xl w-12 h-12 max-w-full bg-gray-300 border-gray-200 dark:bg-gray-800 border-2 dark:border-gray-600" src="{{ URL::asset($item->profile_photo_path) }}" alt="Image Description">
                                             </a>
                                             {{ $item->name }}
                                         </td>

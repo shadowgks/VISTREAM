@@ -4,6 +4,10 @@
     Country
 @endsection
 
+@section('country-active')
+    dark:text-gray-300
+@endsection
+
 @section('content')
     <main class="pt-20 -mt-2">
         <div class="mx-auto p-2">
