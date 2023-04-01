@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\UserController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\MediaController;
+use App\Http\Controllers\TypeController;
 use App\Http\Controllers\TypeQualityController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,7 +31,7 @@ Route::resource('/dashboard/quality',TypeQualityController::class);
 Route::resource('/dashboard/genre',GenreController::class);
 Route::resource('/dashboard/media',MediaController::class);
 Route::resource('/dashboard/user',UserController::class);
-Route::resource('/dashboard/type',UserController::class);
+Route::resource('/dashboard/type',TypeController::class);
 
 
 //Auth

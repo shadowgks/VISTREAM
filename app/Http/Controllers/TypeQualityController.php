@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TypeQualityRequest;
 use App\Models\TypeQuality;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class TypeQualityController extends Controller
      */
     public function index()
     {
-        $quality = TypeQuality::All();
+        $quality = TypeQuality::all();
         return view('dashboard.quality',compact('quality'));
     }
 
@@ -34,7 +35,7 @@ class TypeQualityController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TypeQualityRequest $request)
     {
         TypeQuality::create($request->all());
         return redirect('dashboard/quality');
@@ -69,7 +70,7 @@ class TypeQualityController extends Controller
      * @param  \App\Models\TypeQuality  $typeQuality
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TypeQuality $quality)
+    public function update(TypeQualityRequest $request, TypeQuality $quality)
     {
         $quality->update($request->all());
         return redirect('dashboard/quality');
