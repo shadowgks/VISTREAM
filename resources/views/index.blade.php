@@ -4,6 +4,10 @@
     Home
 @endsection
 
+@section('link_home_active')
+    text-white
+@endsection
+
 
 @section('slider')
     <div class="swiper mb-10">

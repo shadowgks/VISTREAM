@@ -4,6 +4,10 @@
     Tv-series
 @endsection
 
+@section('link_series_active')
+    text-white
+@endsection
+
 @section('content')
     <!-- Main Series -->
     <div class="w-container m-auto">

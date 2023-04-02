@@ -4,6 +4,10 @@
     Movies
 @endsection
 
+@section('link_movies_active')
+    text-white
+@endsection
+
 @section('content')
     <!-- Main Movies-->
     <div class="w-container m-auto">
