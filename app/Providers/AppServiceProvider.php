@@ -38,7 +38,7 @@ class AppServiceProvider extends ServiceProvider
                 ->with('qualitie')
                 ->with('countries')
                 ->with('genres')
-                ->with('actors')->get(),
+                ->with('actors')->where('status',1)->limit(12)->get(),
                 // 'media_date_year' => Media::get(),
                 'genre' => Genre::all(),
                 'slider' => Slider::with('media')->get()

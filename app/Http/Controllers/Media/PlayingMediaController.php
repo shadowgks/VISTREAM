@@ -15,7 +15,10 @@ class PlayingMediaController extends Controller
         ->with('qualitie')
         ->with('countries')
         ->with('genres')
-        ->with('actors')->where('slug', $slug)->first();
+        ->with('actors')
+        ->where('slug', $slug)
+        ->where('status', 1)
+        ->first();
 
         return view('media.play', compact('media_play'));
     }

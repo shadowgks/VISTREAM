@@ -72,9 +72,8 @@
             <div class="hidden" id="movies" role="tabpanel" aria-labelledby="movies-tab">
                 <!-- All cards -->
                 <div class="items-media grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3 mt-10 my-4">
-                    <!-- card -->
                     @foreach ($globalData['media'] as $movie)
-                        @if ($movie->type_id == 1 && $movie->status == 1)
+                        @if ($movie->type_id == 1)
                             <div class="cursor-pointer" data-popover-target="popover-media" data-popover-placement="right">
                                 <!-- content Card -->
                                 <a href="{{ route('play.show', $movie->slug) }}">
@@ -98,6 +97,47 @@
                                     </div>
                                 </a>
                                 <!-- popover Card
+                                                                                            <div data-popover id="popover-media" role="tooltip"
+                                                                                                class="absolute z-10 invisible inline-block w-64 text-sm font-light text-white transition-opacity duration-300 bg-color-primary border rounded-lg shadow-sm opacity-0">
+                                                                                                <div class="px-3 py-2">
+                                                                                                    <p>And here's some amazing content. It's very engaging. Right?</p>
+                                                                                                </div>
+                                                                                                <div data-popper-arrow></div>
+                                                                                            </div> -->
+                            </div>
+                        @endif
+                    @endforeach
+                </div>
+            </div>
+            <!-- tag series -->
+            <div class="hidden" id="series" role="tabpanel" aria-labelledby="series-tab">
+                <!-- All cards -->
+                <div class="items-media grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3 mt-10 my-4">
+                    @foreach ($globalData['media'] as $serie)
+                        @if ($serie->type_id == 2)
+                            <div class="cursor-pointer" data-popover-target="popover-media" data-popover-placement="right">
+                                <!-- content Card -->
+                                <a href="{{ route('play.show', $serie->slug) }}">
+                                    <div class="relative">
+                                        <img src="{{ asset($serie->picture) }}" alt="random imgee" class="img-media w-full object-cover object-center rounded-lg shadow-md hover:saturate-50 hover:scale-105 hover:duration-500 duration-300">
+                                        <span class="bg-color-secondary text-white text-xs font-bold mr-2 px-2.5 py-0.5 absolute top-0 right-0 my-4 uppercase">bluray</span>
+                                        <a href="" class="absolute text-white left-3 top-3 text-2xl hover:text-red-500 duration-500"><i class="fa-solid fa-heart"></i></a>
+                                    </div>
+                                    <div class="my-2">
+                                        <p class="text-lg font-bold text-white">{{ $serie->name }}</p>
+                                        <div class="flex justify-between items-center text-gray-500">
+                                            <!-- date & min -->
+                                            <div class="flex">
+                                                <p>{{ $serie->released_year }}</p>
+                                                <span class="font-extrabold mx-2"> . </span>
+                                                <p>{{ $serie->duration }} min</p>
+                                            </div>
+                                            <!-- serie or tv -->
+                                            <span class="bg-gray-700 text-gray-300 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full uppercase">{{ $serie->types->name }}</span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <!-- popover Card
                                                                                         <div data-popover id="popover-media" role="tooltip"
                                                                                             class="absolute z-10 invisible inline-block w-64 text-sm font-light text-white transition-opacity duration-300 bg-color-primary border rounded-lg shadow-sm opacity-0">
                                                                                             <div class="px-3 py-2">
@@ -110,51 +150,8 @@
                     @endforeach
                 </div>
             </div>
-            <!-- tag series -->
-            <div class="hidden" id="series" role="tabpanel" aria-labelledby="series-tab">
-                <!-- All cards -->
-
-                <div class="items-media grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3 mt-10 my-4">
-                    @foreach ($globalData['media'] as $serie)
-                        @if ($serie->type_id == 2 && $serie->status == 1)
-                            <div class="cursor-pointer" data-popover-target="popover-media" data-popover-placement="right">
-                                <!-- content Card -->
-                                <div>
-                                    <div class="relative">
-                                        <img src="{{ asset('build/assets/images/media/kingsman.jpg') }}" alt=" random imgee" class="img-media w-full object-cover object-center rounded-lg shadow-md hover:saturate-50 hover:scale-105 hover:duration-500 duration-300">
-                                        <span class="bg-color-secondary text-white text-xs font-bold mr-2 px-2.5 py-0.5 absolute top-0 right-0 my-4 uppercase">bluray</span>
-                                        <a href="" class="absolute text-white left-3 top-3 text-2xl hover:text-red-500 duration-500"><i class="fa-solid fa-heart"></i></a>
-                                    </div>
-                                    <div class="my-2">
-                                        <p class="text-lg font-bold text-white">Name Series</p>
-                                        <div class="flex justify-between items-center text-gray-500">
-                                            <!-- date & min -->
-                                            <div class="flex">
-                                                <p>2022</p>
-                                                <span class="font-extrabold mx-2"> . </span>
-                                                <p>189min</p>
-                                            </div>
-                                            <!-- movie or tv -->
-                                            <span class="bg-gray-700 text-gray-300 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full">Movie</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- popover Card
-                                                                                                    <div data-popover id="popover-media" role="tooltip"
-                                                                                                        class="absolute z-10 invisible inline-block w-64 text-sm font-light text-white transition-opacity duration-300 bg-color-primary border rounded-lg shadow-sm opacity-0">
-                                                                                                        <div class="px-3 py-2">
-                                                                                                            <p>And here's some amazing content. It's very engaging. Right?</p>
-                                                                                                        </div>
-                                                                                                        <div data-popper-arrow></div>
-                                                                                                    </div> -->
-                            </div>
-                        @endif
-                    @endforeach
-                </div>
-
-
-            </div>
         </section>
+
         <!-- Latest Movies -->
         <section class="mt-14">
             <!-- heading -->
@@ -192,17 +189,17 @@
                         </div>
                     </div>
                     <!-- popover Card
-                                                                                                <div data-popover id="popover-media" role="tooltip"
-                                                                                                    class="absolute z-10 invisible inline-block w-64 text-sm font-light text-white transition-opacity duration-300 bg-color-primary border rounded-lg shadow-sm opacity-0">
-                                                                                                    <div class="px-3 py-2">
-                                                                                                        <p>And here's some amazing content. It's very engaging. Right?</p>
-                                                                                                    </div>
-                                                                                                    <div data-popper-arrow></div>
-                                                                                                </div> -->
+                                                                                                    <div data-popover id="popover-media" role="tooltip"
+                                                                                                        class="absolute z-10 invisible inline-block w-64 text-sm font-light text-white transition-opacity duration-300 bg-color-primary border rounded-lg shadow-sm opacity-0">
+                                                                                                        <div class="px-3 py-2">
+                                                                                                            <p>And here's some amazing content. It's very engaging. Right?</p>
+                                                                                                        </div>
+                                                                                                        <div data-popper-arrow></div>
+                                                                                                    </div> -->
                 </div>
-
             </div>
         </section>
+
         <!-- Latest Tv-shows -->
         <section class="mt-14">
             <!-- heading -->
@@ -240,13 +237,13 @@
                         </div>
                     </div>
                     <!-- popover Card
-                                                                                                        <div data-popover id="popover-media" role="tooltip"
-                                                                                                            class="absolute z-10 invisible inline-block w-64 text-sm font-light text-white transition-opacity duration-300 bg-color-primary border rounded-lg shadow-sm opacity-0">
-                                                                                                            <div class="px-3 py-2">
-                                                                                                                <p>And here's some amazing content. It's very engaging. Right?</p>
-                                                                                                            </div>
-                                                                                                            <div data-popper-arrow></div>
-                                                                                                        </div> -->
+                                                                                                            <div data-popover id="popover-media" role="tooltip"
+                                                                                                                class="absolute z-10 invisible inline-block w-64 text-sm font-light text-white transition-opacity duration-300 bg-color-primary border rounded-lg shadow-sm opacity-0">
+                                                                                                                <div class="px-3 py-2">
+                                                                                                                    <p>And here's some amazing content. It's very engaging. Right?</p>
+                                                                                                                </div>
+                                                                                                                <div data-popper-arrow></div>
+                                                                                                            </div> -->
                 </div>
                 <div class="cursor-pointer" data-popover-target="popover-media" data-popover-placement="right">
                     <!-- content Card -->
@@ -271,13 +268,13 @@
                         </div>
                     </div>
                     <!-- popover Card
-                                                                                                        <div data-popover id="popover-media" role="tooltip"
-                                                                                                            class="absolute z-10 invisible inline-block w-64 text-sm font-light text-white transition-opacity duration-300 bg-color-primary border rounded-lg shadow-sm opacity-0">
-                                                                                                            <div class="px-3 py-2">
-                                                                                                                <p>And here's some amazing content. It's very engaging. Right?</p>
-                                                                                                            </div>
-                                                                                                            <div data-popper-arrow></div>
-                                                                                                        </div> -->
+                                                                                                            <div data-popover id="popover-media" role="tooltip"
+                                                                                                                class="absolute z-10 invisible inline-block w-64 text-sm font-light text-white transition-opacity duration-300 bg-color-primary border rounded-lg shadow-sm opacity-0">
+                                                                                                                <div class="px-3 py-2">
+                                                                                                                    <p>And here's some amazing content. It's very engaging. Right?</p>
+                                                                                                                </div>
+                                                                                                                <div data-popper-arrow></div>
+                                                                                                            </div> -->
                 </div>
                 <div class="cursor-pointer" data-popover-target="popover-media" data-popover-placement="right">
                     <!-- content Card -->
@@ -302,13 +299,13 @@
                         </div>
                     </div>
                     <!-- popover Card
-                                                                                                        <div data-popover id="popover-media" role="tooltip"
-                                                                                                            class="absolute z-10 invisible inline-block w-64 text-sm font-light text-white transition-opacity duration-300 bg-color-primary border rounded-lg shadow-sm opacity-0">
-                                                                                                            <div class="px-3 py-2">
-                                                                                                                <p>And here's some amazing content. It's very engaging. Right?</p>
-                                                                                                            </div>
-                                                                                                            <div data-popper-arrow></div>
-                                                                                                        </div> -->
+                                                                                                            <div data-popover id="popover-media" role="tooltip"
+                                                                                                                class="absolute z-10 invisible inline-block w-64 text-sm font-light text-white transition-opacity duration-300 bg-color-primary border rounded-lg shadow-sm opacity-0">
+                                                                                                                <div class="px-3 py-2">
+                                                                                                                    <p>And here's some amazing content. It's very engaging. Right?</p>
+                                                                                                                </div>
+                                                                                                                <div data-popper-arrow></div>
+                                                                                                            </div> -->
                 </div>
                 <div class="cursor-pointer" data-popover-target="popover-media" data-popover-placement="right">
                     <!-- content Card -->
@@ -333,13 +330,13 @@
                         </div>
                     </div>
                     <!-- popover Card
-                                                                                                        <div data-popover id="popover-media" role="tooltip"
-                                                                                                            class="absolute z-10 invisible inline-block w-64 text-sm font-light text-white transition-opacity duration-300 bg-color-primary border rounded-lg shadow-sm opacity-0">
-                                                                                                            <div class="px-3 py-2">
-                                                                                                                <p>And here's some amazing content. It's very engaging. Right?</p>
-                                                                                                            </div>
-                                                                                                            <div data-popper-arrow></div>
-                                                                                                        </div> -->
+                                                                                                            <div data-popover id="popover-media" role="tooltip"
+                                                                                                                class="absolute z-10 invisible inline-block w-64 text-sm font-light text-white transition-opacity duration-300 bg-color-primary border rounded-lg shadow-sm opacity-0">
+                                                                                                                <div class="px-3 py-2">
+                                                                                                                    <p>And here's some amazing content. It's very engaging. Right?</p>
+                                                                                                                </div>
+                                                                                                                <div data-popper-arrow></div>
+                                                                                                            </div> -->
                 </div>
                 <div class="cursor-pointer" data-popover-target="popover-media" data-popover-placement="right">
                     <!-- content Card -->
@@ -364,13 +361,13 @@
                         </div>
                     </div>
                     <!-- popover Card
-                                                                                                        <div data-popover id="popover-media" role="tooltip"
-                                                                                                            class="absolute z-10 invisible inline-block w-64 text-sm font-light text-white transition-opacity duration-300 bg-color-primary border rounded-lg shadow-sm opacity-0">
-                                                                                                            <div class="px-3 py-2">
-                                                                                                                <p>And here's some amazing content. It's very engaging. Right?</p>
-                                                                                                            </div>
-                                                                                                            <div data-popper-arrow></div>
-                                                                                                        </div> -->
+                                                                                                            <div data-popover id="popover-media" role="tooltip"
+                                                                                                                class="absolute z-10 invisible inline-block w-64 text-sm font-light text-white transition-opacity duration-300 bg-color-primary border rounded-lg shadow-sm opacity-0">
+                                                                                                                <div class="px-3 py-2">
+                                                                                                                    <p>And here's some amazing content. It's very engaging. Right?</p>
+                                                                                                                </div>
+                                                                                                                <div data-popper-arrow></div>
+                                                                                                            </div> -->
                 </div>
             </div>
         </section>

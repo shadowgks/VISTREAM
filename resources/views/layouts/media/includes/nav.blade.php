@@ -38,13 +38,13 @@
             </div>
             <ul class="flex flex-col p-4 mt-4 rounded-lg bg-color-primary-75 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
                 <li>
-                    <a href="#" class="block py-2 pl-3 pr-4 text-white bg-color-secondary hover:text-color-links rounded md:bg-transparent md:p-0" aria-current="page">Home</a>
+                    <a href="{{route('home.index')}}" class="block py-2 pl-3 pr-4 text-white bg-color-secondary hover:text-color-links rounded md:bg-transparent md:p-0" aria-current="page">Home</a>
                 </li>
                 <li>
-                    <a href="#" class="block py-2 pl-3 pr-4 text-gray-400 hover:text-color-links rounded md:bg-transparent md:p-0">Movies</a>
+                    <a href="{{route('movies.index')}}" class="block py-2 pl-3 pr-4 text-gray-400 hover:text-color-links rounded md:bg-transparent md:p-0">Movies</a>
                 </li>
                 <li>
-                    <a href="#" class="block py-2 pl-3 pr-4 text-gray-400 rounded md:hover:bg-transparent hover:text-color-links md:p-0">TV-Series</a>
+                    <a href="{{route('series.index')}}" class="block py-2 pl-3 pr-4 text-gray-400 rounded md:hover:bg-transparent hover:text-color-links md:p-0">TV-Series</a>
                 </li>
                 <li>
                     <button class="block py-2 pl-3 pr-4 text-gray-400 rounded md:hover:bg-transparent hover:text-color-links md:p-0" id="genre-menu-dropdown-button" data-dropdown-toggle="genre-menu-dropdown">Genre</button>

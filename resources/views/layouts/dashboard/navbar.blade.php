@@ -1,5 +1,5 @@
-            <!-- Navbar -->
-            <nav :class="{ 'ltr:left-64 ltr:-right-64 md:ltr:left-0 md:ltr:right-0 rtl:right-64 rtl:-left-64 md:rtl:right-0 md:rtl:left-0': open, 'ltr:left-0 ltr:right-0 md:ltr:left-64 rtl:right-0 rtl:left-0 md:rtl:right-64': !(open) }"
+<!-- Navbar -->
+<nav :class="{ 'ltr:left-64 ltr:-right-64 md:ltr:left-0 md:ltr:right-0 rtl:right-64 rtl:-left-64 md:rtl:right-0 md:rtl:left-0': open, 'ltr:left-0 ltr:right-0 md:ltr:left-64 rtl:right-0 rtl:left-0 md:rtl:right-64': !(open) }"
                 class="z-50 fixed flex flex-row flex-nowrap items-center justify-between mt-0 py-2 ltr:left-0 md:ltr:left-64 ltr:right-0 rtl:right-0 md:rtl:right-64 rtl:left-0 px-6 bg-white dark:bg-color-primary-75 shadow-sm transition-all duration-500 ease-in-out"
                 id="desktop-menu">
                 <!-- sidenav button-->
@@ -440,5 +440,5 @@
                         </ul>
                     </li>
                 </ul>
-            </nav>
-            <!-- End Navbar -->
+</nav>
+<!-- End Navbar -->
