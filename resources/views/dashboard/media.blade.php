@@ -39,6 +39,7 @@
                                     <th>Country</th>
                                     <th>Released</th>
                                     <th>Description</th>
+                                    <th>Type</th>
                                     <th>Click</th>
                                     <th>Actions</th>
                                 </tr>
@@ -54,13 +55,14 @@
                                             </td>
                                         </a>
                                         <td>{{ $item->status }}</td>
-                                        <td>{{ $item->quality_id }}</td>
+                                        <td>{{ $item->qualitie->name }}</td>
                                         <td>{{ $item->duration }}</td>
-                                        <td>{{ $item->country_id }}</td>
+                                        <td>{{ $item->countries->name }}</td>
                                         <td>{{ $item->released_year }}</td>
                                         <td>
                                             <p title="{{ $item->description }}">Description</p>
                                         </td>
+                                        <td>{{ $item->types->name }}</td>
                                         <td>{{ $item->click }}</td>
 
                                         {{-- B fetch data Actors & Genres --}}
