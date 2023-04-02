@@ -83,7 +83,9 @@
                                         <select class="js-example-responsive" name="media_id" id="media_id">
                                             <option selected disabled>Choose...</option>
                                             @foreach ($media as $item)
-                                                <option value="{{$item->id}}">{{$item->name}}</option>
+                                                @if (!$item->status == 0)
+                                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                @endif
                                             @endforeach
                                         </select>
                                     </div>

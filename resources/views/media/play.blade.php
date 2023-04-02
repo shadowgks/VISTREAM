@@ -79,13 +79,13 @@
         <!-- main -->
         <div class="my-8 lg:flex lg:gap-5">
             <!-- info_media -->
-            <div class="lg:w-[75%] bg-color-primary-75 lg:flex rounded-sm">
+            <div class="lg:w-[75%] bg-color-primary-75 lg:grid grid-cols-4 rounded-sm">
                 <!-- picture -->
                 <div class="mb-3 md:mb-0 w-full">
                     <img src="{{ asset($media_play->picture) }}" alt="{{ $media_play->name }}" class="img-media w-full object-cover object-center rounded-lg shadow-md hover:saturate-50 hover:scale-105 hover:duration-500 duration-300">
                 </div>
                 <!-- info -->
-                <div class="py-2 px-4 md:p-8">
+                <div class="py-2 px-4 md:p-8 col-span-3">
                     <!-- heading -->
                     <div class="md:flex md:justify-between">
                         <!-- title -->
