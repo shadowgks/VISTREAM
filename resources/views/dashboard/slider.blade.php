@@ -4,7 +4,7 @@
     Slider
 @endsection
 
-@section('slider-color')
+@section('slider-active')
     dark:text-gray-300
 @endsection
 

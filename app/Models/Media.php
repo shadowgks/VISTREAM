@@ -29,19 +29,18 @@ class Media extends Model
 
     function countries()
     {
-        return $this->belongsTo(Country::class);
+        return $this->belongsTo(Country::class, 'country_id');
     }
 
     function qualitie()
     {
-        return $this->belongsTo(TypeQuality::class);
+        return $this->belongsTo(TypeQuality::class, 'quality_id');
     }
 
     function types()
     {
-        return $this->belongsTo(Type::class);
+        return $this->belongsTo(Type::class, 'type_id');
     }
-
 
     function sliders(){
         return $this->hasOne(Slider::class);

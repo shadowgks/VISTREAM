@@ -21,9 +21,14 @@ class MediaController extends Controller
     public function index()
     {
         //join
-        $media = Media::with('actors')->with('genres')->get();
+        $media = Media::with('actors')
+        ->with('genres')
+        ->with('countries')
+        ->with('qualitie')
+        ->with('types')
+        ->get();
 
-        $country = Country::all();
+        $country = Country::get();
         $quality = TypeQuality::all();
         $type = Type::all();
         $genre = Genre::all();
