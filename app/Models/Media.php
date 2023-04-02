@@ -56,5 +56,6 @@ class Media extends Model
     {
         return $this->belongsToMany(Genre::class, 'genre_media')
             ->withTimestamps();
+            
     }
 }

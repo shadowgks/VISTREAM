@@ -4,6 +4,8 @@ use App\Http\Controllers\ActorController;
 use App\Http\Controllers\Auth\UserController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\GenreController;
+use App\Http\Controllers\Media\HomeMediaController;
+use App\Http\Controllers\Media\PlayingMediaController;
 use App\Http\Controllers\MediaController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\TypeController;
@@ -21,11 +23,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [HomeMediaController::class, 'index'])->name('home.index');
+Route::get('/play-media/{slug}', [PlayingMediaController::class, 'show'])->name('play.show');
 
-//Ressources
+//Ressources Dashboard
 Route::resource('/dashboard/country',CountryController::class);
 Route::resource('/dashboard/actor',ActorController::class);
 Route::resource('/dashboard/quality',TypeQualityController::class);
