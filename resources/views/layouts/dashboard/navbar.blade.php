@@ -55,7 +55,7 @@
 
                     <!-- messages -->
                     <li x-data="{ open: false }" class="relative">
-                        <a href="javascript:;" class="py-3 px-4 flex text-sm rounded-full focus:outline-none"
+                        <a href="#" class="py-3 px-4 flex text-sm rounded-full focus:outline-none"
                             id="messages" @click="open = ! open">
                             <div class="relative inline-block">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
