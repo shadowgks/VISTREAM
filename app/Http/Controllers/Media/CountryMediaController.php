@@ -7,5 +7,13 @@ use Illuminate\Http\Request;
 
 class CountryMediaController extends Controller
 {
-    //
+    function index()
+    {
+
+    }
+
+    function show()
+    {
+        
+    }
 }

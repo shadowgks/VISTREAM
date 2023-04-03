@@ -7,5 +7,13 @@ use Illuminate\Http\Request;
 
 class GenreMediaController extends Controller
 {
-    //
+    function index()
+    {
+
+    }
+
+    function show()
+    {
+
+    }
 }

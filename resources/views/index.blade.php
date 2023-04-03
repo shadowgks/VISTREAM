@@ -8,7 +8,6 @@
     text-white
 @endsection
 
-
 @section('slider')
     <div class="swiper mb-10 bg-fixed">
         <!-- Additional required wrapper -->

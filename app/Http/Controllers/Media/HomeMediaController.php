@@ -35,6 +35,7 @@ class HomeMediaController extends Controller
             ->latest()
             ->get();
 
+
         return view('index', compact('recommended','latest'));
     }
 }

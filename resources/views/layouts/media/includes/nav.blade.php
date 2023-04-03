@@ -38,81 +38,25 @@
             </div>
             <ul class="flex flex-col p-4 mt-4 rounded-lg bg-color-primary-75 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
                 <li>
-                    <a href="{{route('home.index')}}" class="block py-2 pl-3 pr-4 text-gray-400 @yield('link_home_active') bg-color-secondary hover:text-color-links rounded md:bg-transparent md:p-0" aria-current="page">Home</a>
+                    <a href="{{ route('home.index') }}" class="block py-2 pl-3 pr-4 text-gray-400 @yield('link_home_active') bg-color-secondary hover:text-color-links rounded md:bg-transparent md:p-0" aria-current="page">Home</a>
                 </li>
                 <li>
-                    <a href="{{route('movies.index')}}" class="block py-2 pl-3 pr-4 text-gray-400 @yield('link_movies_active') hover:text-color-links rounded md:bg-transparent md:p-0">Movies</a>
+                    <a href="{{ route('movies.index') }}" class="block py-2 pl-3 pr-4 text-gray-400 @yield('link_movies_active') hover:text-color-links rounded md:bg-transparent md:p-0">Movies</a>
                 </li>
                 <li>
-                    <a href="{{route('series.index')}}" class="block py-2 pl-3 pr-4 text-gray-400 @yield('link_series_active') rounded md:hover:bg-transparent hover:text-color-links md:p-0">TV-Series</a>
+                    <a href="{{ route('series.index') }}" class="block py-2 pl-3 pr-4 text-gray-400 @yield('link_series_active') rounded md:hover:bg-transparent hover:text-color-links md:p-0">TV-Series</a>
                 </li>
                 <li>
                     <button class="block py-2 pl-3 pr-4 text-gray-400 rounded md:hover:bg-transparent hover:text-color-links md:p-0" id="genre-menu-dropdown-button" data-dropdown-toggle="genre-menu-dropdown">Genre</button>
-                    <div id="genre-menu-dropdown" class="absolute z-10 grid hidden w-auto grid-cols-2 text-sm bg-color-primary-75 rounded-lg shadow-md  md:grid-cols-3">
-                        <div class="p-4 pb-0 text-gray-900 md:pb-4">
-                            <ul class="space-y-4" aria-labelledby="mega-menu-dropdown-button">
-                                <li>
-                                    <a href="#" class="text-gray-400 hover:text-color-links">
-                                        About Us
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="text-gray-400 hover:text-color-links">
-                                        Library
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="text-gray-400 hover:text-color-links">
-                                        Resources
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="text-gray-400 hover:text-color-links">
-                                        Pro Version
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="p-4 pb-0 text-gray-900 md:pb-4 ">
-                            <ul class="space-y-4">
-                                <li>
-                                    <a href="#" class="text-gray-400 hover:text-color-links">
-                                        Blog
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="text-gray-400 hover:text-color-links">
-                                        Newsletter
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="text-gray-400 hover:text-color-links">
-                                        Playground
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="text-gray-400 hover:text-color-links">
-                                        License
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="p-4 text-gray-900">
-                            <ul class="space-y-4">
-                                <li>
-                                    <a href="#" class="text-gray-400 hover:text-color-links">
-                                        Contact Us
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="text-gray-400 hover:text-color-links">
-                                        Support Center
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="text-gray-400 hover:text-color-links">
-                                        Terms
-                                    </a>
+                    <div id="genre-menu-dropdown" class="absolute z-10 hidden w-auto text-sm bg-color-primary-75 rounded-lg shadow-md">
+                        <div class="p-7 pb-0 grid text-gray-900 md:pb-4">
+                            <ul aria-labelledby="mega-menu-dropdown-button">
+                                <li class="grid items-center grid-cols-4 gap-4">
+                                    @foreach ($global_data['genres'] as $item)
+                                        <a href="#" class="text-gray-400  hover:text-color-links">
+                                            {{ $item->name }}
+                                        </a>
+                                    @endforeach
                                 </li>
                             </ul>
                         </div>
@@ -120,71 +64,15 @@
                 </li>
                 <li>
                     <button class="block py-2 pl-3 pr-4 text-gray-400 rounded md:hover:bg-transparent hover:text-color-links md:p-0" id="country-menu-dropdown-button" data-dropdown-toggle="country-menu-dropdown">Country</button>
-                    <div id="country-menu-dropdown" class="absolute z-10 grid hidden w-auto grid-cols-2 text-sm bg-color-primary-75 rounded-lg shadow-md md:grid-cols-3">
-                        <div class="p-4 pb-0 text-gray-900 md:pb-4">
-                            <ul class="space-y-4" aria-labelledby="mega-menu-dropdown-button">
-                                <li>
-                                    <a href="#" class="text-gray-400 hover:text-color-links">
-                                        About Us
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="text-gray-400 hover:text-color-links">
-                                        Library
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="text-gray-400 hover:text-color-links">
-                                        Resources
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="text-gray-400 hover:text-color-links">
-                                        Pro Version
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="p-4 pb-0 text-gray-900 md:pb-4 ">
-                            <ul class="space-y-4">
-                                <li>
-                                    <a href="#" class="text-gray-400 hover:text-color-links">
-                                        Blog
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="text-gray-400 hover:text-color-links">
-                                        Newsletter
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="text-gray-400 hover:text-color-links">
-                                        Playground
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="text-gray-400 hover:text-color-links">
-                                        License
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="p-4 text-gray-900">
-                            <ul class="space-y-4">
-                                <li>
-                                    <a href="#" class="text-gray-400 hover:text-color-links">
-                                        Contact Us
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="text-gray-400 hover:text-color-links">
-                                        Support Center
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="text-gray-400 hover:text-color-links">
-                                        Terms
-                                    </a>
+                    <div id="country-menu-dropdown" class="absolute z-10 hidden w-auto text-sm bg-color-primary-75 rounded-lg shadow-md">
+                        <div class="p-7 pb-0 grid items-center text-gray-900 md:pb-4">
+                            <ul aria-labelledby="mega-menu-dropdown-button">
+                                <li class="grid items-center grid-cols-4 gap-4">
+                                    @foreach ($global_data['countries'] as $item)
+                                        <a href="#" class="text-gray-400  hover:text-color-links">
+                                            {{ $item->name }}
+                                        </a>
+                                    @endforeach
                                 </li>
                             </ul>
                         </div>
