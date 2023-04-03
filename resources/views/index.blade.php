@@ -29,7 +29,7 @@
                                     @endforeach
                                 </p>
                                 <p class="text-lg mt-3 text-gray-300 mb-10 leading-none truncate">{{ $item->description }}</p>
-                                <a href="#" class="text-[8px] bg-color-secondary py-2 px-8 text-white rounded-full font-bold uppercase md:text-sm hover:bg-gray-200 hover:text-gray-800"><i class="fa-brands fa-google-play"></i> Watch
+                                <a href="{{ route('play.show', $item->slug) }}" class="text-[8px] bg-color-secondary py-2 px-8 text-white rounded-full font-bold uppercase md:text-sm hover:bg-gray-200 hover:text-gray-800"><i class="fa-brands fa-google-play"></i> Watch
                                     Now</a>
                                 <a href="#" class="text-[8px] bg-transparent border border-color-three py-2 px-8 text-white rounded-full font-bold uppercase md:text-sm hover:bg-gray-200 hover:text-gray-800"><i class="fa-regular fa-heart"></i> Add
                                     to list</a>
