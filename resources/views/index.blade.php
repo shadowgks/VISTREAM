@@ -14,8 +14,7 @@
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
             <!-- Slides -->
-            {{-- {{dd($globalData['media'])}} --}}
-            @foreach ($globalData['media'] as $item)
+            @foreach ($recommended as $item)
                 @if (!$item->sliders == null)
                     <div class="swiper-slide">
                         <div class="flex items-center h-screen bg-cover text-white px-10 object-fill bg-bottom" style="background-image: url({{ asset($item->sliders->picture) }})">
@@ -76,7 +75,7 @@
             <div class="hidden" id="movies" role="tabpanel" aria-labelledby="movies-tab">
                 <!-- All cards -->
                 <div class="items-media grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3 mt-10 my-4">
-                    @foreach ($globalData['media'] as $movie)
+                    @foreach ($recommended as $movie)
                         @if ($movie->type_id == 1)
                             <div class="cursor-pointer" data-popover-target="popover-media" data-popover-placement="right">
                                 <!-- content Card -->
@@ -117,7 +116,7 @@
             <div class="hidden" id="series" role="tabpanel" aria-labelledby="series-tab">
                 <!-- All cards -->
                 <div class="items-media grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3 mt-10 my-4">
-                    @foreach ($globalData['media'] as $serie)
+                    @foreach ($recommended as $serie)
                         @if ($serie->type_id == 2)
                             <div class="cursor-pointer" data-popover-target="popover-media" data-popover-placement="right">
                                 <!-- content Card -->
@@ -170,7 +169,7 @@
             <!-- All cards -->
             <div class="items-media grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3 mt-10 my-4">
                 <!-- card -->
-                @foreach ($globalData['media'] as $serie)
+                @foreach ($latest as $serie)
                     @if ($serie->type_id == 1)
                         <div class="cursor-pointer" data-popover-target="popover-media" data-popover-placement="right">
                             <!-- content Card -->
@@ -222,7 +221,7 @@
             <!-- All cards -->
             <div class="items-media grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3 mt-10 my-4">
                 <!-- card -->
-                @foreach ($globalData['media'] as $serie)
+                @foreach ($latest as $serie)
                     @if ($serie->type_id == 2)
                         <div class="cursor-pointer" data-popover-target="popover-media" data-popover-placement="right">
                             <!-- content Card -->
