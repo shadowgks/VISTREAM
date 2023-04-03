@@ -19,7 +19,8 @@ class MovieMediaController extends Controller
             ->with('genres')
             ->with('actors')
             ->where('status', 1)
-            ->paginate('1');
+            ->where('type_id', 1)
+            ->paginate('18');
 
         return view('media.movies', compact('movies'));
     }

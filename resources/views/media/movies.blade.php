@@ -11,7 +11,6 @@
 @section('content')
     <!-- Main Movies-->
     <div class="w-container m-auto">
-
         <section class="mt-14">
             <!-- heading -->
             <div class="text-bold flex flex-col gap-5 md:flex-row md:gap-0 md:justify-between md:items-center">
