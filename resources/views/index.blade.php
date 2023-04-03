@@ -10,14 +10,14 @@
 
 
 @section('slider')
-    <div class="swiper mb-10">
+    <div class="swiper mb-10 bg-fixed">
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
             <!-- Slides -->
             @foreach ($recommended as $item)
                 @if (!$item->sliders == null)
                     <div class="swiper-slide">
-                        <div class="flex items-center h-screen bg-cover text-white px-10 object-fill bg-bottom" style="background-image: url({{ asset($item->sliders->picture) }})">
+                        <div class="flex items-center h-screen bg-cover text-white px-10 bg-bottom" style="background-image: url({{ asset($item->sliders->picture) }})">
                             <div class="md:w-1/2 mb-32 md:ml-14 m-2 text-start backdrop-brightness-50 bg-color-primary bg-transparent backdrop-blur-sm px-4 py-8 rounded-xl">
                                 <span class="font-semibold text-base uppercase">{{ $item->types->name }}</span>
                                 <span class="text-sm pl-2 pr-2 text-gray-300">{{ $item->duration }} min</span>
@@ -52,7 +52,7 @@
 
 @section('content')
     <!-- Main Movies & Series -->
-    <div class="mx-6">
+    <div class="mx-6 bg-fixed">
         <!-- Recommended -->
         <section>
             <!-- heading -->

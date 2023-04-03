@@ -10,6 +10,17 @@ class MovieMediaController extends Controller
 {
     function index()
     {
-        return view('media.movies');
+        //Recommended
+        $movies = Media
+            ::with('sliders')
+            ->with('types')
+            ->with('qualitie')
+            ->with('countries')
+            ->with('genres')
+            ->with('actors')
+            ->where('status', 1)
+            ->paginate('1');
+
+        return view('media.movies', compact('movies'));
     }
 }
