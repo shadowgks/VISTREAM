@@ -10,16 +10,18 @@ class PlayingMediaController extends Controller
 {
     function show($slug)
     {
-        $media_play = Media::with('sliders')
-        ->with('types')
-        ->with('qualitie')
-        ->with('countries')
-        ->with('genres')
-        ->with('actors')
-        ->where('slug', $slug)
-        ->where('status', 1)
-        ->first();
+        //Media play
+        $media_play = Media
+            ::where('slug', $slug)
+            ->where('status', 1)
+            ->first();
 
-        return view('media.play', compact('media_play'));
+        //You may also like
+        $this_media_like = Media
+            ::where('country_id', $media_play->country_id)
+            ->where('id', '!=' ,$media_play->id)
+            ->get();
+
+        return view('media.play', compact('media_play', 'this_media_like'));
     }
 }

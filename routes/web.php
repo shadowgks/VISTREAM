@@ -44,7 +44,6 @@ Route::resource('/dashboard/user', UserController::class);
 Route::resource('/dashboard/type', TypeController::class);
 Route::resource('/dashboard/slider', SliderController::class);
 
-
 //Auth
 Route::middleware([
     'auth:sanctum',

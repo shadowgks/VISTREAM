@@ -24,7 +24,8 @@
                         <svg aria-hidden="true" class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
                         </svg>
-                        <a href="#" class="ml-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ml-2 dark:text-gray-400 dark:hover:text-white">{{ $media_play->type_id == 1 ? 'Movies' : 'Series' }}</a>
+                        <a href="{{ $media_play->type_id == 1 ? route('movies.index') : route('series.index') }}"
+                            class="ml-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ml-2 dark:text-gray-400 dark:hover:text-white">{{ $media_play->type_id == 1 ? 'Movies' : 'Series' }}</a>
                     </div>
                 </li>
                 <li aria-current="page">
@@ -52,10 +53,10 @@
                 <div class="mb-4 border-b dark:border-gray-700">
                     <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
                         <li class="mr-2" role="presentation">
-                            <a href="" class="inline-block p-4 border-b-2 rounded-t-lg text-color-links" id="session1-tab" data-tabs-target="#session1" type="button" role="tab" aria-controls="session1" aria-selected="false">Session 1</a>
+                            <button class="inline-block p-4 border-b-2 rounded-t-lg text-color-links" id="session1-tab" data-tabs-target="#session1" type="button" role="tab" aria-controls="session1" aria-selected="false">Session 1</button>
                         </li>
                         <li class="mr-2" role="presentation">
-                            <a href="" class="inline-block p-4 border-b-2 rounded-t-lg text-color-links" id="session2-tab" data-tabs-target="#session2" type="button" role="tab" aria-controls="session2" aria-selected="false">Session 2</a>
+                            <button class="inline-block p-4 border-b-2 rounded-t-lg text-color-links" id="session2-tab" data-tabs-target="#session2" type="button" role="tab" aria-controls="session2" aria-selected="false">Session 2</button>
                         </li>
                     </ul>
                 </div>
@@ -184,66 +185,28 @@
                 <!-- All cards -->
                 <div class="items-media grid grid-cols-2 gap-3 mt-10 my-4">
                     <!-- content Card -->
-                    <div>
-                        <div class="relative">
-                            <img src="{{ asset('build/assets/images/media/kingsman.jpg') }}" alt=" random imgee" class="img-media w-full object-cover object-center rounded-lg shadow-md hover:saturate-50 hover:scale-105 hover:duration-500 duration-300">
-                            <span class="bg-color-secondary text-white text-xs font-bold mr-2 px-2.5 py-0.5 absolute top-0 right-0 my-4 uppercase">bluray</span>
-                            <a href="" class="absolute text-white left-3 top-3 text-2xl hover:text-red-500 duration-500"><i class="fa-solid fa-heart"></i></a>
-                        </div>
-                        <div class="my-2">
-                            <p class="text-lg font-bold text-white">Name Movie</p>
-                            <div class="flex justify-between items-center text-gray-500">
-                                <!-- date & min -->
-                                <div class="flex">
-                                    <p>2022</p>
-                                    <span class="font-extrabold mx-2"> . </span>
-                                    <p>189min</p>
+                    @foreach ($this_media_like as $item)
+                        <div>
+                            <div class="relative">
+                                <img src="{{ asset($item->picture) }}" alt=" random imgee" class="img-media w-full object-cover object-center rounded-lg shadow-md hover:saturate-50 hover:scale-105 hover:duration-500 duration-300">
+                                <span class="bg-color-secondary text-white text-xs font-bold mr-2 px-2.5 py-0.5 absolute top-0 right-0 my-4 uppercase">bluray</span>
+                                <a href="" class="absolute text-white left-3 top-3 text-2xl hover:text-red-500 duration-500"><i class="fa-solid fa-heart"></i></a>
+                            </div>
+                            <div class="my-2">
+                                <p class="text-lg font-bold text-white">{{ $item->name }}</p>
+                                <div class="flex justify-between items-center text-gray-500">
+                                    <!-- date & min -->
+                                    <div class="flex">
+                                        <p>2022</p>
+                                        <span class="font-extrabold mx-2"> . </span>
+                                        <p>189min</p>
+                                    </div>
+                                    <!-- movie or tv -->
+                                    <span class="bg-gray-700 text-gray-300 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full">Movie</span>
                                 </div>
-                                <!-- movie or tv -->
-                                <span class="bg-gray-700 text-gray-300 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full">Movie</span>
                             </div>
                         </div>
-                    </div>
-                    <div>
-                        <div class="relative">
-                            <img src="{{ asset('build/assets/images/media/kingsman.jpg') }}" alt=" random imgee" class="img-media w-full object-cover object-center rounded-lg shadow-md hover:saturate-50 hover:scale-105 hover:duration-500 duration-300">
-                            <span class="bg-color-secondary text-white text-xs font-bold mr-2 px-2.5 py-0.5 absolute top-0 right-0 my-4 uppercase">bluray</span>
-                            <a href="" class="absolute text-white left-3 top-3 text-2xl hover:text-red-500 duration-500"><i class="fa-solid fa-heart"></i></a>
-                        </div>
-                        <div class="my-2">
-                            <p class="text-lg font-bold text-white">Name Movie</p>
-                            <div class="flex justify-between items-center text-gray-500">
-                                <!-- date & min -->
-                                <div class="flex">
-                                    <p>2022</p>
-                                    <span class="font-extrabold mx-2"> . </span>
-                                    <p>189min</p>
-                                </div>
-                                <!-- movie or tv -->
-                                <span class="bg-gray-700 text-gray-300 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full">Movie</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="relative">
-                            <img src="{{ asset('build/assets/images/media/kingsman.jpg') }}" alt=" random imgee" class="img-media w-full object-cover object-center rounded-lg shadow-md hover:saturate-50 hover:scale-105 hover:duration-500 duration-300">
-                            <span class="bg-color-secondary text-white text-xs font-bold mr-2 px-2.5 py-0.5 absolute top-0 right-0 my-4 uppercase">bluray</span>
-                            <a href="" class="absolute text-white left-3 top-3 text-2xl hover:text-red-500 duration-500"><i class="fa-solid fa-heart"></i></a>
-                        </div>
-                        <div class="my-2">
-                            <p class="text-lg font-bold text-white">Name Movie</p>
-                            <div class="flex justify-between items-center text-gray-500">
-                                <!-- date & min -->
-                                <div class="flex">
-                                    <p>2022</p>
-                                    <span class="font-extrabold mx-2"> . </span>
-                                    <p>189min</p>
-                                </div>
-                                <!-- movie or tv -->
-                                <span class="bg-gray-700 text-gray-300 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full">Movie</span>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
