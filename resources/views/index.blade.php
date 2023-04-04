@@ -81,7 +81,7 @@
                                 <a href="{{ route('play.show', $movie->slug) }}">
                                     <div class="relative">
                                         <img src="{{ asset($movie->picture) }}" alt="random imgee" class="img-media w-full object-cover object-center rounded-lg shadow-md hover:saturate-50 hover:scale-105 hover:duration-500 duration-300">
-                                        <span class="bg-color-secondary text-white text-xs font-bold mr-2 px-2.5 py-0.5 absolute top-0 right-0 my-4 uppercase">bluray</span>
+                                        <span class="bg-color-secondary text-white text-xs font-bold mr-2 px-2.5 py-0.5 absolute top-0 right-0 my-4 uppercase">{{$movie->qualitie->name}}</span>
                                         <a href="" class="absolute text-white left-3 top-3 text-2xl hover:text-red-500 duration-500"><i class="fa-solid fa-heart"></i></a>
                                     </div>
                                     <div class="my-2">
@@ -122,7 +122,7 @@
                                 <a href="{{ route('play.show', $serie->slug) }}">
                                     <div class="relative">
                                         <img src="{{ asset($serie->picture) }}" alt="random imgee" class="img-media w-full object-cover object-center rounded-lg shadow-md hover:saturate-50 hover:scale-105 hover:duration-500 duration-300">
-                                        <span class="bg-color-secondary text-white text-xs font-bold mr-2 px-2.5 py-0.5 absolute top-0 right-0 my-4 uppercase">bluray</span>
+                                        <span class="bg-color-secondary text-white text-xs font-bold mr-2 px-2.5 py-0.5 absolute top-0 right-0 my-4 uppercase">{{$serie->qualitie->name}}</span>
                                         <a href="" class="absolute text-white left-3 top-3 text-2xl hover:text-red-500 duration-500"><i class="fa-solid fa-heart"></i></a>
                                     </div>
                                     <div class="my-2">

@@ -53,7 +53,7 @@
                             <ul aria-labelledby="mega-menu-dropdown-button">
                                 <li class="grid items-center grid-cols-4 gap-4">
                                     @foreach ($global_data['genres'] as $item)
-                                        <a href="#" class="text-gray-400  hover:text-color-links">
+                                        <a href="{{route('media.genre.show', $item->name)}}" class="text-gray-400  hover:text-color-links">
                                             {{ $item->name }}
                                         </a>
                                     @endforeach
@@ -69,7 +69,7 @@
                             <ul aria-labelledby="mega-menu-dropdown-button">
                                 <li class="grid items-center grid-cols-4 gap-4">
                                     @foreach ($global_data['countries'] as $item)
-                                        <a href="#" class="text-gray-400  hover:text-color-links">
+                                        <a href="{{route('media.country.show', $item->id)}}" class="text-gray-400  hover:text-color-links">
                                             {{ $item->name }}
                                         </a>
                                     @endforeach
