@@ -12,11 +12,12 @@ class CountryMediaController extends Controller
     function show($name)
     {
         $country_this = Media
-            ::with('countries')
+            ::with(['countries' => function($query) use ($name){
+                $query->where('name', $name);
+            }])
             ->where('status', 1)
             ->paginate('18');
 
-        dd($country_this);
-        return view('media.genre', compact('genre_this', 'name'));
+        return view('media.country', compact('country_this', 'name'));
     }
 }

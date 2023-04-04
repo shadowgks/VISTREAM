@@ -50,9 +50,9 @@ class AppServiceProvider extends ServiceProvider
                 //     ->with('actors')->where('status', 1)->limit(12)->latest()->get(),
 
                 //Country navbar
-                'countries' => Country::get(),
+                'countries' => Country::orderBy('name', 'ASC')->get(),
                 //Genre navbar
-                'genres' => Genre::get(),
+                'genres' => Genre::orderBy('name', 'ASC')->get(),
             ]);
         });
     }

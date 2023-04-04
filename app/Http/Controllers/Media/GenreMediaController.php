@@ -18,8 +18,6 @@ class GenreMediaController extends Controller
         ->where('status', 1)
         ->paginate(18);
 
-        dd($genre_this);
-
         return view('media.genre', compact('genre_this','name'));
     }
 }
