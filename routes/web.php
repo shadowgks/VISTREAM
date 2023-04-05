@@ -11,9 +11,11 @@ use App\Http\Controllers\Media\MovieMediaController;
 use App\Http\Controllers\Media\PlayingMediaController;
 use App\Http\Controllers\Media\SerieMediaController;
 use App\Http\Controllers\MediaController;
+use App\Http\Controllers\SerieController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\TypeController;
 use App\Http\Controllers\TypeQualityController;
+use GuzzleHttp\Psr7\ServerRequest;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,6 +45,7 @@ Route::resource('/dashboard/media', MediaController::class);
 Route::resource('/dashboard/user', UserController::class);
 Route::resource('/dashboard/type', TypeController::class);
 Route::resource('/dashboard/slider', SliderController::class);
+Route::resource('/dashboard/serie', SerieController::class);
 
 //Auth
 Route::middleware([

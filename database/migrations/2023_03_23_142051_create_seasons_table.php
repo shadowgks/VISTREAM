@@ -15,8 +15,14 @@ return new class extends Migration
     {
         Schema::create('seasons', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->integer('num_season');
+            $table->foreignId('media_id')
+                ->constrained('media')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->foreignId('num_season')
+                ->constrained('num_seasons')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -28,6 +34,8 @@ return new class extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('seasons');
+        Schema::enableForeignKeyConstraints();
     }
 };

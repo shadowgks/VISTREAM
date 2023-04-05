@@ -13,14 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('episodes', function (Blueprint $table) {
+        Schema::create('num_seasons', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('url');
-            $table->foreignId('seeason_id')
-                ->constrained('seasons')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
+            $table->string('number');
             $table->timestamps();
         });
     }
@@ -32,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('episodes');
+        Schema::dropIfExists('num_seasons');
     }
 };

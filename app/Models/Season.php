@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Season extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'media_id',
+        'num_season',
+    ];
 }
