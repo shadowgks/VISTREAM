@@ -4,7 +4,7 @@
     Series
 @endsection
 
-@section('actor-color')
+@section('serie-color')
     dark:text-gray-300
 @endsection
 
@@ -24,7 +24,7 @@
                     {{-- dataTable --}}
                     <div class="bg-white p-8 dark:bg-color-primary-75 h-fit">
                         <div class="text-right">
-                            <button @click="open = true" type="button" onclick="addActor()"
+                            <button @click="open = true" type="button" onclick="addserie()"
                                 class="py-2 px-4 inline-block text-center mb-3 rounded leading-5 text-gray-100 bg-color-secondary border border-color-secondary hover:text-white hover:bg-color-three hover:ring-0 hover:border-color-three focus:bg-color-secondary focus:border-color-secondary focus:outline-none focus:ring-0"><i
                                     class="fa-solid fa-plus fa-lg"></i></button>
                         </div>
@@ -38,7 +38,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {{-- @foreach ($actor as $key => $item)
+                                {{-- @foreach ($serie as $key => $item)
                                     <tr>
                                         <td>{{ $key + 1 }}</td>
                                         <td>
@@ -49,10 +49,10 @@
                                         </td>
                                         <td>{{ $item->date_birthday }}</td>
                                         <td>
-                                            <button type="button" @click="open = !open" onclick="modalActorEdit('{{ $item->id }}','{{ $item->fullname }}','{{ $item->date_birthday }}','{{ $item->imdb_path }}')"
+                                            <button type="button" @click="open = !open" onclick="modalSerieEdit('{{ $item->id }}','{{ $item->fullname }}','{{ $item->date_birthday }}','{{ $item->imdb_path }}')"
                                                 class="py-2 px-4 inline-block text-center mb-3 rounded leading-5 text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-white hover:bg-indigo-600 hover:ring-0 hover:border-indigo-600 focus:bg-indigo-600 focus:border-indigo-600 focus:outline-none focus:ring-0"><i
                                                     class="fa-sharp fa-solid fa-pen-to-square"></i></button>
-                                            <button type="button" @click="open2 = !open2" onclick="modalActorTrash('{{ $item->id }}')"
+                                            <button type="button" @click="open2 = !open2" onclick="modalSerieTrash('{{ $item->id }}')"
                                                 class="py-2 px-4 inline-block text-center mb-3 rounded leading-5 text-gray-100 bg-red-500 border border-red-500 hover:text-white hover:bg-red-600 hover:ring-0 hover:border-red-600 focus:bg-red-600 focus:border-red-600 focus:outline-none focus:ring-0"
                                                 @><i class="fa-regular fa-trash-can"></i></button>
                                         </td>
@@ -72,11 +72,11 @@
                                 <!-- modal title -->
                                 <div class="px-6 py-3 text-xl border-b dark:border-gray-700 font-bold">Modal Media</div>
                                 {{-- actions --}}
-                                <input type="hidden" id="route_store_media" value="{{ route('media.store') }}">
-                                <input type="hidden" id="route_update_media" value="{{ route('media.update', '') }}">
-                                <form method="POST" action="{{ route('media.store') }}" enctype="multipart/form-data" name="form_media" data-parsley-validate>
+                                <input type="hidden" id="route_store_serie" value="{{ route('serie.store') }}">
+                                <input type="hidden" id="route_update_serie" value="{{ route('serie.update', '') }}">
+                                <form method="POST" action="{{ route('serie.store') }}" enctype="multipart/form-data" name="form_serie" data-parsley-validate>
                                     @csrf
-                                    <div id="methode_put_media">
+                                    <div id="methode_put_serie">
                                         {{-- here add methode put in js --}}
                                     </div>
 
@@ -93,7 +93,7 @@
                                         </div>
                                         <div class="flex-shrink max-w-full px-4 w-full md:w-1/2 mb-6">
                                             <p for="exampleInput1" class="inline-block mb-2">Seasons</p>
-                                            <select class="js-example-responsive" name="number_id" id="number_id" required>
+                                            <select class="js-example-responsive" name="num_season" id="num_season" required>
                                                 <option selected disabled>Choose...</option>
                                                 @foreach ($num_season as $item)
                                                     <option value="{{ $item->id }}">{{ $item->number }}</option>
@@ -101,7 +101,7 @@
                                             </select>
                                         </div>
                                     </div>
-
+                                    <input type="hidden" name="season_id" value="1">
                                     <div class="m-6 px-4 flex justify-between items-center">
                                         <p>Episodes</p>
                                         <button onclick="startDuplacate()" class="bg-color-secondary text-white hover:bg-color-three hover:text-black px-3 py-1"><i class="fa-solid fa-plus"></i></button>
@@ -111,7 +111,7 @@
                                         <div class="border border-gray-300 mx-6 mb-2 py-3">
                                             <div class="m-3 px-4">
                                                 <label class="inline-block mb-2">Number</label>
-                                                <input type="number" name="number[]" data-parsley-trigger="change" min="1" required
+                                                <input type="number" name="num_ep[]" data-parsley-trigger="change" min="1" required
                                                     class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600"
                                                     id="number-ep-1" value="1">
                                             </div>
@@ -151,11 +151,11 @@
                                 </div>
                                 <!-- modal content -->
                                 <div class="p-6 flex-grow text-center text-2xl">
-                                    <p>Are you sure you went deleted this actor!</p>
+                                    <p>Are you sure you went deleted this Serie!</p>
                                 </div>
                                 {{-- methode --}}
-                                <input type="hidden" id="route_destroy_actor" value="{{ route('actor.destroy', '') }}">
-                                <form action="{{ route('actor.destroy', '') }}" method="POST" name="form2_actor">
+                                <input type="hidden" id="route_destroy_serie" value="{{ route('serie.destroy', '') }}">
+                                <form action="{{ route('serie.destroy', '') }}" method="POST" name="form2_serie">
                                     <div class="px-6 py-3 border-t dark:border-gray-700 flex justify-end">
                                         @csrf
                                         @method('DELETE')

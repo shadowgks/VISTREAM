@@ -60,7 +60,7 @@ class MediaController extends Controller
         //B Random data
         $chars = array_merge(range('0', '9'), range('a', 'z'), range('A', 'Z'), array('!', '@', '#', '$', '%', '^', '&', '*', '(', ')'));
         $random_string = '';
-        for ($i = 0; $i < 4; $i++) {
+        for ($i = 0; $i < 10; $i++) {
             $random_index = random_int(0, count($chars) - 1);
             $random_string .= $chars[$random_index];
         }

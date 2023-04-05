@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -9,8 +10,13 @@ class Episode extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name',
+        'num_ep',
         'url',
-        'seeason_id',
+        'season_id',
     ];
+
+    function seasons()
+    {
+        return $this->belongsTo(Season::class);
+    }
 }

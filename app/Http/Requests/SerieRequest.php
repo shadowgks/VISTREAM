@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class GenreMediaRequest extends FormRequest
+class SerieRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class GenreMediaRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,10 @@ class GenreMediaRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'media_id' => 'required|exists:App\Models\Media,id',
+            'num_season' => 'required|exists:App\Models\NumSeason,id',
+            'num_ep' => 'required',
+            'url' => 'required',
         ];
     }
 }

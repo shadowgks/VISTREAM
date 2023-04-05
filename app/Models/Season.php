@@ -12,4 +12,9 @@ class Season extends Model
         'media_id',
         'num_season',
     ];
+
+    function episodes()
+    {
+        return $this->hasMany(Episode::class);
+    }
 }

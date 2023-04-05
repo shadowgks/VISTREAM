@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('episodes', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('num_ep');
             $table->text('url');
-            $table->foreignId('seeason_id')
+            $table->foreignId('season_id')
                 ->constrained('seasons')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
