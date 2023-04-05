@@ -16,7 +16,7 @@ class PlayingMediaController extends Controller
             ->where('status', 1)
             ->first();
 
-        //You may also like
+        //You may also like by country
         $this_media_like = Media
             ::where('country_id', $media_play->country_id)
             ->where('id', '!=' ,$media_play->id)

@@ -23,9 +23,17 @@ class SliderRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'picture' => 'required|image|mimes:jpeg,png,jpg',
-            'media_id' => 'required|exists:App\Models\Media,id'
-        ];
+        if (request()->isMethod('post')) {
+            $rules = [
+                'picture' => 'required|image|mimes:jpeg,png,jpg,svg,gif',
+                'media_id' => 'required|exists:App\Models\Media,id'
+            ];
+        } elseif (request()->isMethod('PUT')) {
+            $rules = [
+                'picture' => 'image|mimes:jpeg,png,jpg,svg,gif',
+                'media_id' => 'required|exists:App\Models\Media,id'
+            ];
+        }
+        return $rules;
     }
 }

@@ -17,8 +17,8 @@ class SliderController extends Controller
     public function index()
     {
         $slider = Slider::with('media')->get();
-        $media = Media::all();
-
+        $media = Media::where('status',1)->get();
+        
         return view('dashboard.slider', compact('slider','media'));
     }
 

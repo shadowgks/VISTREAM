@@ -47,7 +47,7 @@
                             <tbody>
                                 @foreach ($media as $key => $item)
                                     <tr>
-                                        <td>{{ $key }}</td>
+                                        <td>{{ $key + 1 }}</td>
                                         <a href="{{ $item->link_media }}">
                                             <td>
                                                 <img class="object-cover inline-block rounded-full shadow-xl w-12 h-12 max-w-full bg-gray-300 border-gray-200 dark:bg-gray-800 border-2 dark:border-gray-600" src="{{ URL::asset($item->picture) }}" alt="Image Description">
@@ -119,6 +119,7 @@
                         </table>
                     </div>
 
+
                     <!-- Modal add -->
                     <div x-show="open" tabindex="0" class="z-50 overflow-auto inset-0 w-full h-full fixed py-6">
                         <div class="z-50 relative p-3 mx-auto my-0 w-[40%]" style="min-width: 500px;display: none" x-show="open" x-transition:enter="transition duration-500" x-transition:enter-start="transform opacity-0 -translate-y-4"
@@ -130,56 +131,57 @@
                                 {{-- actions --}}
                                 <input type="hidden" id="route_store_media" value="{{ route('media.store') }}">
                                 <input type="hidden" id="route_update_media" value="{{ route('media.update', '') }}">
-                                <form method="POST" action="{{ route('media.store') }}" enctype="multipart/form-data" name="form_media">
+                                <form method="POST" action="{{ route('media.store') }}" enctype="multipart/form-data" name="form_media" data-parsley-validate>
                                     @csrf
                                     <div id="methode_put_media">
                                         {{-- here add methode put in js --}}
                                     </div>
+
                                     <!-- modal content -->
                                     <div class="flex flex-wrap flex-row m-6">
                                         <div class="flex-shrink max-w-full px-4 w-full md:w-1/2 mb-6">
                                             <label class="inline-block mb-2">Name</label>
-                                            <input type="text" name="name"
+                                            <input type="text" name="name" data-parsley-trigger="keyup" data-parsley-length="[2, 255]" required
                                                 class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600">
                                         </div>
                                         <div class="flex-shrink max-w-full px-4 w-full md:w-1/2 mb-6">
                                             <label class="inline-block mb-2">Link Media</label>
-                                            <input type="text" name="link_media"
+                                            <input type="url" name="link_media" data-parsley-trigger="keyup" minlength="4" required
                                                 class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600">
                                         </div>
                                         <div class="flex-shrink max-w-full px-4 w-full md:w-1/2 mb-6">
                                             <label class="inline-block mb-2">Released</label>
-                                            <input type="date" name="released_year"
+                                            <input type="date" name="released_year" data-parsley-trigger="keyup" required
                                                 class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600">
                                         </div>
                                         <div class="flex-shrink max-w-full px-4 w-full md:w-1/2 mb-6">
                                             <label class="inline-block mb-2">Picture</label>
-                                            <input type="file" name="picture"
+                                            <input type="file" name="picture" data-parsley-trigger="keyup" accept=".jpg,.jpeg,.png,.svg,.gif" required
                                                 class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600">
                                         </div>
                                         <div class="flex-shrink max-w-full px-4 w-full md:w-1/2 mb-6">
                                             <label>Link Imdb (optional)</label>
-                                            <input type="text" name="link_imdb"
+                                            <input type="url" name="link_imdb" data-parsley-trigger="keyup" minlength="2"
                                                 class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600">
                                         </div>
                                         <div class="flex-shrink max-w-full px-4 w-full md:w-1/2 mb-6">
                                             <label>Trailer (optional)</label>
-                                            <input type="text" name="trailer"
+                                            <input type="url" name="trailer" data-parsley-trigger="keyup" minlength="4"
                                                 class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600">
                                         </div>
                                         <div class="flex-shrink max-w-full px-4 w-full md:w-1/2 mb-6">
                                             <label class="inline-block mb-2">Director (optional)</label>
-                                            <input type="text" name="director"
+                                            <input type="text" name="director" data-parsley-trigger="keyup" minlength="2"
                                                 class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600">
                                         </div>
                                         <div class="flex-shrink max-w-full px-4 w-full md:w-1/2 mb-6">
                                             <label class="inline-block mb-2">Production (optional)</label>
-                                            <input type="text" name="production"
+                                            <input type="text" name="production" data-parsley-trigger="keyup" minlength="2"
                                                 class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600">
                                         </div>
                                         <div class="flex-shrink max-w-full px-4 w-full mb-6">
                                             <p class="mb-2">Genres</p>
-                                            <select class="js-example-basic-multiple" name="genres[]" id="genres" multiple>
+                                            <select class="js-example-basic-multiple" name="genres[]" id="genres" multiple required>
                                                 @foreach ($genre as $item)
                                                     <option value="{{ $item->id }}">{{ $item->name }}</option>
                                                 @endforeach
@@ -187,7 +189,7 @@
                                         </div>
                                         <div class="flex-shrink max-w-full px-4 w-full mb-6">
                                             <p class="mb-2">Actors</p>
-                                            <select class="js-example-basic-multiple" name="actors[]" id="actors" multiple="multiple">
+                                            <select class="js-example-basic-multiple" name="actors[]" id="actors" multiple="multiple" required>
                                                 @foreach ($actor as $item)
                                                     <option value="{{ $item->id }}">{{ $item->fullname }}</option>
                                                 @endforeach
@@ -195,9 +197,9 @@
                                         </div>
                                         <div class="flex-shrink max-w-full px-4 w-full md:w-1/3 mb-6">
                                             <label class="inline-block mb-2">Quality</label>
-                                            <select name="quality_id"
+                                            <select name="quality_id" required data-parsley-trigger="change"
                                                 class="inline-block w-full leading-5 relative py-2 pl-3 pr-8 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600 select-caret appearance-none">
-                                                <option selected>Choose...</option>
+                                                <option selected disabled>Choose...</option>
                                                 @foreach ($quality as $item)
                                                     <option value="{{ $item->id }}">{{ $item->name }}</option>
                                                 @endforeach
@@ -205,9 +207,9 @@
                                         </div>
                                         <div class="flex-shrink max-w-full px-4 w-full md:w-1/3 mb-6">
                                             <label class="inline-block mb-2">Country</label>
-                                            <select name="country_id"
+                                            <select name="country_id" required data-parsley-trigger="change"
                                                 class="inline-block w-full leading-5 relative py-2 pl-3 pr-8 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600 select-caret appearance-none">
-                                                <option selected>Choose...</option>
+                                                <option selected disabled>Choose...</option>
                                                 @foreach ($country as $item)
                                                     <option value="{{ $item->id }}">{{ $item->name }}</option>
                                                 @endforeach
@@ -215,14 +217,14 @@
                                         </div>
                                         <div class="flex-shrink max-w-full px-4 w-full md:w-1/3 mb-6">
                                             <label class="inline-block mb-2">Duration</label>
-                                            <input type="number" name="duration" min="0"
+                                            <input type="number" name="duration" data-parsley-trigger="change" min="2" max="900" required
                                                 class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600">
                                         </div>
                                         <div class="flex-shrink max-w-full px-4 w-full md:w-1/3 mb-6">
                                             <label class="inline-block mb-2">Type</label>
-                                            <select name="type_id"
+                                            <select name="type_id" required data-parsley-trigger="change"
                                                 class="inline-block w-full leading-5 relative py-2 pl-3 pr-8 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600 select-caret appearance-none">
-                                                <option selected>Choose...</option>
+                                                <option selected disabled>Choose...</option>
                                                 @foreach ($type as $item)
                                                     <option value="{{ $item->id }}">{{ $item->name }}</option>
                                                 @endforeach
@@ -230,16 +232,16 @@
                                         </div>
                                         <div class="flex-shrink max-w-full px-4 w-full md:w-1/3 mb-6">
                                             <label class="inline-block mb-2">Status</label>
-                                            <select name="status" name="status"
+                                            <select name="status" name="status" data-parsley-trigger="change" required
                                                 class="inline-block w-full leading-5 relative py-2 pl-3 pr-8 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600 select-caret appearance-none">
-                                                <option selected>Choose...</option>
+                                                <option selected disabled>Choose...</option>
                                                 <option value="1">Active</option>
                                                 <option value="0">Disable</option>
                                             </select>
                                         </div>
                                         <div class="flex-shrink max-w-full px-4 w-full mb-6">
                                             <label class="inline-block mb-2">Description</label>
-                                            <textarea cols="30" rows="4" name="description"
+                                            <textarea cols="30" rows="4" name="description" data-parsley-trigger="keyup" minlength="4" required
                                                 class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600"
                                                 placeholder="Description"></textarea>
                                         </div>

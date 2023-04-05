@@ -25,7 +25,7 @@ class ActorRequest extends FormRequest
     {
         return [
             'fullname' => 'required|min:2',
-            'imdb_path' => 'required|min:8',
+            'imdb_path' => 'nullable|string|min:4',
             'date_birthday' => 'required',
             'picture' => 'image|mimes:jpeg,png,jpg,gif,svg'
         ];

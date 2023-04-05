@@ -67,7 +67,7 @@
                                 {{-- actions --}}
                                 <input type="hidden" id="route_store_quality" value="{{ route('quality.store') }}">
                                 <input type="hidden" id="route_update_quality" value="{{ route('quality.update', '') }}">
-                                <form method="POST" action="{{ route('quality.store') }}" name="form_quality">
+                                <form method="POST" action="{{ route('quality.store') }}" name="form_quality" data-parsley-validate>
                                     @csrf
                                     <div id="methode_put_quality">
                                         {{-- here add methode put in js --}}
@@ -75,7 +75,7 @@
                                     <!-- modal content -->
                                     <div class="my-6 mx-7">
                                         <label for="exampleInput1" class="inline-block mb-2">Name</label>
-                                        <input type="text" name="name"
+                                        <input type="text" name="name" required data-parsley-length="[2, 255]" data-parsley-trigger="keyup"
                                             class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600"
                                             id="exampleInput1" placeholder="Name" required>
                                     </div>

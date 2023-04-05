@@ -28,11 +28,11 @@ class MediaController extends Controller
         ->with('types')
         ->get();
 
-        $country = Country::get();
-        $quality = TypeQuality::all();
-        $type = Type::all();
-        $genre = Genre::all();
-        $actor = Actor::all();
+        $country = Country::orderBy('name', 'ASC')->get();
+        $quality = TypeQuality::orderBy('name', 'ASC')->get();
+        $type = Type::orderBy('name', 'ASC')->get();
+        $genre = Genre::orderBy('name', 'ASC')->get();
+        $actor = Actor::orderBy('fullname', 'ASC')->get();
 
         return view('dashboard.media', compact('media', 'country', 'quality', 'type', 'genre', 'actor'));
     }

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('fullname');
             $table->text('picture');
-            $table->text('imdb_path');
+            $table->text('imdb_path')->nullable();
             $table->date('date_birthday');
             $table->timestamps();
         });

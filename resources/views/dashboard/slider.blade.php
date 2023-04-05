@@ -72,7 +72,7 @@
                                 {{-- actions --}}
                                 <input type="hidden" id="route_store_slider" value="{{ route('slider.store') }}">
                                 <input type="hidden" id="route_update_slider" value="{{ route('slider.update', '') }}">
-                                <form method="POST" action="{{ route('slider.store') }}" enctype="multipart/form-data" name="form_slider">
+                                <form method="POST" action="{{ route('slider.store') }}" enctype="multipart/form-data" name="form_slider" data-parsley-validate>
                                     @csrf
                                     <div id="methode_put_slider">
                                         {{-- here add methode put in js --}}
@@ -80,18 +80,17 @@
                                     <!-- modal content -->
                                     <div class="my-6 mx-7">
                                         <p for="exampleInput1" class="inline-block mb-2">Media</p>
-                                        <select class="js-example-responsive" name="media_id" id="media_id">
+                                        <select class="js-example-responsive" name="media_id" id="media_id" required>
                                             <option selected disabled>Choose...</option>
+                                            {{-- {{dd($media)}} --}}
                                             @foreach ($media as $item)
-                                                @if (!$item->status == 0)
-                                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                                @endif
+                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                     <div class="mb-6 mx-7">
-                                        <label for="formFileMultiple" class="inline-block mb-2">Picture (Optional)</label>
-                                        <input name="picture"
+                                        <label for="formFileMultiple" class="inline-block mb-2">Picture</label>
+                                        <input name="picture" required data-parsley-trigger="change" accept=".jpg,.jpeg,.png,.svg,.gif" required
                                             class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600"
                                             type="file" id="formFileMultiple">
                                     </div>
