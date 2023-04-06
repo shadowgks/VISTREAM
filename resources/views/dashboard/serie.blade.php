@@ -70,7 +70,7 @@
                             <div class="bg-white rounded shadow-lg border flex flex-col overflow-hidden dark:bg-gray-800 dark:border-gray-700">
                                 <button @click="open = false" class="fill-current h-6 w-6 absolute ltr:right-0 rtl:left-0 top-0 m-6 font-3xl font-bold">×</button>
                                 <!-- modal title -->
-                                <div class="px-6 py-3 text-xl border-b dark:border-gray-700 font-bold">Modal Media</div>
+                                <div class="px-6 py-3 text-xl border-b dark:border-gray-700 font-bold">Modal Series</div>
                                 {{-- actions --}}
                                 <input type="hidden" id="route_store_serie" value="{{ route('serie.store') }}">
                                 <input type="hidden" id="route_update_serie" value="{{ route('serie.update', '') }}">
@@ -83,7 +83,7 @@
                                     <!-- modal content -->
                                     <div class="flex flex-wrap flex-row m-6">
                                         <div class="flex-shrink max-w-full px-4 w-full md:w-1/2 mb-6">
-                                            <p for="exampleInput1" class="inline-block mb-2">Media</p>
+                                            <p for="exampleInput1" class="inline-block mb-2">Series</p>
                                             <select class="js-example-responsive" name="media_id" id="media_id" required>
                                                 <option selected disabled>Choose...</option>
                                                 @foreach ($media as $item)

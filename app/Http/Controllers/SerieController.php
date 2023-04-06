@@ -42,21 +42,31 @@ class SerieController extends Controller
      */
     public function store(SerieRequest $request)
     {
+        //season
+        $this_season = Season::updateOrCreate($request->except(['_token', 'season_id', 'num_ep', 'url', 'save']));
+
+        //episode
         $num_ep = $request->num_ep;
         $url = $request->url;
 
-        //season
-        $this_season = Season::create($request->all());
-
-        //episode
+        //add multipple data
         foreach ($num_ep as $key => $no) {
             $input['num_ep'] = $num_ep[$key];
             $input['url'] = $url[$key];
             $input['season_id'] = $this_season->id;
 
-            Episode::create($input);
+            $episode = Episode
+                ::where('num_ep', $input['num_ep'])
+                ->where('season_id', $input['season_id'])
+                ->first();
+
+            if ($episode !== null) {
+                $episode->url = $input['url'];
+                $episode->save();
+            } else {
+                $episode = Episode::create($input);
+            }
         }
-        dd($request->all());
     }
 
     /**

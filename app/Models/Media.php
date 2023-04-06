@@ -42,7 +42,13 @@ class Media extends Model
         return $this->belongsTo(Type::class, 'type_id');
     }
 
-    function sliders(){
+    function series()
+    {
+        return $this->hasMany(Season::class);
+    }
+
+    function sliders()
+    {
         return $this->hasOne(Slider::class);
     }
 
@@ -56,6 +62,5 @@ class Media extends Model
     {
         return $this->belongsToMany(Genre::class, 'genre_media')
             ->withTimestamps();
-            
     }
 }

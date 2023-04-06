@@ -13,6 +13,11 @@ class Season extends Model
         'num_season',
     ];
 
+    function media()
+    {
+        return $this->belongsTo(Media::class, 'media_id');
+    }
+
     function episodes()
     {
         return $this->hasMany(Episode::class);
