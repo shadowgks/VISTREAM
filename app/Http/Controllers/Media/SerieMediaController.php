@@ -21,6 +21,7 @@ class SerieMediaController extends Controller
             ->where('status', 1)
             ->where('type_id', 2)
             ->paginate('18');
+
         return view('media.tv-series', compact('series'));
     }
 }

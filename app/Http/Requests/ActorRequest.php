@@ -24,7 +24,7 @@ class ActorRequest extends FormRequest
     public function rules()
     {
         return [
-            'fullname' => 'required|min:2|string|unique',
+            'fullname' => 'required|min:2|string',
             'imdb_path' => 'nullable|string|min:4',
             'date_birthday' => 'required',
             'picture' => 'image|mimes:jpeg,png,jpg,gif,svg'

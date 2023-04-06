@@ -8,6 +8,7 @@ use App\Models\Media;
 use App\Models\NumSeason;
 use App\Models\Season;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class SerieController extends Controller
 {
@@ -63,10 +64,14 @@ class SerieController extends Controller
             if ($episode !== null) {
                 $episode->url = $input['url'];
                 $episode->save();
+                // Session::flash('success', 'Updated URL Successfully');
             } else {
                 $episode = Episode::create($input);
+                // Session::flash('success', 'Created Successfully');
             }
         }
+
+        return redirect()->back();
     }
 
     /**

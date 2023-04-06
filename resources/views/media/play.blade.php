@@ -52,27 +52,28 @@
                 <!-- tab links Session-->
                 <div class="mb-4 border-b dark:border-gray-700">
                     <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
-                        <li class="mr-2" role="presentation">
-                            <button class="inline-block p-4 border-b-2 rounded-t-lg text-color-links" id="session1-tab" data-tabs-target="#session1" type="button" role="tab" aria-controls="session1" aria-selected="false">Session 1</button>
-                        </li>
-                        <li class="mr-2" role="presentation">
-                            <button class="inline-block p-4 border-b-2 rounded-t-lg text-color-links" id="session2-tab" data-tabs-target="#session2" type="button" role="tab" aria-controls="session2" aria-selected="false">Session 2</button>
-                        </li>
+                        @foreach ($season_episode as $season)
+                            <li class="mr-2" role="presentation">
+                                <button class="inline-block p-4 border-b-2 rounded-t-lg text-color-links" data-tabs-target="#session{{ $season->num_season }}" type="button" role="tab">Session {{ $season->num_season }}</button>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
 
                 <!-- Episode -->
                 <div id="myTabContent">
                     <p class="text-gray-400 font-bold text-lg text-center uppercase mb-4">Episodes</p>
-                    <div class="hidden p-4 rounded-lg text-center bg-color-primary-75" id="session1" role="tabpanel" aria-labelledby="session-tab">
-                        <button type="button" class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-14 py-2.5 text-center mr-2 mb-2">Episode
-                            1</button>
-                    </div>
-                    <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="session2" role="tabpanel" aria-labelledby="dashboard-tab">
-                        <p class="text-sm text-gray-500 dark:text-gray-400">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Dashboard tab's associated
-                                content</strong>. Clicking another tab will toggle the visibility of this one for the next.
-                            The tab JavaScript swaps classes to control the content visibility and styling.</p>
-                    </div>
+                    @foreach ($season_episode as $season)
+                        {{-- {{dd($season->episodes)}} --}}
+                        <div class="grid sm:grid-cols-7 hidden py-14 px-4 rounded-lg text-center bg-color-primary-75" id="session{{ $season->num_season }}" role="tabpanel" aria-labelledby="session-tab">
+                            @foreach ($season->episodes as $ep)
+                                {{-- {{dd($ep)}} --}}
+                                    <button href="{{ $ep->url }}" onclick="episode_Url({{ $ep->id }})"
+                                        class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-14 py-2.5 mr-2 mb-2">Episode
+                                        {{ $ep->num_ep }}</button>
+                            @endforeach
+                        </div>
+                    @endforeach
                 </div>
             </div>
         @endif
@@ -197,9 +198,9 @@
                                 <div class="flex justify-between items-center text-gray-500">
                                     <!-- date & min -->
                                     <div class="flex">
-                                        <p>2022</p>
+                                        <p>{{ date('Y', strtotime($movie->released_year)) }}</p>
                                         <span class="font-extrabold mx-2"> . </span>
-                                        <p>189min</p>
+                                        <p>{{ $movie->duration }} min</p>
                                     </div>
                                     <!-- movie or tv -->
                                     <span class="bg-gray-700 text-gray-300 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full">Movie</span>

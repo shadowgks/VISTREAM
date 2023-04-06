@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="{{ asset('build/assets/sass/style.css') }}">
 <link rel="stylesheet" href="{{ asset('build/assets/css/parsleyjs.css') }}">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/css/multi-select-tag.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">{{-- datePicker --}}
 @vite(['resources/css/app.css'])
 
 {{-- if you need ad more links --}}

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Genre;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class GenreController extends Controller
 {
@@ -36,7 +37,12 @@ class GenreController extends Controller
      */
     public function store(Request $request)
     {
-        Genre::create($request->all());
+        $create = Genre::create($request->all());
+        if ($create) {
+            Session::flash('success', 'Created Successfully');
+        } else {
+            Session::flash('failed', 'Created Failed!');
+        }
         return redirect('dashboard/genre');
     }
 
@@ -71,7 +77,12 @@ class GenreController extends Controller
      */
     public function update(Request $request, Genre $genre)
     {
-        $genre->update($request->all());
+        $update = $genre->update($request->all());
+        if ($update) {
+            Session::flash('success', 'Updated Successfully');
+        } else {
+            Session::flash('failed', 'Updated Failed!');
+        }
         return redirect('dashboard/genre');
     }
 
@@ -83,7 +94,12 @@ class GenreController extends Controller
      */
     public function destroy(Genre $genre)
     {
-        $genre->delete();
+        $delete = $genre->delete();
+        if ($delete) {
+            Session::flash('success', 'Deleted Successfully');
+        } else {
+            Session::flash('failed', 'Deleted Failed!');
+        }
         return redirect('dashboard/genre');
     }
 }

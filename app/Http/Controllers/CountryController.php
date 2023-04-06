@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CountryRequest;
 use App\Models\Country;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class CountryController extends Controller
 {
@@ -16,7 +17,7 @@ class CountryController extends Controller
     public function index()
     {
         $country = Country::All();
-        return view('dashboard.country',compact('country'));
+        return view('dashboard.country', compact('country'));
     }
 
     /**
@@ -37,7 +38,12 @@ class CountryController extends Controller
      */
     public function store(CountryRequest $request)
     {
-        Country::create($request->all());
+        $create = Country::create($request->all());
+        if ($create) {
+            Session::flash('success', 'Created Successfully');
+        } else {
+            Session::flash('failed', 'Created Failed!');
+        }
         return redirect('dashboard/country');
     }
 
@@ -72,7 +78,12 @@ class CountryController extends Controller
      */
     public function update(CountryRequest $request, Country $country)
     {
-        $country->update($request->all());
+        $update = $country->update($request->all());
+        if ($update) {
+            Session::flash('success', 'Updated Successfully');
+        } else {
+            Session::flash('failed', 'Updated Failed!');
+        }
         return redirect('dashboard/country');
     }
 
@@ -84,7 +95,12 @@ class CountryController extends Controller
      */
     public function destroy(Country $country)
     {
-        $country->delete();
+        $delete = $country->delete();
+        if ($delete) {
+            Session::flash('success', 'Deleted Successfully');
+        } else {
+            Session::flash('failed', 'Deleted Failed!');
+        }
         return redirect('dashboard/country');
     }
 }

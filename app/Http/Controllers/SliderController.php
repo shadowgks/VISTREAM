@@ -6,6 +6,7 @@ use App\Http\Requests\SliderRequest;
 use App\Models\Media;
 use App\Models\Slider;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class SliderController extends Controller
 {
@@ -18,7 +19,7 @@ class SliderController extends Controller
     {
         $slider = Slider::with('media')->get();
         $media = Media::where('status',1)->get();
-        
+
         return view('dashboard.slider', compact('slider','media'));
     }
 
@@ -47,7 +48,12 @@ class SliderController extends Controller
         $path = $picture->storeAs('images', $fileName, 'public');
         $slider["picture"] = 'storage/' . $path;
         //----------E Upload pictures--------------
-        Slider::create($slider);
+        $create = Slider::create($slider);
+        if($create){
+            Session::flash('success', 'Created Successfully');
+        }else{
+            Session::flash('failed', 'Created Failed!');
+        }
         return redirect('dashboard/slider');
     }
 
@@ -94,7 +100,12 @@ class SliderController extends Controller
         }
         //----------E Upload pictures--------------
 
-        $slider->update($inputs);
+        $update = $slider->update($inputs);
+        if($update){
+            Session::flash('success', 'Created Successfully');
+        }else{
+            Session::flash('failed', 'Created Failed!');
+        }
         return redirect('dashboard/slider');
     }
 
@@ -106,7 +117,12 @@ class SliderController extends Controller
      */
     public function destroy(Slider $slider)
     {
-        $slider->delete();
+        $delete = $slider->delete();
+        if($delete){
+            Session::flash('success', 'Created Successfully');
+        }else{
+            Session::flash('failed', 'Created Failed!');
+        }
         return redirect('dashboard/slider');
     }
 }

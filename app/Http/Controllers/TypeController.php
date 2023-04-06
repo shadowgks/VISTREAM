@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\TypeRequest;
 use App\Models\Type;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class TypeController extends Controller
 {
@@ -37,7 +38,12 @@ class TypeController extends Controller
      */
     public function store(TypeRequest $request)
     {
-        Type::create($request->all());
+        $create = Type::create($request->all());
+        if($create){
+            Session::flash('success', 'Created Successfully');
+        }else{
+            Session::flash('failed', 'Created Failed!');
+        }
         return redirect('dashboard/quality');
     }
 
@@ -72,7 +78,12 @@ class TypeController extends Controller
      */
     public function update(TypeRequest $request, Type $type)
     {
-        $type->update($request->all());
+        $update = $type->update($request->all());
+        if($update){
+            Session::flash('success', 'Updated Successfully');
+        }else{
+            Session::flash('failed', 'Updated Failed!');
+        }
         return redirect('dashboard/type');
     }
 
@@ -84,7 +95,12 @@ class TypeController extends Controller
      */
     public function destroy(Type $type)
     {
-        $type->delete();
+        $delete = $type->delete();
+        if($delete){
+            Session::flash('success', 'Created Successfully');
+        }else{
+            Session::flash('failed', 'Created Failed!');
+        }
         return redirect('dashboard/type');
     }
 }

@@ -10,6 +10,7 @@ use App\Models\Actor;
 use App\Models\Type;
 use App\Models\TypeQuality;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class MediaController extends Controller
 {
@@ -22,11 +23,11 @@ class MediaController extends Controller
     {
         //join
         $media = Media::with('actors')
-        ->with('genres')
-        ->with('countries')
-        ->with('qualitie')
-        ->with('types')
-        ->get();
+            ->with('genres')
+            ->with('countries')
+            ->with('qualitie')
+            ->with('types')
+            ->get();
 
         $country = Country::orderBy('name', 'ASC')->get();
         $quality = TypeQuality::orderBy('name', 'ASC')->get();
@@ -80,6 +81,11 @@ class MediaController extends Controller
         $this_media->genres()
             ->syncWithoutDetaching($request->genres);
 
+        if ($this_media) {
+            Session::flash('success', 'Created Successfully');
+        } else {
+            Session::flash('failed', 'Created Failed!');
+        }
         return redirect('dashboard/media');
     }
 
@@ -129,12 +135,17 @@ class MediaController extends Controller
         // dd($inputs);
         $this_media = Media::find($media);
         // $id = $this_media->id;
-        $this_media->update($inputs);
+        $update = $this_media->update($inputs);
         $this_media->actors()
             ->sync($request->actors);
         $this_media->genres()
             ->sync($request->genres);
 
+        if ($update) {
+            Session::flash('success', 'Updated Successfully');
+        } else {
+            Session::flash('failed', 'Updated Failed!');
+        }
         return redirect('dashboard/media');
     }
 
@@ -147,7 +158,12 @@ class MediaController extends Controller
     public function destroy($media)
     {
         $this_media = Media::find($media);
-        $this_media->delete();
+        $delete = $this_media->delete();
+        if ($delete) {
+            Session::flash('success', 'Deleted Successfully');
+        } else {
+            Session::flash('failed', 'Deleted Failed!');
+        }
         return redirect('dashboard/media');
     }
 }

@@ -18,6 +18,50 @@
                 </div>
             </div>
 
+            {{-- B Sessions --}}
+            @if (session()->has('success'))
+                <script>
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal.stopTimer)
+                            toast.addEventListener('mouseleave', Swal.resumeTimer)
+                        }
+                    })
+
+                    Toast.fire({
+                        icon: 'success',
+                        title: '{{ session()->get('success') }}'
+                    })
+                </script>
+            @endif
+
+            @if (session()->has('failed'))
+                <script>
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 5000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal.stopTimer)
+                            toast.addEventListener('mouseleave', Swal.resumeTimer)
+                        }
+                    })
+
+                    Toast.fire({
+                        icon: 'error',
+                        title: '{{ session()->get('failed') }}'
+                    })
+                </script>
+            @endif
+            {{-- E Sessions --}}
+
             {{-- Modal add --}}
             <div x-data='{ open2: false }'>
                 <div x-data='{ open: false }'>
@@ -97,6 +141,8 @@
                                         <input type="date" name="date_birthday" data-parsley-trigger="change" required
                                             class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600"
                                             id="exampleInput1">
+                                        {{-- <input type="text" name="date_birthday" id="date_flatpickr"
+                                            class="date_flatpickr w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600"> --}}
                                     </div>
                                     <div class="mb-6 mx-7">
                                         <label for="formFileMultiple" class="inline-block mb-2">Picture (Optional)</label>

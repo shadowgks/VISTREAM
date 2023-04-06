@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ActorRequest;
 use App\Models\Actor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+
 
 class ActorController extends Controller
 {
@@ -48,9 +50,15 @@ class ActorController extends Controller
             $actor["picture"] = 'storage/' . $path;
         }
         //----------E Upload pictures--------------
-        Actor::create($actor);
+        $create = Actor::create($actor);
 
-        return redirect('dashboard/actor');
+        if($create){
+            Session::flash('success', 'Created Successfully');
+        }else{
+            Session::flash('failed', 'Created Failed!');
+        }
+
+        return redirect()->back();
     }
 
     /**
@@ -95,8 +103,12 @@ class ActorController extends Controller
             unset($inputs["picture"]);
         }
         //----------E Upload pictures--------------
-
-        $actor->update($inputs);
+        $update = $actor->update($inputs);
+        if($update){
+            Session::flash('success', 'Updated Successfully');
+        }else{
+            Session::flash('failed', 'Updated Failed!');
+        }
         return redirect('dashboard/actor');
     }
 
@@ -108,7 +120,12 @@ class ActorController extends Controller
      */
     public function destroy(Actor $actor)
     {
-        $actor->delete();
+        $delete = $actor->delete();
+        if($delete){
+            Session::flash('success', 'Deleted Successfully');
+        }else{
+            Session::flash('failed', 'Deleted Failed!');
+        }
         return redirect('dashboard/actor');
     }
 }

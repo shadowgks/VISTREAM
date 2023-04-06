@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\TypeQualityRequest;
 use App\Models\TypeQuality;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class TypeQualityController extends Controller
 {
@@ -37,7 +38,12 @@ class TypeQualityController extends Controller
      */
     public function store(TypeQualityRequest $request)
     {
-        TypeQuality::create($request->all());
+        $create = TypeQuality::create($request->all());
+        if($create){
+            Session::flash('success', 'Created Successfully');
+        }else{
+            Session::flash('failed', 'Created Failed!');
+        }
         return redirect('dashboard/quality');
     }
 
@@ -72,7 +78,12 @@ class TypeQualityController extends Controller
      */
     public function update(TypeQualityRequest $request, TypeQuality $quality)
     {
-        $quality->update($request->all());
+        $update = $quality->update($request->all());
+        if($update){
+            Session::flash('success', 'Created Successfully');
+        }else{
+            Session::flash('failed', 'Created Failed!');
+        }
         return redirect('dashboard/quality');
     }
 
@@ -84,7 +95,12 @@ class TypeQualityController extends Controller
      */
     public function destroy(TypeQuality $quality)
     {
-        $quality->delete();
+        $delete = $quality->delete();
+        if($delete){
+            Session::flash('success', 'Created Successfully');
+        }else{
+            Session::flash('failed', 'Created Failed!');
+        }
         return redirect('dashboard/quality');
     }
 }
