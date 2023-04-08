@@ -24,8 +24,8 @@
                         <svg aria-hidden="true" class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
                         </svg>
-                        <a href="{{ $media_play->type_id == 1 ? route('movies.index') : route('series.index') }}"
-                            class="ml-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ml-2 dark:text-gray-400 dark:hover:text-white">{{ $media_play->type_id == 1 ? 'Movies' : 'Series' }}</a>
+                        <a href="{{ $movie_play->type_id == 1 ? route('movies.index') : route('series.index') }}"
+                            class="ml-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ml-2 dark:text-gray-400 dark:hover:text-white">{{ $movie_play->type_id == 1 ? 'Movies' : 'Series' }}</a>
                     </div>
                 </li>
                 <li aria-current="page">
@@ -33,50 +33,14 @@
                         <svg aria-hidden="true" class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
                         </svg>
-                        <span class="ml-1 text-sm font-medium text-gray-500 md:ml-2 dark:text-gray-400 uppercase">{{ $media_play->name }}</span>
+                        <span class="ml-1 text-sm font-medium text-gray-500 md:ml-2 dark:text-gray-400 uppercase">{{ $movie_play->name }}</span>
                     </div>
                 </li>
             </ol>
         </nav>
+
         <!-- video -->
-        <div>
-            <video class="w-full h-auto max-w-full border border-gray-200 rounded-lg dark:border-gray-700" controls>
-                <source src="{{ $media_play->link_media }}" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-
-        @if ($media_play->type_id == 2)
-            <!-- session & episodes -->
-            <div class="mt-7">
-                <!-- tab links Session-->
-                <div class="mb-4 border-b dark:border-gray-700">
-                    <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
-                        @foreach ($season_episode as $season)
-                            <li class="mr-2" role="presentation">
-                                <button class="inline-block p-4 border-b-2 rounded-t-lg text-color-links" data-tabs-target="#session{{ $season->num_season }}" type="button" role="tab">Session {{ $season->num_season }}</button>
-                            </li>
-                        @endforeach
-                    </ul>
-                </div>
-
-                <!-- Episode -->
-                <div id="myTabContent">
-                    <p class="text-gray-400 font-bold text-lg text-center uppercase mb-4">Episodes</p>
-                    @foreach ($season_episode as $season)
-                        {{-- {{dd($season->episodes)}} --}}
-                        <div class="grid sm:grid-cols-7 hidden py-14 px-4 rounded-lg text-center bg-color-primary-75" id="session{{ $season->num_season }}" role="tabpanel" aria-labelledby="session-tab">
-                            @foreach ($season->episodes as $ep)
-                                {{-- {{dd($ep)}} --}}
-                                    <button href="{{ $ep->url }}" onclick="episode_Url({{ $ep->id }})"
-                                        class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-14 py-2.5 mr-2 mb-2">Episode
-                                        {{ $ep->num_ep }}</button>
-                            @endforeach
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        @endif
+        @include('media.components.video')
 
         <!-- main -->
         <div class="my-8 lg:flex lg:gap-5">
@@ -84,14 +48,14 @@
             <div class="lg:w-[75%] bg-color-primary-75 lg:grid grid-cols-4 rounded-sm">
                 <!-- picture -->
                 <div class="mb-3 md:mb-0 w-full">
-                    <img src="{{ asset($media_play->picture) }}" alt="{{ $media_play->name }}" class="img-media w-full object-cover object-center rounded-lg shadow-md hover:saturate-50 hover:scale-105 hover:duration-500 duration-300">
+                    <img src="{{ asset($movie_play->picture) }}" alt="{{ $movie_play->name }}" class="img-media w-full object-cover object-center rounded-lg shadow-md hover:saturate-50 hover:scale-105 hover:duration-500 duration-300">
                 </div>
                 <!-- info -->
                 <div class="py-2 px-4 md:p-8 col-span-3">
                     <!-- heading -->
                     <div class="md:flex md:justify-between">
                         <!-- title -->
-                        <p class="text-white text-2xl font-bold">{{ $media_play->name }}</p>
+                        <p class="text-white text-2xl font-bold">{{ $movie_play->name }}</p>
                         {{-- <!-- rating -->
                         <div class="flex items-center cursor-pointer">
                             <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -128,15 +92,15 @@
                     </div>
                     <!-- heading-mini -->
                     <div class="flex gap-6 my-2">
-                        <span class="bg-color-secondary text-white text-xs md:font-medium px-2.5 py-0.5 md:rounded-full uppercase">{{ $media_play->qualitie->name }}</span>
-                        <a href="{{ $media_play->link_imdb }}">
+                        <span class="bg-color-secondary text-white text-xs md:font-medium px-2.5 py-0.5 md:rounded-full uppercase">{{ $movie_play->qualitie->name }}</span>
+                        <a href="{{ $movie_play->link_imdb }}">
                             <p class="text-yellow-400 text-sm font-bold"><i class="fa-solid fa-star"></i> IMDB</p>
                         </a>
-                        <p class="text-gray-400 text-sm font-bold">{{ $media_play->duration }} min</p>
+                        <p class="text-gray-400 text-sm font-bold">{{ $movie_play->duration }} min</p>
                     </div>
                     <!-- description -->
                     <div class="my-2">
-                        <p class="text-gray-400 text-sm">{{ $media_play->description }}.</p>
+                        <p class="text-gray-400 text-sm">{{ $movie_play->description }}.</p>
                     </div>
                     <!-- content info -->
                     <div class="mb-6 flex gap-5">
@@ -149,17 +113,17 @@
                             <p class="text-gray-500 text-sm">Cast : </p>
                         </div>
                         <div>
-                            <a href="" class="text-gray-400 text-sm [80%] hover:text-color-links">{{ $media_play->countries->name }}</a>
+                            <a href="" class="text-gray-400 text-sm [80%] hover:text-color-links">{{ $movie_play->countries->name }}</a>
                             <div>
-                                @foreach ($media_play->genres as $genre)
+                                @foreach ($movie_play->genres as $genre)
                                     <a href="" class="text-gray-400 text-sm hover:text-color-links">{{ $genre->name }},</a>
                                 @endforeach
                             </div>
-                            <p class="text-gray-400 text-sm hover:text-color-links">{{ $media_play->released_year }}</p>
-                            <p class="text-gray-400 text-sm hover:text-color-links">{{ $media_play->director }}</p>
-                            <p class="text-gray-400 text-sm hover:text-color-links">{{ $media_play->production }}</p>
+                            <p class="text-gray-400 text-sm hover:text-color-links">{{ $movie_play->released_year }}</p>
+                            <p class="text-gray-400 text-sm hover:text-color-links">{{ $movie_play->director }}</p>
+                            <p class="text-gray-400 text-sm hover:text-color-links">{{ $movie_play->production }}</p>
                             <div>
-                                @foreach ($media_play->actors as $actor)
+                                @foreach ($movie_play->actors as $actor)
                                     <a href="#" class="text-gray-400 text-sm hover:text-color-links">{{ $actor->fullname }},</a>
                                 @endforeach
                             </div>
@@ -167,7 +131,7 @@
                     </div>
                     <!-- footer trailer -->
                     <div>
-                        <a href="{{ $media_play->trailer }}"
+                        <a href="{{ $movie_play->trailer }}"
                             class="relative inline-flex items-center justify-center px-10 mb-2 mr-2 overflow-hidden text-sm font-medium text-white rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 focus:ring-4">
                             <span class="relative px-5 py-2.5 transition-all ease-in duration-75 rounded-md group-hover:bg-opacity-0">
                                 Trailer

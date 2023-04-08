@@ -102,9 +102,9 @@ class SliderController extends Controller
 
         $update = $slider->update($inputs);
         if($update){
-            Session::flash('success', 'Created Successfully');
+            Session::flash('success', 'Updated Successfully');
         }else{
-            Session::flash('failed', 'Created Failed!');
+            Session::flash('failed', 'Updated Failed!');
         }
         return redirect('dashboard/slider');
     }

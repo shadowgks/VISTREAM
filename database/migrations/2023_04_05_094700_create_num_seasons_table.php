@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('num_seasons', function (Blueprint $table) {
             $table->id();
-            $table->string('number');
+            $table->integer('number');
             $table->timestamps();
         });
     }

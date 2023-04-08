@@ -19,10 +19,13 @@ class SerieController extends Controller
      */
     public function index()
     {
-        $media = Media::orderBy('name', 'asc')->where('status', 1)->get();
+        $media_series = Media::orderBy('name', 'asc')
+        ->where('status', 1)
+        ->where('type_id', 2)
+        ->get();
         $num_season = NumSeason::orderBy('number', 'asc')->get();
         // dd($num_season);
-        return view('dashboard/serie', compact('media', 'num_season'));
+        return view('dashboard/serie', compact('media_series', 'num_season'));
     }
 
     /**
@@ -64,10 +67,10 @@ class SerieController extends Controller
             if ($episode !== null) {
                 $episode->url = $input['url'];
                 $episode->save();
-                // Session::flash('success', 'Updated URL Successfully');
+                Session::flash('success', 'Updated URL Successfully');
             } else {
                 $episode = Episode::create($input);
-                // Session::flash('success', 'Created Successfully');
+                Session::flash('success', 'Created Successfully');
             }
         }
 

@@ -95,12 +95,12 @@ class TypeController extends Controller
      */
     public function destroy(Type $type)
     {
-        $delete = $type->delete();
-        if($delete){
-            Session::flash('success', 'Created Successfully');
-        }else{
-            Session::flash('failed', 'Created Failed!');
-        }
-        return redirect('dashboard/type');
+        // $delete = $type->delete();
+        // if($delete){
+        //     Session::flash('success', 'Created Successfully');
+        // }else{
+        //     Session::flash('failed', 'Created Failed!');
+        // }
+        // return redirect('dashboard/type');
     }
 }

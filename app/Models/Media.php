@@ -42,7 +42,7 @@ class Media extends Model
         return $this->belongsTo(Type::class, 'type_id');
     }
 
-    function series()
+    function seasons()
     {
         return $this->hasMany(Season::class);
     }

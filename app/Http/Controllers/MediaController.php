@@ -66,8 +66,8 @@ class MediaController extends Controller
             $random_string .= $chars[$random_index];
         }
         //E Random data
-        $url_media = $request->name . ' ' . $random_string;
-        $media['slug'] = str_replace(' ', '-', $url_media);
+        $slug = $request->name . ' ' . $random_string;
+        $media['slug'] = str_replace(' ', '-', $slug);
         //----------B Upload pictures--------------
         $picture = $request->picture;
         $fileName = time() . $picture->getClientOriginalName();

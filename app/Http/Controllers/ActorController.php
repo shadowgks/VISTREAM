@@ -40,6 +40,7 @@ class ActorController extends Controller
     public function store(ActorRequest $request)
     {
         $actor = $request->all();
+        // dd($actor);
         //----------B Upload pictures--------------
         $picture = $request->picture;
         if($picture == null){

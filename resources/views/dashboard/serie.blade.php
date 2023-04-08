@@ -18,6 +18,10 @@
                 </div>
             </div>
 
+            {{-- B Sessions Generate Message --}}
+            @include('dashboard.components.session')
+            {{-- E Sessions Generate Message --}}
+
             {{-- Modal add --}}
             <div x-data='{ open2: false }'>
                 <div x-data='{ open: false }'>
@@ -86,7 +90,7 @@
                                             <p for="exampleInput1" class="inline-block mb-2">Series</p>
                                             <select class="js-example-responsive" name="media_id" id="media_id" required>
                                                 <option selected disabled>Choose...</option>
-                                                @foreach ($media as $item)
+                                                @foreach ($media_series as $item)
                                                     <option value="{{ $item->id }}">{{ $item->name }}</option>
                                                 @endforeach
                                             </select>

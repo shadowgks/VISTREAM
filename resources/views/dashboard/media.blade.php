@@ -18,6 +18,10 @@
                 </div>
             </div>
 
+            {{-- B Sessions Generate Message --}}
+            @include('dashboard.components.session')
+            {{-- E Sessions Generate Message --}}
+
             {{-- Modal add --}}
             <div x-data='{ open2: false }'>
                 <div x-data='{ open: false }'>
@@ -73,7 +77,7 @@
                                                 $tags_genres[$key] = $item2->id;
                                             }
                                             $convert_genres = implode(' ', $tags_genres);
-
+                                            
                                             //==================
                                             //actors
                                             $tags_actors = [];

@@ -28,7 +28,8 @@
                                     @endforeach
                                 </p>
                                 <p class="text-lg mt-3 text-gray-300 mb-10 leading-none truncate">{{ $item->description }}</p>
-                                <a href="{{ route('play.show', $item->slug) }}" class="text-[8px] bg-color-secondary py-2 px-8 text-white rounded-full font-bold uppercase md:text-sm hover:bg-gray-200 hover:text-gray-800"><i class="fa-brands fa-google-play"></i> Watch
+                                {{-- {{ route('play.show', $item->slug) }} --}}
+                                <a href="" class="text-[8px] bg-color-secondary py-2 px-8 text-white rounded-full font-bold uppercase md:text-sm hover:bg-gray-200 hover:text-gray-800"><i class="fa-brands fa-google-play"></i> Watch
                                     Now</a>
                                 <a href="#" class="text-[8px] bg-transparent border border-color-three py-2 px-8 text-white rounded-full font-bold uppercase md:text-sm hover:bg-gray-200 hover:text-gray-800"><i class="fa-regular fa-heart"></i> Add
                                     to list</a>
@@ -78,7 +79,7 @@
                         @if ($movie->type_id == 1)
                             <div class="cursor-pointer" data-popover-target="popover-media" data-popover-placement="right">
                                 <!-- content Card -->
-                                <a href="{{ route('play.show', $movie->slug) }}">
+                                <a href="{{ route('play-movie.show', $movie->slug) }}">
                                     <div class="relative">
                                         <img src="{{ asset($movie->picture) }}" alt="random imgee" class="img-media w-full object-cover object-center rounded-lg shadow-md hover:saturate-50 hover:scale-105 hover:duration-500 hover: duration-300">
                                         <span class="bg-color-secondary text-white text-xs font-bold mr-2 px-2.5 py-0.5 absolute top-0 right-0 my-4 uppercase">{{$movie->qualitie->name}}</span>
@@ -119,7 +120,7 @@
                         @if ($serie->type_id == 2)
                             <div class="cursor-pointer" data-popover-target="popover-media" data-popover-placement="right">
                                 <!-- content Card -->
-                                <a href="{{ route('play.show', $serie->slug) }}">
+                                <a href="{{ route('play-serie.show', [$serie->slug, 1, 1]) }}">
                                     <div class="relative">
                                         <img src="{{ asset($serie->picture) }}" alt="random imgee" class="img-media w-full object-cover object-center rounded-lg shadow-md hover:saturate-50 hover:scale-105 hover:duration-500 duration-300">
                                         <span class="bg-color-secondary text-white text-xs font-bold mr-2 px-2.5 py-0.5 absolute top-0 right-0 my-4 uppercase">{{$serie->qualitie->name}}</span>
@@ -172,7 +173,7 @@
                     @if ($serie->type_id == 1)
                         <div class="cursor-pointer" data-popover-target="popover-media" data-popover-placement="right">
                             <!-- content Card -->
-                            <a href="{{ route('play.show', $serie->slug) }}">
+                            <a href="{{ route('play-serie.show', [$serie->slug, 1, 1]) }}">
                                 <div class="relative">
                                     <img src="{{ asset($serie->picture) }}" alt="random imgee" class="img-media w-full object-cover object-center rounded-lg shadow-md hover:saturate-50 hover:scale-105 hover:duration-500 duration-300">
                                     <span class="bg-color-secondary text-white text-xs font-bold mr-2 px-2.5 py-0.5 absolute top-0 right-0 my-4 uppercase">bluray</span>
@@ -224,7 +225,7 @@
                     @if ($serie->type_id == 2)
                         <div class="cursor-pointer" data-popover-target="popover-media" data-popover-placement="right">
                             <!-- content Card -->
-                            <a href="{{ route('play.show', $serie->slug) }}">
+                            <a href="{{ route('play-serie.show', [$serie->slug, 1, 1]) }}">
                                 <div class="relative">
                                     <img src="{{ asset($serie->picture) }}" alt="random imgee" class="img-media w-full object-cover object-center rounded-lg shadow-md hover:saturate-50 hover:scale-105 hover:duration-500 duration-300">
                                     <span class="bg-color-secondary text-white text-xs font-bold mr-2 px-2.5 py-0.5 absolute top-0 right-0 my-4 uppercase">bluray</span>
