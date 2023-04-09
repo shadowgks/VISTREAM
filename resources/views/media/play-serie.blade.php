@@ -61,7 +61,7 @@
                 @foreach ($season_episode as $season)
                     <div class="grid sm:grid-cols-7 hidden py-14 px-4 rounded-lg text-center bg-color-primary-75" id="session{{ $season->num_season }}" role="tabpanel" aria-labelledby="session-tab">
                         @foreach ($season->episodes as $ep)
-                            <a href="{{ route('play-serie.show', ['slug' => $season->media->slug, 'Seasson' => $season->num_season, 'Episode' => $ep->num_ep]) }}"
+                            <a href="{{ route('play-serie.show', [$season->media->slug, $season->num_season, $ep->num_ep]) }}"
                                 class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-14 py-2.5 mr-2 mb-2">Episode
                                 {{ $ep->num_ep }}</a>
                         @endforeach

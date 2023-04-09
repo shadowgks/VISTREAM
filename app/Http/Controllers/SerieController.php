@@ -20,12 +20,17 @@ class SerieController extends Controller
     public function index()
     {
         $media_series = Media::orderBy('name', 'asc')
-        ->where('status', 1)
-        ->where('type_id', 2)
+            ->where('status', 1)
+            ->where('type_id', 2)
+            ->get();
+        $data_table = Season
+        ::with('media')
+        ->with('episodes')
         ->get();
+        // dd($data_table);
         $num_season = NumSeason::orderBy('number', 'asc')->get();
         // dd($num_season);
-        return view('dashboard/serie', compact('media_series', 'num_season'));
+        return view('dashboard/serie', compact('data_table', 'media_series', 'num_season'));
     }
 
     /**
@@ -47,13 +52,13 @@ class SerieController extends Controller
     public function store(SerieRequest $request)
     {
         //season
-        $this_season = Season::updateOrCreate($request->except(['_token', 'season_id', 'num_ep', 'url', 'save']));
+        $this_season = Season
+            ::updateOrCreate($request->except(['_token', 'season_id', 'num_ep', 'url', 'save']));
 
         //episode
+        //add multipple data
         $num_ep = $request->num_ep;
         $url = $request->url;
-
-        //add multipple data
         foreach ($num_ep as $key => $no) {
             $input['num_ep'] = $num_ep[$key];
             $input['url'] = $url[$key];

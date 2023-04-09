@@ -12,11 +12,7 @@
     <main class="pt-20 -mt-2">
         <div class="mx-auto p-2">
             <!-- row title -->
-            <div class="flex flex-wrap flex-row">
-                <div class="flex-shrink max-w-full px-4 w-full">
-                    <p class="text-xl font-bold mt-3 mb-5">@yield('title')</p>
-                </div>
-            </div>
+            @include('dashboard.components.title')
 
             {{-- B Sessions Generate Message --}}
             @include('dashboard.components.session')
@@ -62,7 +58,7 @@
 
                     <!-- Modal add -->
                     <div id="modal_add_country" x-show="open" tabindex="0" class="z-50 overflow-auto inset-0 w-full h-full fixed py-6">
-                        <div @click.away="open = false" class="z-50 relative p-3 mx-auto my-0 w-[40%]" style="min-width: 500px;display: none" x-show="open" x-transition:enter="transition duration-500" x-transition:enter-start="transform opacity-0 -translate-y-4"
+                        <div class="z-50 relative p-3 mx-auto my-0 w-[40%]" style="min-width: 500px;display: none" x-show="open" x-transition:enter="transition duration-500" x-transition:enter-start="transform opacity-0 -translate-y-4"
                             x-transition:enter-end="transform opacity-100 translate-y-0" x-transition:leave="transition -translate-y-4" x-transition:leave-start="transform opacity-100 translate-y-0" x-transition:leave-end="transform opacity-0 -translate-y-4">
                             <div class="bg-white rounded shadow-lg border flex flex-col overflow-hidden dark:bg-gray-800 dark:border-gray-700">
                                 <button @click="open = false" class="fill-current h-6 w-6 absolute ltr:right-0 rtl:left-0 top-0 m-6 font-3xl font-bold">×</button>
@@ -93,6 +89,8 @@
                                     </div>
                                 </form>
                             </div>
+                        </div>
+                        <div class="z-40 overflow-auto left-0 top-0 bottom-0 right-0 w-full h-full fixed bg-black opacity-50">
                         </div>
                     </div>
 
