@@ -49,7 +49,7 @@
                                             </td>
                                             <td>{{ $item->num_season }}</td>
                                             <td>
-
+                                                {{--
                                                 @php
                                                     $array_ep = [];
                                                     $array_url = [];
@@ -64,9 +64,24 @@
                                                     $convert_ep =  implode(' ', $array_ep);
                                                     $convert_url = implode(' ', $array_url);
                                                 @endphp
+                                            </td> --}}
+                                                @php
+                                                    $array_ep = [];
+                                                    $array_url = [];
+                                                    $array_ep_id = [];
+                                                    foreach ($item->episodes as $key => $ep) {
+                                                        echo '[' . $ep->num_ep . '] - ';
+                                                        $array_ep[] = $ep->num_ep;
+                                                        $array_url[] = $ep->url;
+                                                        $array_ep_id[] = $ep->id;
+                                                    }
+                                                    $convert_ep = implode(' ', $array_ep);
+                                                    $convert_url = implode(' ', $array_url);
+                                                    $convert_ep_id = implode(' ', $array_ep_id);
+                                                @endphp
                                             </td>
                                             <td>
-                                                <button type="button" @click="open3 = !open3" onclick='modalSerieEdit("{{ $item->id }}","{{ $item->media->name }}","{{ $item->num_season }}","{{ $convert_ep }}","{{ $convert_url }}")'
+                                                <button type="button" @click="open3 = !open3" onclick='modalSerieEdit("{{ $item->id }}","{{ $item->media->name }}","{{ $item->num_season }}","{{ $convert_ep }}","{{ $convert_url }}","{{ $convert_ep_id }}")'
                                                     class="py-2 px-4 inline-block text-center mb-3 rounded leading-5 text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-white hover:bg-indigo-600 hover:ring-0 hover:border-indigo-600 focus:bg-indigo-600 focus:border-indigo-600 focus:outline-none focus:ring-0"><i
                                                         class="fa-sharp fa-solid fa-pen-to-square"></i></button>
                                                 <button type="button" @click="open2 = !open2" onclick='modalSerieTrash("{{ $item->id }}")'
@@ -85,7 +100,7 @@
                             <div class="z-50 relative p-3 mx-auto my-0 w-[40%]" style="min-width: 500px;display: none" x-show="open" x-transition:enter="transition duration-500" x-transition:enter-start="transform opacity-0 -translate-y-4"
                                 x-transition:enter-end="transform opacity-100 translate-y-0" x-transition:leave="transition -translate-y-4" x-transition:leave-start="transform opacity-100 translate-y-0" x-transition:leave-end="transform opacity-0 -translate-y-4">
                                 <div class="bg-white rounded shadow-lg border flex flex-col overflow-hidden dark:bg-gray-800 dark:border-gray-700">
-                                    <button @click="open = false" class="fill-current h-6 w-6 absolute ltr:right-0 rtl:left-0 top-0 m-6 font-3xl font-bold">×</button>
+                                    <button @click="open = false" class="close-serie-add fill-current h-6 w-6 absolute ltr:right-0 rtl:left-0 top-0 m-6 font-3xl font-bold">×</button>
                                     <!-- modal title -->
                                     <div class="px-6 py-3 text-xl border-b dark:border-gray-700 font-bold">Modal Series</div>
                                     {{-- actions --}}
@@ -144,7 +159,7 @@
                                         <!-- modal footer -->
                                         <div class="px-6 py-3 border-t dark:border-gray-700 flex justify-end">
                                             <button @click="open = false" type="button" name="close"
-                                                class="py-2 px-4 inline-block text-center rounded leading-5 text-gray-800 bg-gray-100 hover:text-gray-900 hover:bg-gray-200 hover:ring-0 hover:border-gray-200 focus:bg-gray-200 focus:border-gray-200 focus:outline-none focus:ring-0 ltr:mr-2 rtl:ml-2">Close</Button>
+                                                class="close-serie-add py-2 px-4 inline-block text-center rounded leading-5 text-gray-800 bg-gray-100 hover:text-gray-900 hover:bg-gray-200 hover:ring-0 hover:border-gray-200 focus:bg-gray-200 focus:border-gray-200 focus:outline-none focus:ring-0 ltr:mr-2 rtl:ml-2">Close</Button>
                                             <button type="submit" name="save"
                                                 class="py-2 px-4 inline-block text-center rounded leading-5 text-gray-100 bg-indigo-500 hover:text-white hover:bg-indigo-600 hover:ring-0 hover:border-indigo-600 focus:bg-indigo-600 focus:border-indigo-600 focus:outline-none focus:ring-0">Add</Button>
                                         </div>
@@ -160,13 +175,13 @@
                             <div class="z-50 relative p-3 mx-auto my-0 w-[40%]" style="min-width: 500px;display: none" x-show="open3" x-transition:enter="transition duration-500" x-transition:enter-start="transform opacity-0 -translate-y-4"
                                 x-transition:enter-end="transform opacity-100 translate-y-0" x-transition:leave="transition -translate-y-4" x-transition:leave-start="transform opacity-100 translate-y-0" x-transition:leave-end="transform opacity-0 -translate-y-4">
                                 <div class="bg-white rounded shadow-lg border flex flex-col overflow-hidden dark:bg-gray-800 dark:border-gray-700">
-                                    <button @click="open3 = false" class="close-serie fill-current h-6 w-6 absolute ltr:right-0 rtl:left-0 top-0 m-6 font-3xl font-bold">×</button>
+                                    <button @click="open3 = false" class="close-serie-update fill-current h-6 w-6 absolute ltr:right-0 rtl:left-0 top-0 m-6 font-3xl font-bold">×</button>
                                     <!-- modal title -->
                                     <div class="px-6 py-3 text-xl border-b dark:border-gray-700 font-bold">Modal Series</div>
                                     <input type="hidden" id="route_update_serie" value="{{ route('serie.update', '') }}">
                                     <form method="POST" action="" enctype="multipart/form-data" name="form_serie_update" data-parsley-validate>
                                         @csrf
-                                        @method('PUT')
+                                        @method('PATCH')
 
                                         <!-- modal content -->
                                         <div class="flex flex-wrap flex-row m-6">
@@ -191,7 +206,7 @@
                                         <!-- modal footer -->
                                         <div class="px-6 py-3 border-t dark:border-gray-700 flex justify-end">
                                             <button @click="open3 = false" type="button" name="close"
-                                                class="close-serie py-2 px-4 inline-block text-center rounded leading-5 text-gray-800 bg-gray-100 hover:text-gray-900 hover:bg-gray-200 hover:ring-0 hover:border-gray-200 focus:bg-gray-200 focus:border-gray-200 focus:outline-none focus:ring-0 ltr:mr-2 rtl:ml-2">Close</Button>
+                                                class="close-serie-update py-2 px-4 inline-block text-center rounded leading-5 text-gray-800 bg-gray-100 hover:text-gray-900 hover:bg-gray-200 hover:ring-0 hover:border-gray-200 focus:bg-gray-200 focus:border-gray-200 focus:outline-none focus:ring-0 ltr:mr-2 rtl:ml-2">Close</Button>
                                             <button type="submit" name="update"
                                                 class="py-2 px-4 inline-block text-center rounded leading-5 text-gray-100 bg-indigo-500 hover:text-white hover:bg-indigo-600 hover:ring-0 hover:border-indigo-600 focus:bg-indigo-600 focus:border-indigo-600 focus:outline-none focus:ring-0">Saves
                                                 Changes</Button>
@@ -214,7 +229,7 @@
                                     </div>
                                     <!-- modal content -->
                                     <div class="p-6 flex-grow text-center text-2xl">
-                                        <p>Are you sure you went deleted this Serie!</p>
+                                        <p>Are you sure you went deleted this Season of Serie!</p>
                                     </div>
                                     {{-- methode --}}
                                     <input type="hidden" id="route_destroy_serie" value="{{ route('serie.destroy', '') }}">

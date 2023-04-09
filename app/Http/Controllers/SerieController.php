@@ -113,7 +113,25 @@ class SerieController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $id_ep = $request->ep_id;
+        $num_ep = $request->num_ep_update;
+        $num_ep = $request->num_ep_update;
+        $url = $request->url_update;
+
+        foreach($num_ep AS $key => $item){
+
+            $episode = Episode::find($id_ep[$key]);
+
+            // dd($episode);
+
+            $episode->update([
+                'num_ep' => $num_ep[$key],
+                'url' => $url[$key],
+            ]);
+        }
+        
+        return redirect()->back();
     }
 
     /**
