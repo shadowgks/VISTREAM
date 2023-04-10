@@ -87,6 +87,7 @@
                                             @endforeach
                                         </select>
                                     </div>
+                                    
                                     <div class="mb-6 mx-7">
                                         <label for="formFileMultiple" class="inline-block mb-2">Picture</label>
                                         <input name="picture" required data-parsley-trigger="change" accept=".jpg,.jpeg,.png,.svg,.gif" required
