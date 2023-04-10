@@ -41,36 +41,19 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($data_table as $key => $item)
-                                        {{-- {{dd($item)}} --}}
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
                                             <td>
                                                 {{ $item->media->name }}
                                             </td>
                                             <td>{{ $item->num_season }}</td>
-                                            <td>
-                                                {{--
-                                                @php
-                                                    $array_ep = [];
-                                                    $array_url = [];
-                                                @endphp
-                                                @foreach ($item->episodes as $key => $ep)
-                                                    [{{ $array_ep[] = $ep->num_ep }}] -
-                                                    @php
-                                                        $array_url[] = $ep->url;
-                                                    @endphp
-                                                @endforeach
-                                                @php
-                                                    $convert_ep =  implode(' ', $array_ep);
-                                                    $convert_url = implode(' ', $array_url);
-                                                @endphp
-                                            </td> --}}
+                                            <td> ...
                                                 @php
                                                     $array_ep = [];
                                                     $array_url = [];
                                                     $array_ep_id = [];
                                                     foreach ($item->episodes as $key => $ep) {
-                                                        echo '[' . $ep->num_ep . '] - ';
+                                                        // echo '[' . $ep->num_ep . '] - ';
                                                         $array_ep[] = $ep->num_ep;
                                                         $array_url[] = $ep->url;
                                                         $array_ep_id[] = $ep->id;
@@ -233,7 +216,7 @@
                                     </div>
                                     {{-- methode --}}
                                     <input type="hidden" id="route_destroy_serie" value="{{ route('serie.destroy', '') }}">
-                                    <form action="{{ route('serie.destroy', '') }}" method="POST" name="form2_serie">
+                                    <form action="" method="POST" name="form_serie_delete">
                                         <div class="px-6 py-3 border-t dark:border-gray-700 flex justify-end">
                                             @csrf
                                             @method('DELETE')

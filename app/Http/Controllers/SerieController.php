@@ -23,10 +23,11 @@ class SerieController extends Controller
             ->where('status', 1)
             ->where('type_id', 2)
             ->get();
+
         $data_table = Season
-        ::with('media')
-        ->with('episodes')
-        ->get();
+            ::with('media')
+            ->with('episodes')
+            ->get();
         // dd($data_table);
         $num_season = NumSeason::orderBy('number', 'asc')->get();
         // dd($num_season);
@@ -119,18 +120,21 @@ class SerieController extends Controller
         $num_ep = $request->num_ep_update;
         $url = $request->url_update;
 
-        foreach($num_ep AS $key => $item){
+        foreach ($num_ep as $key => $item) {
 
             $episode = Episode::find($id_ep[$key]);
 
-            // dd($episode);
-
-            $episode->update([
+            $update = $episode->update([
                 'num_ep' => $num_ep[$key],
                 'url' => $url[$key],
             ]);
+            if ($update) {
+                Session::flash('success', 'Updated Episodes Season Successfully');
+            }else{
+                Session::flash('failed', 'Updated Failed!');
+            }
         }
-        
+
         return redirect()->back();
     }
 
@@ -142,6 +146,12 @@ class SerieController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $season = Season::find($id);
+        if ($season->delete()) {
+            Session::flash('success', 'Deleted Season Successfully');
+        }else{
+            Session::flash('failed', 'Deleted Failed!');
+        }
+        return redirect()->back();
     }
 }
