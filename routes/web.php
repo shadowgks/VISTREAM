@@ -14,10 +14,12 @@ use App\Http\Controllers\Media\SerieMediaController;
 use App\Http\Controllers\MediaController;
 use App\Http\Controllers\SerieController;
 use App\Http\Controllers\SliderController;
+use App\Http\Controllers\StatisticController;
 use App\Http\Controllers\TypeController;
 use App\Http\Controllers\TypeQualityController;
 use GuzzleHttp\Psr7\ServerRequest;
 use Illuminate\Support\Facades\Route;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +33,7 @@ use Illuminate\Support\Facades\Route;
 */
 //Media
 Route::get('/', [HomeMediaController::class, 'index'])->name('home.index');
+Route::get('/statistics', [StatisticController::class, 'index'])->name('dashbaord.index');
 Route::get('/movies', [MovieMediaController::class, 'index'])->name('movies.index');
 Route::get('/series', [SerieMediaController::class, 'index'])->name('series.index');
 Route::get('/movie/{slug}', [PlayMovieController::class, 'show'])->name('play-movie.show');
