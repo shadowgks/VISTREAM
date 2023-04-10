@@ -47,21 +47,52 @@
                                                 {{ $item->media->name }}
                                             </td>
                                             <td>{{ $item->num_season }}</td>
-                                            <td> ...
-                                                @php
-                                                    $array_ep = [];
-                                                    $array_url = [];
-                                                    $array_ep_id = [];
-                                                    foreach ($item->episodes as $key => $ep) {
-                                                        // echo '[' . $ep->num_ep . '] - ';
-                                                        $array_ep[] = $ep->num_ep;
-                                                        $array_url[] = $ep->url;
-                                                        $array_ep_id[] = $ep->id;
-                                                    }
-                                                    $convert_ep = implode(' ', $array_ep);
-                                                    $convert_url = implode(' ', $array_url);
-                                                    $convert_ep_id = implode(' ', $array_ep_id);
-                                                @endphp
+                                            <td>
+                                                <li x-data="{ open: false }" class="relative flex">
+                                                    <button href="javascript:;" class="py-3 px-4 flex text-sm rounded-full focus:outline-none" id="notify" @click="open = ! open">
+                                                        <div class="relative inline-block">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6 bi bi-bell" viewBox="0 0 16 16">
+                                                                <path
+                                                                    d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z" />
+                                                            </svg>
+                                                            <!-- <i class="text-2xl fas fa-bell"></i> -->
+                                                            <span class="flex justify-center absolute -top-2 ltr:-right-1 rtl:-left-1 text-center bg-pink-500 px-1 text-white rounded-full text-xs"><span class="align-self-center">{{ count($item->episodes) }}</span></span>
+                                                        </div>
+                                                    </button>
+
+                                                    <div x-show="open" @click.away="open = false" x-transition:enter="transition-all duration-200 ease-out" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100"
+                                                        x-transition:leave="transition-all duration-200 ease-in" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95"
+                                                        class="w-72 origin-top-right absolute ltr:right-0 rtl:left-0 rounded top-full z-50 py-0.5 ltr:text-left rtl:text-right bg-white dark:bg-color-primary-75 border dark:border-gray-700 shadow-md" style="display: none;">
+                                                        <div class="p-3 font-normal border-b border-gray-200 dark:border-gray-700">
+                                                            <div class="relative">
+                                                                <div class="font-bold">Episodes</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="max-h-60 overflow-y-auto scrollbars show">
+                                                            @php
+                                                                $array_ep = [];
+                                                                $array_url = [];
+                                                                $array_ep_id = [];
+                                                                foreach ($item->episodes as $key => $ep) {
+                                                                    echo '
+                                                                    <div class="flex flex-wrap flex-row items-center justify-center border-b border-gray-200 dark:border-gray-700 dark:bg-gray-900 dark:bg-opacity-40 dark:hover:bg-opacity-20 py-2 hover:bg-gray-100 bg-gray-50">
+                                                                        <div class="flex-shrink max-w-full px-2 w-3/4">
+                                                                            <div class="text-sm font-bold">Episode '.$ep->num_ep.'</div>
+                                                                            <div class="text-gray-500 text-sm mt-1">URL</div>
+                                                                        </div>
+                                                                    </div>
+                                                                    ';
+                                                                    $array_ep[] = $ep->num_ep;
+                                                                    $array_url[] = $ep->url;
+                                                                    $array_ep_id[] = $ep->id;
+                                                                }
+                                                                $convert_ep = implode(' ', $array_ep);
+                                                                $convert_url = implode(' ', $array_url);
+                                                                $convert_ep_id = implode(' ', $array_ep_id);
+                                                            @endphp
+                                                        </div>
+                                                    </div>
+                                                </li>
                                             </td>
                                             <td>
                                                 <button type="button" @click="open3 = !open3" onclick='modalSerieEdit("{{ $item->id }}","{{ $item->media->name }}","{{ $item->num_season }}","{{ $convert_ep }}","{{ $convert_url }}","{{ $convert_ep_id }}")'

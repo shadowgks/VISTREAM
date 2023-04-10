@@ -52,7 +52,6 @@
 
                 <!-- menu -->
                 <ul class="flex ltr:ml-auto rtl:mr-auto mt-2">
-
                     <!-- messages -->
                     <li x-data="{ open: false }" class="relative">
                         <a href="#" class="py-3 px-4 flex text-sm rounded-full focus:outline-none"
