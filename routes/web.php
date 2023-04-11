@@ -4,6 +4,7 @@ use App\Http\Controllers\ActorController;
 use App\Http\Controllers\Auth\UserController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\GenreController;
+use App\Http\Controllers\Media\ActorMediaController;
 use App\Http\Controllers\Media\CountryMediaController;
 use App\Http\Controllers\Media\GenreMediaController;
 use App\Http\Controllers\Media\HomeMediaController;
@@ -34,6 +35,8 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 //Media
 Route::get('/', [HomeMediaController::class, 'index'])->name('home.index');
 Route::get('/live-search', [HomeMediaController::class, 'search'])->name('search.media');
+Route::get('/filter', [HomeMediaController::class, 'filter'])->name('filter.media');
+Route::get('/actors', [ActorMediaController::class, 'index'])->name('actor');
 Route::get('/statistics', [StatisticController::class, 'index'])->name('statistics.index');
 Route::get('/movies', [MovieMediaController::class, 'index'])->name('movies.index');
 Route::get('/series', [SerieMediaController::class, 'index'])->name('series.index');

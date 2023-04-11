@@ -11,7 +11,7 @@
         <section class="mt-14">
             <!-- heading -->
             <div class="text-bold flex flex-col gap-5 md:flex-row md:gap-0 md:justify-between md:items-center">
-                <h2 class="text-white font-bold text-3xl">Search {{ $name }} Movies, TV-Series
+                <h2 class="text-white font-bold text-3xl">Search Movies, TV-Series
                     <hr class="w-32 mt-2 border-2 border-color-three">
                 </h2>
                 <div>

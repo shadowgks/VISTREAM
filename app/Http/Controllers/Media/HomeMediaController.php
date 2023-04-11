@@ -18,7 +18,7 @@ class HomeMediaController extends Controller
             ->get();
 
         //Latest
-        $latest =  Media
+        $latest = Media
             ::where('status', 1)
             ->limit(12)
             ->latest()
@@ -84,5 +84,10 @@ class HomeMediaController extends Controller
             ::where('name', 'like', '%' . $request->name . '%')
             ->paginate('18');
         return view('media.search', compact('results','name'));
+    }
+
+    function filter(Request $request)
+    {
+        return view('media.filter');
     }
 }
