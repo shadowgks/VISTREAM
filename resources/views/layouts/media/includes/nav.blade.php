@@ -18,36 +18,8 @@
                     <input type="text" data-url="{{ route('search.media') }}" id="search-navbar" class="block w-full p-2 pl-10 text-sm outline-none rounded-lg bg-gray-700 border-gray-600 placeholder-gray-400 text-white hover:bg-white hover:text-black duration-500"
                         placeholder="Search...">
 
-
-
                     <div id="search-results" class="text-white">
                         <!-- bg media search -->
-                        {{-- <li class="absolute top-11 list-none">
-                            <div class="block w-72 left-[-45px] absolute rounded top-full z-50 py-0.5 bg-color-primary-75 border border-gray-700 shadow-md">
-                                <div class="max-h-60 overflow-y-auto scrollbars show">
-
-                                    <a href="#">
-                                        <div class="flex flex-wrap flex-row items-center border-b border-gray-700 bg-gray-900 dark:bg-opacity-40 hover:bg-opacity-20 py-2">
-                                            <div class="flex-shrink max-w-full px-2 w-1/4 text-center">
-                                                <div class="relative">
-                                                    <img src="https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" class="h-14 w-14 mx-auto " alt="Carlos Garcia">
-                                                </div>
-                                            </div>
-                                            <div class="flex-shrink max-w-full px-2 w-3/4">
-                                                <div class="text-sm text-gray-400 font-bold">Name Media</div>
-                                                <div class="text-gray-500 text-xs mt-1">2012 . 123 min</div>
-                                                <div class="text-gray-500 text-sm mt-1">Serie or Movie</div>
-                                            </div>
-                                        </div>
-                                    </a>
-
-
-                                </div>
-                                <div class="p-3 text-gray-400 text-center font-normal">
-                                    <a href="#" class="hover:underline">Show all Media</a>
-                                </div>
-                            </div>
-                        </li> --}}
                     </div>
                 </div>
             </form>
