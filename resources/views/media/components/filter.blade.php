@@ -1,4 +1,4 @@
-<div id="filters" class="w-full my-10 shadow p-5 rounded-lg bg-color-primary-75 hidden">
+<div id="filters" class="w-full my-10 shadow p-5 rounded-lg bg-color-primary-75 hidden delay-500">
     <!-- heading filter -->
     <div class="flex items-center justify-between mt-4">
         <p class="font-bold text-white">

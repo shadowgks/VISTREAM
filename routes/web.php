@@ -33,7 +33,7 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 */
 //Media
 Route::get('/', [HomeMediaController::class, 'index'])->name('home.index');
-Route::get('/search', [HomeMediaController::class, 'search'])->name('search.media');
+Route::get('/live-search', [HomeMediaController::class, 'search'])->name('search.media');
 Route::get('/statistics', [StatisticController::class, 'index'])->name('statistics.index');
 Route::get('/movies', [MovieMediaController::class, 'index'])->name('movies.index');
 Route::get('/series', [SerieMediaController::class, 'index'])->name('series.index');

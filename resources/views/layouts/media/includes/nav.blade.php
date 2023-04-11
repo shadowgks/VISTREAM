@@ -18,7 +18,7 @@
                     <input type="text" data-url="{{ route('search.media') }}" id="search-navbar" class="block w-full p-2 pl-10 text-sm outline-none rounded-lg bg-gray-700 border-gray-600 placeholder-gray-400 text-white hover:bg-white hover:text-black duration-500"
                         placeholder="Search...">
 
-                    <div id="search-results" class="text-white">
+                    <div id="search-results" class="ease-linear">
                         <!-- bg media search -->
                     </div>
                 </div>
