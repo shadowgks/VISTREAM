@@ -132,9 +132,8 @@ class MediaController extends Controller
             unset($inputs["picture"]);
         }
         //----------E Upload pictures--------------
-        // dd($inputs);
+        
         $this_media = Media::find($media);
-        // $id = $this_media->id;
         $update = $this_media->update($inputs);
         $this_media->actors()
             ->sync($request->actors);

@@ -51,11 +51,14 @@
                                                 <li x-data="{ open: false }" class="relative flex">
                                                     <button href="javascript:;" class="py-3 px-4 flex text-sm rounded-full focus:outline-none" id="notify" @click="open = ! open">
                                                         <div class="relative inline-block">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6 bi bi-bell" viewBox="0 0 16 16">
-                                                                <path
-                                                                    d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z" />
+                                                            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                                                <g id="SVGRepo_iconCarrier">
+                                                                    <path d="M12 7H19C20.1046 7 21 7.89543 21 9V17C21 18.1046 20.1046 19 19 19H5C3.89543 19 3 18.1046 3 17V9C3 7.89543 3.89543 7 5 7H12ZM12 7L8 3M12 7L16 3" stroke="#737a85" stroke-linecap="round" stroke-linejoin="round"
+                                                                        stroke-width="2"></path>
+                                                                </g>
                                                             </svg>
-                                                            <!-- <i class="text-2xl fas fa-bell"></i> -->
                                                             <span class="flex justify-center absolute -top-2 ltr:-right-1 rtl:-left-1 text-center bg-pink-500 px-1 text-white rounded-full text-xs"><span class="align-self-center">{{ count($item->episodes) }}</span></span>
                                                         </div>
                                                     </button>
@@ -77,8 +80,10 @@
                                                                     echo '
                                                                     <div class="flex flex-wrap flex-row items-center justify-center border-b border-gray-200 dark:border-gray-700 dark:bg-gray-900 dark:bg-opacity-40 dark:hover:bg-opacity-20 py-2 hover:bg-gray-100 bg-gray-50">
                                                                         <div class="flex-shrink max-w-full px-2 w-3/4">
-                                                                            <div class="text-sm font-bold">Episode '.$ep->num_ep.'</div>
-                                                                            <div class="text-gray-500 text-sm mt-1">URL</div>
+                                                                            <div class="text-sm font-bold">Episode ' .
+                                                                        $ep->num_ep .
+                                                                        '</div>
+                                                                            <div class="text-gray-500 text-sm mt-1">'.$ep->url.'</div>
                                                                         </div>
                                                                     </div>
                                                                     ';

@@ -1,20 +1,56 @@
 <nav class="bg-color-primary-75 px-2 sm:px-4 py-2.5">
     <div class="container flex flex-wrap items-center justify-between mx-auto">
-        <a href="#" class="flex items-center">
+        <a href="{{ route('home.index') }}" class="flex items-center">
             <img src="{{ asset('build/assets/images/logo/VISTREAM.png') }}" class="h-12 mr-3 sm:h-14" alt="VISTREAM" />
         </a>
 
         <!-- search -->
-        <div class="flex items-center md:order-2 md:gap-5">
-            <div class="relative hidden md:block">
-                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                    <svg class="w-5 h-5 text-gray-500" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
-                    </svg>
-                    <span class="sr-only">Search icon</span>
+        <div class="relative flex items-center md:order-2 md:gap-5">
+            <form action="" method="">
+                <div class="relative hidden md:block">
+                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                        <svg class="w-5 h-5 text-gray-500" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
+                        </svg>
+                        <span class="sr-only">Search icon</span>
+                    </div>
+
+                    <input type="text" data-url="{{ route('search.media') }}" id="search-navbar" class="block w-full p-2 pl-10 text-sm outline-none rounded-lg bg-gray-700 border-gray-600 placeholder-gray-400 text-white hover:bg-white hover:text-black duration-500"
+                        placeholder="Search...">
+
+
+
+                    <div id="search-results" class="text-white">
+                        <!-- bg media search -->
+                        {{-- <li class="absolute top-11 list-none">
+                            <div class="block w-72 left-[-45px] absolute rounded top-full z-50 py-0.5 bg-color-primary-75 border border-gray-700 shadow-md">
+                                <div class="max-h-60 overflow-y-auto scrollbars show">
+
+                                    <a href="#">
+                                        <div class="flex flex-wrap flex-row items-center border-b border-gray-700 bg-gray-900 dark:bg-opacity-40 hover:bg-opacity-20 py-2">
+                                            <div class="flex-shrink max-w-full px-2 w-1/4 text-center">
+                                                <div class="relative">
+                                                    <img src="https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" class="h-14 w-14 mx-auto " alt="Carlos Garcia">
+                                                </div>
+                                            </div>
+                                            <div class="flex-shrink max-w-full px-2 w-3/4">
+                                                <div class="text-sm text-gray-400 font-bold">Name Media</div>
+                                                <div class="text-gray-500 text-xs mt-1">2012 . 123 min</div>
+                                                <div class="text-gray-500 text-sm mt-1">Serie or Movie</div>
+                                            </div>
+                                        </div>
+                                    </a>
+
+
+                                </div>
+                                <div class="p-3 text-gray-400 text-center font-normal">
+                                    <a href="#" class="hover:underline">Show all Media</a>
+                                </div>
+                            </div>
+                        </li> --}}
+                    </div>
                 </div>
-                <input type="text" id="search-navbar" class="block w-full p-2 pl-10 text-sm outline-none rounded-lg bg-gray-700 border-gray-600 placeholder-gray-400 text-white hover:bg-white hover:text-black duration-500" placeholder="Search...">
-            </div>
+            </form>
             <!-- user -->
             <a href="">
                 <i class="fa-solid fa-circle-user text-white text-2xl md:text-3xl"></i>
@@ -53,7 +89,7 @@
                             <ul aria-labelledby="mega-menu-dropdown-button">
                                 <li class="grid items-center grid-cols-4 gap-4">
                                     @foreach ($global_data['genres'] as $item)
-                                        <a href="{{route('media.genre.show', $item->name)}}" class="text-gray-400  hover:text-color-links">
+                                        <a href="{{ route('media.genre.show', $item->name) }}" class="text-gray-400  hover:text-color-links">
                                             {{ $item->name }}
                                         </a>
                                     @endforeach
@@ -69,7 +105,7 @@
                             <ul aria-labelledby="mega-menu-dropdown-button">
                                 <li class="grid items-center grid-cols-4 gap-4">
                                     @foreach ($global_data['countries'] as $item)
-                                        <a href="{{route('media.country.show', $item->name)}}" class="text-gray-400  hover:text-color-links">
+                                        <a href="{{ route('media.country.show', $item->name) }}" class="text-gray-400  hover:text-color-links">
                                             {{ $item->name }}
                                         </a>
                                     @endforeach

@@ -5,7 +5,14 @@
 <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/js/multi-select-tag.js"></script>
 <script src="{{ asset('build/assets/js/parsleyjs.js') }}"></script>
 <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script> <!--datePicker-->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script><!--datePicker-->
+<script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+</script>
 <script src="{{ asset('build/assets/js/main.js') }}"></script>
 
 
