@@ -151,8 +151,8 @@
                                         </div>
                                         <div class="flex-shrink max-w-full px-4 w-full md:w-1/2 mb-6">
                                             <label class="inline-block mb-2">Released</label>
-                                            <input type="date" name="released_year" data-parsley-trigger="keyup" required
-                                                class="w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600">
+                                            <input type="text" name="released_year" id="date_flatpickr_media" placeholder="Select a date..." data-parsley-trigger="keyup" required
+                                                class="date_flatpickr w-full leading-5 relative py-2 px-4 rounded text-gray-800 bg-white border border-gray-300 overflow-x-auto focus:outline-none focus:border-gray-400 focus:ring-0 dark:text-gray-300 dark:bg-gray-700 dark:border-gray-700 dark:focus:border-gray-600">
                                         </div>
                                         <div class="flex-shrink max-w-full px-4 w-full md:w-1/2 mb-6">
                                             <label class="inline-block mb-2">Picture</label>
