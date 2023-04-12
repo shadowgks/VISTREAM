@@ -12,7 +12,7 @@ class PlaySerieController extends Controller
     function show($slug,$season,$episodes)
     {
         //Media play
-        $serie_play = Media
+        $media_play= Media
             ::where('slug', $slug)
             ->where('status', 1)
             ->where('type_id', 2)
@@ -33,18 +33,18 @@ class PlaySerieController extends Controller
 
         //You may also like by country
         $this_media_like = Media
-            ::where('country_id', $serie_play->country_id)
-            ->where('id', '!=', $serie_play->id)
+            ::where('country_id', $media_play->country_id)
+            ->where('id', '!=', $media_play->id)
             ->get();
 
         //Seasons And Episodes
         $season_episode = Season
-            ::where('media_id', $serie_play->id)
+            ::where('media_id', $media_play->id)
             ->orderBy('num_season', 'ASC')
             ->with(['episodes' => function ($query) {
                 $query->orderBy('num_ep', 'ASC');
             }])
             ->get();
-        return view('media.play-serie', compact('serie_play', 'url_media', 'this_media_like', 'season_episode'));
+        return view('media.play-serie', compact('media_play', 'url_media', 'this_media_like', 'season_episode'));
     }
 }

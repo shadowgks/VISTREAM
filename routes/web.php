@@ -37,14 +37,14 @@ Route::get('/', [HomeMediaController::class, 'index'])->name('home.index');
 Route::get('/live-search', [HomeMediaController::class, 'search'])->name('search.media');
 Route::get('/filter', [HomeMediaController::class, 'filter'])->name('filter.media');
 Route::get('/actors', [ActorMediaController::class, 'index'])->name('actors.index');
-Route::get('/profile-actor/{actor}', [ActorMediaController::class, 'profileActor'])->name('actor.profile');
+Route::get('/profile-actor/{name}', [ActorMediaController::class, 'profileActor'])->name('actor.profile');
 Route::get('/statistics', [StatisticController::class, 'index'])->name('statistics.index');
 Route::get('/movies', [MovieMediaController::class, 'index'])->name('movies.index');
 Route::get('/series', [SerieMediaController::class, 'index'])->name('series.index');
 Route::get('/movie/{slug}', [PlayMovieController::class, 'show'])->name('play-movie.show');
 Route::get('/serie/{slug}/{Seasson}-{Episode}', [PlaySerieController::class, 'show'])->name('play-serie.show');
-Route::get('/country/{id}', [CountryMediaController::class, 'show'])->name('media.country.show');
-Route::get('/genre/{id}', [GenreMediaController::class, 'show'])->name('media.genre.show');
+Route::get('/country/{name}', [CountryMediaController::class, 'show'])->name('media.country.show');
+Route::get('/genre/{name}', [GenreMediaController::class, 'show'])->name('media.genre.show');
 
 //Ressources Dashboard
 Route::resource('/dashboard/country', CountryController::class);

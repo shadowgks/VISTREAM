@@ -12,20 +12,20 @@ class PlayMovieController extends Controller
     function show($slug)
     {
         //Media play
-        $movie_play = Media
+        $media_play = Media
             ::where('slug', $slug)
             ->where('status', 1)
             ->where('type_id', 1)
             ->first();
 
-        $url_media = $movie_play->link_media;
+        $url_media = $media_play->link_media;
 
         //You may also like by country
         $this_media_like = Media
-            ::where('country_id', $movie_play->country_id)
-            ->where('id', '!=', $movie_play->id)
+            ::where('country_id', $media_play->country_id)
+            ->where('id', '!=', $media_play->id)
             ->get();
 
-        return view('media.play-movie', compact('movie_play', 'url_media', 'this_media_like'));
+        return view('media.play-movie', compact('media_play', 'url_media', 'this_media_like'));
     }
 }
