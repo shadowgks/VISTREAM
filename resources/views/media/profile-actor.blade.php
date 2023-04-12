@@ -40,7 +40,7 @@
         <!-- Card end -->
     </div>
     <!-- All cards -->
-    <div class="mx-4 mt-10">
+    <div class="w-container m-auto">
         <h2 class="text-white font-bold text-3xl uppercase">My media
             <hr class="w-32 mt-2 border-2 border-color-three">
         </h2>

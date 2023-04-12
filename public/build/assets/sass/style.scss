@@ -1,0 +1,32 @@
+@import 'abstracts/_variables';
+@import 'components/_carousel.scss';
+
+//B swiper carousel
+.swiper {
+    height: 60vh;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+    @extend %swiper-button;
+}
+
+.swiper-pagination-bullet {
+    @extend %swiper-pagination;
+}
+
+//E swiper carousel
+
+//image card
+.img-media {
+    width: 500px;
+    height: 350px;
+}
+
+//plyr customer
+:root {
+    --plyr-color-main: #88188f;
+}
+.plyr--full-ui.plyr--video .plyr__control--overlaid{
+    background-color: $color-secondary;
+}

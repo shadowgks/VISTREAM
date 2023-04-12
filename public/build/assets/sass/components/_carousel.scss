@@ -1,0 +1,19 @@
+%swiper-button{
+    color: $color-white;
+    background-color: $color-secondary;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 auto;
+    font-size: 12px;
+}
+%swiper-pagination{
+    width: 30px;
+    height: 5px;
+    border-radius: 12px;
+    background-color: $color-white;
+}
+
