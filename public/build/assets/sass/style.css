@@ -34,4 +34,15 @@
 
 .plyr--full-ui.plyr--video .plyr__control--overlaid {
   background-color: #88188f;
+}
+
+#btn-modal-trailer {
+  background-color: #88188f;
+  color: #fff;
+  border-radius: 5px;
+}
+
+#modal-trailer {
+  padding: 0;
+  border-radius: 0;
 }/*# sourceMappingURL=style.css.map */

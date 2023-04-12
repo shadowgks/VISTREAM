@@ -30,3 +30,14 @@
 .plyr--full-ui.plyr--video .plyr__control--overlaid{
     background-color: $color-secondary;
 }
+
+//modal DaisyUI
+#btn-modal-trailer{
+    background-color: $color-secondary;
+    color: $color-white;
+    border-radius: 5px;
+}
+#modal-trailer{
+    padding: 0;
+    border-radius: 0;
+}

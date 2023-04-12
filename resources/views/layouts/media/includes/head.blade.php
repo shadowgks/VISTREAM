@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="{{ asset('build/assets/css/parsleyjs.css') }}">
 <link rel="stylesheet" href="{{ asset('build/assets/sass/style.css') }}">
 <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+<link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.5/dist/full.css" rel="stylesheet" type="text/css" />
 
 @vite(['resources/css/app.css'])
 
