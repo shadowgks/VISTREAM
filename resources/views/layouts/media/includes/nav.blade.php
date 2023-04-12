@@ -35,6 +35,7 @@
                 </svg>
             </button>
         </div>
+
         <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-search">
             <div class="relative mt-3 md:hidden">
                 <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -55,7 +56,7 @@
                     <a href="{{ route('series.index') }}" class="block py-2 pl-3 pr-4 text-gray-400 @yield('link_series_active') rounded md:hover:bg-transparent hover:text-color-links md:p-0">TV-Series</a>
                 </li>
                 <li>
-                    <button class="block py-2 pl-3 pr-4 text-gray-400 rounded md:hover:bg-transparent hover:text-color-links md:p-0" id="genre-menu-dropdown-button" data-dropdown-toggle="genre-menu-dropdown">Genre</button>
+                    <button class="block py-2 pl-3 pr-4 text-gray-400 @yield('link_genres_active') rounded md:hover:bg-transparent hover:text-color-links md:p-0" id="genre-menu-dropdown-button" data-dropdown-toggle="genre-menu-dropdown">Genres</button>
                     <div id="genre-menu-dropdown" class="absolute z-10 hidden w-auto text-sm bg-color-primary-75 rounded-lg shadow-md">
                         <div class="p-7 pb-0 grid text-gray-900 md:pb-4">
                             <ul aria-labelledby="mega-menu-dropdown-button">
@@ -71,7 +72,7 @@
                     </div>
                 </li>
                 <li>
-                    <button class="block py-2 pl-3 pr-4 text-gray-400 rounded md:hover:bg-transparent hover:text-color-links md:p-0" id="country-menu-dropdown-button" data-dropdown-toggle="country-menu-dropdown">Country</button>
+                    <button class="block py-2 pl-3 pr-4 text-gray-400 @yield('link_countries_active') rounded md:hover:bg-transparent hover:text-color-links md:p-0" id="country-menu-dropdown-button" data-dropdown-toggle="country-menu-dropdown">Countries</button>
                     <div id="country-menu-dropdown" class="absolute z-10 hidden w-auto text-sm bg-color-primary-75 rounded-lg shadow-md">
                         <div class="p-7 pb-0 grid items-center text-gray-900 md:pb-4">
                             <ul aria-labelledby="mega-menu-dropdown-button">
@@ -87,8 +88,10 @@
                     </div>
                 </li>
                 <li>
-                    <a href="#" class="block py-2 pl-3 pr-4 text-gray-400 @yield('link_about_active') rounded md:hover:bg-transparent hover:text-color-links md:p-0">About
-                        us</a>
+                    <a href="{{ route('actors.index') }}" class="block py-2 pl-3 pr-4 text-gray-400 @yield('link_actors_active') rounded md:hover:bg-transparent hover:text-color-links md:p-0">Actors</a>
+                </li>
+                <li>
+                    <a href="#" class="block py-2 pl-3 pr-4 text-gray-400 @yield('link_about_active') rounded md:hover:bg-transparent hover:text-color-links md:p-0">About us</a>
                 </li>
             </ul>
         </div>

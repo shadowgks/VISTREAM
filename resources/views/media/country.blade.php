@@ -4,6 +4,9 @@
     Country
 @endsection
 
+@section('link_countries_active')
+    text-white
+@endsection
 @section('content')
     <!-- Main Movies & Series -->
     <div class="w-container m-auto">

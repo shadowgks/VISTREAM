@@ -4,6 +4,9 @@
     Genre
 @endsection
 
+@section('link_genres_active')
+    text-white
+@endsection
 @section('content')
     <!-- Main Movies & Series -->
     <div class="w-container m-auto">

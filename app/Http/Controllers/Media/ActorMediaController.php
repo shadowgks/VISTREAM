@@ -13,4 +13,13 @@ class ActorMediaController extends Controller
         $actors = Actor::paginate(12);
         return view('media.actors', compact('actors'));
     }
+
+    function profileActor($actor)
+    {
+        $actor_media = Actor
+        ::where('fullname',$actor)
+        ->with('medias')
+        ->first();
+        return view('media.profile-actor',compact('actor_media','actor'));
+    }
 }
