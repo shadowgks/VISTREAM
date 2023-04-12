@@ -83,11 +83,43 @@ class HomeMediaController extends Controller
         $results = Media
             ::where('name', 'like', '%' . $request->name . '%')
             ->paginate('18');
-        return view('media.search', compact('results','name'));
+        return view('media.search', compact('results', 'name'));
     }
 
     function filter(Request $request)
     {
-        return view('media.filter');
+        // dd($request->all());
+        $genres = $request->genres;
+        $countries = $request->countries;
+        $query = Media::query();
+        // dd($genres);
+        if ($genres != null) {
+            $query->with(['genres' => function ($query) use ($genres) {
+                return $query->whereIn('genres.id', $genres);
+            }]);
+        }
+        if ($countries != null) {
+            $query->with(['countries' => function ($query) use ($countries) {
+                return $query->whereIn('id', $countries);
+            }]);
+        }
+        if ($request->type != "all") {
+            $query->where('type_id', $request->type);
+        }
+        if ($request->quality != "all") {
+            $query->where('quality_id', $request->quality);
+        }
+        switch ($request->year) {
+            case 'all':
+                break;
+            case 'older-2019':
+                $query->whereYear('released_year', '<', '2019');
+                break;
+            default:
+                $query->whereYear('released_year', $request->year);
+                break;
+        }
+        $results = $query->get();
+        return view('media.filter', compact('results'));
     }
 }

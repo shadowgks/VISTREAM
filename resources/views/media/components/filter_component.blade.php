@@ -1,7 +1,7 @@
 <div id="filters" class="w-full my-10 shadow p-5 rounded-lg bg-color-primary-75 hidden">
     <!-- heading filter -->
     {{-- {{ dd($global_data['type-media']) }} --}}
-    <form method="GET" action="">
+    <form method="GET" action="{{route('filter.media')}}">
         <div>
             <div class="flex items-start border-b-2 border-gray-700 py-4">
                 <label class="font-bold text-white mr-4">
@@ -31,7 +31,7 @@
                     Released:
                 </label>
                 <div class="text-white">
-                    <input class="mx-1 bg-gray-600" type="radio" name="year" value="" id="" checked><label for="">All</label>
+                    <input class="mx-1 bg-gray-600" type="radio" name="year" value="all" id="" checked><label for="">All</label>
                     <input class="mx-1 bg-gray-600" type="radio" name="year" value="2023" id=""><label for="">2023</label>
                     <input class="mx-1 bg-gray-600" type="radio" name="year" value="2022" id=""><label for="">2022</label>
                     <input class="mx-1 bg-gray-600" type="radio" name="year" value="2021" id=""><label for="">2021</label>

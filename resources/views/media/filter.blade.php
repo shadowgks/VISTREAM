@@ -25,9 +25,13 @@
             <!-- All cards -->
             <div class="items-media grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3 mt-10 my-4">
                 <!-- card -->
-                {{-- @foreach ($results as $item)
-                    @include('media.components.card')
-                @endforeach --}}
+                @foreach ($results as $key => $item)
+                    @if ($item->countries != null)
+                        @if (!$item->genres->isEmpty())
+                            @include('media.components.card')
+                        @endif
+                    @endif
+                @endforeach
             </div>
         </section>
 
