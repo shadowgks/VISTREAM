@@ -4,7 +4,7 @@
     Series
 @endsection
 
-@section('serie-color')
+@section('serie-active')
     dark:text-gray-300
 @endsection
 
@@ -83,7 +83,9 @@
                                                                             <div class="text-sm font-bold">Episode ' .
                                                                         $ep->num_ep .
                                                                         '</div>
-                                                                            <div class="text-gray-500 text-sm mt-1">'.$ep->url.'</div>
+                                                                            <div class="text-gray-500 text-sm mt-1">' .
+                                                                        $ep->url .
+                                                                        '</div>
                                                                         </div>
                                                                     </div>
                                                                     ';
@@ -101,11 +103,21 @@
                                             </td>
                                             <td>
                                                 <button type="button" @click="open3 = !open3" onclick='modalSerieEdit("{{ $item->id }}","{{ $item->media->name }}","{{ $item->num_season }}","{{ $convert_ep }}","{{ $convert_url }}","{{ $convert_ep_id }}")'
-                                                    class="py-2 px-4 inline-block text-center mb-3 rounded leading-5 text-gray-100 bg-indigo-500 border border-indigo-500 hover:text-white hover:bg-indigo-600 hover:ring-0 hover:border-indigo-600 focus:bg-indigo-600 focus:border-indigo-600 focus:outline-none focus:ring-0"><i
-                                                        class="fa-sharp fa-solid fa-pen-to-square"></i></button>
-                                                <button type="button" @click="open2 = !open2" onclick='modalSerieTrash("{{ $item->id }}")'
-                                                    class="py-2 px-4 inline-block text-center mb-3 rounded leading-5 text-gray-100 bg-red-500 border border-red-500 hover:text-white hover:bg-red-600 hover:ring-0 hover:border-red-600 focus:bg-red-600 focus:border-red-600 focus:outline-none focus:ring-0"
-                                                    @><i class="fa-regular fa-trash-can"></i></button>
+                                                    class="inline-block mr-2 hover:text-green-500" title="Edit">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z">
+                                                        </path>
+                                                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"></path>
+                                                    </svg>
+                                                </button>
+                                                <button type="button" @click="open2 = !open2" onclick='modalSerieTrash("{{ $item->id }}")' class="inline-block mr-2  hover:text-red-500" title="Delete">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"></path>
+                                                        <path fill-rule="evenodd"
+                                                            d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z">
+                                                        </path>
+                                                    </svg>
+                                                </button>
                                             </td>
                                         </tr>
                                     @endforeach

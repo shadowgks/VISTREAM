@@ -46,7 +46,7 @@ const player = new Plyr('#player');
 //B data flapickr
 $(".date_flatpickr").flatpickr({
     enableTime: false,
-    altInput: true,
+    // altInput: true,
     altFormat: "F j, Y",
     dateFormat: "Y-m-d",
     maxDate: new Date(),

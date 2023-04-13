@@ -32,7 +32,7 @@
             </li>
 
             <li class="relative">
-                <a href="{{ route('serie.index') }}" class="block py-2.5 px-6 hover:text-indigo-500 dark:hover:text-gray-300 @yield('country-active')">
+                <a href="{{ route('serie.index') }}" class="block py-2.5 px-6 hover:text-indigo-500 dark:hover:text-gray-300 @yield('serie-active')">
                     <svg fill="currentColor" width="16px" height="16px" class="inline-block h-4 w-4 mr-2 bi bi-columns-gap" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="107.52000000000001"></g>
