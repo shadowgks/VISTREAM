@@ -1,60 +1,77 @@
-<x-guest-layout>
-    <x-authentication-card>
-        <x-slot name="logo">
-            <x-authentication-card-logo />
-        </x-slot>
+@extends('layouts.media.master')
 
-        <x-validation-errors class="mb-4" />
+@section('title')
+    Register
+@endsection
 
-        <form method="POST" action="{{ route('register') }}">
-            @csrf
+@section('content')
+    <!-- Sign up -->
+    <div id="signup-page">
+        <div class="max-w-6xl relative z-10 m-auto px-6 mt-16">
+            <div class="flex justify-center items-center login-section">
+                <div class="bg-color-primary-75 text-white p-10 sm:m-auto md:m-auto lg:m-0 shadow order-2" style="min-height: 524px;">
+                    <div class="sm:w-full text-left m-auto lg:m-0">
+                        <h1 class="text-3xl md:text-4xl font-bold mb-3">Sign up Create Account</h1>
+                        <p class="mb-10">Already have an account?
+                            <a class="no-underline tw-blue text-color-three" href="{{ route('login') }}">Login
+                            </a>
+                        </p>
+                        <div class="w-full">
+                            <x-validation-errors class="mb-4" />
+                            <form method="POST" action="{{ route('register') }}" id="login-form">
+                                @csrf
+                                <div>
+                                    <label for="username" class="block text-sm font-medium leading-8">
+                                        Username
+                                    </label>
+                                    <div class="mt-1 rounded-md">
+                                        <input id="username" value="" type="text" placeholder="Username" name="name" autocomplete="email" autofocus="" required=""
+                                            class="appearance-none block w-full px-3 py-2 text-gray-700 rounded-md placeholder-gray-400 focus:outline-none focus:outline-color-three transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                                    </div>
+                                </div>
+                                <div class="mt-2">
+                                    <label for="email" class="block text-sm font-medium leading-8">
+                                        Email address
+                                    </label>
+                                    <div class="mt-1 rounded-md">
+                                        <input id="email" value="" type="email" placeholder="Email" name="email" autocomplete="email" autofocus="" required=""
+                                            class="appearance-none block w-full px-3 py-2 text-gray-700 rounded-md placeholder-gray-400 focus:outline-none focus:outline-color-three transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                                    </div>
+                                </div>
+                                <div class="mt-2">
+                                    <label for="password" class="block text-sm font-medium leading-8">
+                                        Password
+                                    </label>
+                                    <div class="mt-1 rounded-md">
+                                        <input type="password" placeholder="Password" name="password" required="" autocomplete="new-password"
+                                            class="appearance-none block w-full px-3 py-2 text-gray-700 rounded-md placeholder-gray-400 focus:outline-none focus:outline-color-three transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                                    </div>
+                                </div>
+                                <div class="mt-2">
+                                    <label for="Password confirmation" class="block text-sm font-medium leading-8">
+                                        Password
+                                    </label>
+                                    <div class="mt-1 rounded-md">
+                                        <input type="password" placeholder="Password Confirmation" name="password_confirmation" required="" autocomplete="new-password"
+                                            class="appearance-none block w-full px-3 py-2 text-gray-700 rounded-md placeholder-gray-400 focus:outline-none focus:outline-color-three transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                                    </div>
+                                </div>
 
-            <div>
-                <x-label for="name" value="{{ __('Name') }}" />
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            </div>
-
-            <div class="mt-4">
-                <x-label for="email" value="{{ __('Email') }}" />
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            </div>
-
-            <div class="mt-4">
-                <x-label for="password" value="{{ __('Password') }}" />
-                <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
-            </div>
-
-            <div class="mt-4">
-                <x-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
-                <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
-            </div>
-
-            @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
-                <div class="mt-4">
-                    <x-label for="terms">
-                        <div class="flex items-center">
-                            <x-checkbox name="terms" id="terms" required />
-
-                            <div class="ml-2">
-                                {!! __('I agree to the :terms_of_service and :privacy_policy', [
-                                        'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">'.__('Terms of Service').'</a>',
-                                        'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">'.__('Privacy Policy').'</a>',
-                                ]) !!}
-                            </div>
+                                <div class="mt-10">
+                                    <span class="block w-full rounded-md">
+                                        <button type="submit" name="register" class="w-full flex justify-center py-2 px-4 border border-transparent text-md font-medium rounded-md text-white bg-color-secondary hover:bg-color-three transition duration-500">
+                                            Register
+                                        </button>
+                                    </span>
+                                </div>
+                            </form>
                         </div>
-                    </x-label>
+                    </div>
                 </div>
-            @endif
-
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
-
-                <x-button class="ml-4">
-                    {{ __('Register') }}
-                </x-button>
+                <div class="text-center pt-10 md:pt-0 lg:pt-0 m-auto md:m-0 lg:m-0 hidden md:block lg:block">
+                    <img class="rounded-lg md:ml-4 lg:ml-4 h-[524px]" src="{{ asset('build/assets/images/svg/signup.svg') }}" alt="svg signup">
+                </div>
             </div>
-        </form>
-    </x-authentication-card>
-</x-guest-layout>
+        </div>
+    </div>
+@endsection
