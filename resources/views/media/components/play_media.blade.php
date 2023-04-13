@@ -88,7 +88,7 @@
             </div>
             <!-- footer trailer -->
             <div>
-                <label href="{{ $media_play->trailer }}" for="my-modal-4" id="btn-modal-trailer" class="btn modal-trailer">
+                <label for="my-modal-4" id="btn-modal-trailer" class="btn modal-trailer">
                     Trailer
                 </label>
             </div>
@@ -100,7 +100,11 @@
     <input type="checkbox" id="my-modal-4" class="modal-toggle" />
     <label for="my-modal-4" class="modal cursor-pointer">
         <label class="modal-box relative" id="modal-trailer" for="">
-            <iframe width="100%" height="350" src="https://www.youtube.com/embed/tgbNymZ7vqY">
+            @php
+                $url = $media_play->trailer;
+                $value_url = substr(parse_url($url, PHP_URL_QUERY), 2); //PHP_URL_QUERY - after the question mark ?
+            @endphp
+            <iframe width="100%" height="350" src="https://www.youtube.com/embed/{{ $value_url }}">
             </iframe>
         </label>
     </label>
