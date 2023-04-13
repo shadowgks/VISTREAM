@@ -30,6 +30,6 @@ class StatisticController extends Controller
         $genres = Genre::count();
         $qualities = TypeQuality::count();
 
-        return view('dashboard.statistics',compact('users','users_count','sliders','media','movies','series','actors','countries','types','genres','qualities'));
+        return view('dashboard',compact('users','users_count','sliders','media','movies','series','actors','countries','types','genres','qualities'));
     }
 }

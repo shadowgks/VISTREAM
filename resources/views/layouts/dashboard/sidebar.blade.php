@@ -11,7 +11,7 @@
         <!-- Sidebar menu -->
         <ul id="side-menu" x-data="{ selected: null }" class="w-full float-none flex flex-col font-medium ltr:pl-1.5 rtl:pr-1.5">
             <li>
-                <a href="{{ route('statistics.index') }}" class="block py-2.5 px-6 hover:text-indigo-500 dark:hover:text-gray-300 @yield('dashboard-active')">
+                <a href="{{ route('dashboard.index') }}" class="block py-2.5 px-6 hover:text-indigo-500 dark:hover:text-gray-300 @yield('dashboard-active')">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="inline-block h-4 w-4 ltr:mr-2 rtl:ml-2 bi bi-columns-gap" viewBox="0 0 16 16">
                         <path
                             d="M6 1v3H1V1h5zM1 0a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1H1zm14 12v3h-5v-3h5zm-5-1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-5zM6 8v7H1V8h5zM1 7a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1H1zm14-6v7h-5V1h5zm-5-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1h-5z" />

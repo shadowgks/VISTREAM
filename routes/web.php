@@ -56,7 +56,6 @@ Route::resource('/dashboard/user', UserController::class);
 Route::resource('/dashboard/type', TypeController::class);
 Route::resource('/dashboard/slider', SliderController::class);
 Route::resource('/dashboard/serie', SerieController::class);
-Route::resource('/dashboard/statistics', StatisticController::class);
 
 //Auth
 Route::middleware([
@@ -64,7 +63,5 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::resource('/dashboard', StatisticController::class);
 });
