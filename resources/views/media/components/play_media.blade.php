@@ -104,8 +104,7 @@
                 $url = $media_play->trailer;
                 $value_url = substr(parse_url($url, PHP_URL_QUERY), 2); //PHP_URL_QUERY - after the question mark ?
             @endphp
-            <iframe width="100%" height="350" src="https://www.youtube.com/embed/{{ $value_url }}">
-            </iframe>
+            <iframe width="100%" height="350" src="https://www.youtube.com/embed/{{ $value_url }}" allowfullscreen></iframe>
         </label>
     </label>
 

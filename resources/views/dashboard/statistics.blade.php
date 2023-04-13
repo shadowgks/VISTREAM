@@ -4,6 +4,10 @@
     Dashboard
 @endsection
 
+@section('dashboard-active')
+    dark:text-gray-300
+@endsection
+
 @section('content')
     <main class="pt-20 -mt-2">
         <div class="mx-auto p-2">
@@ -138,413 +142,52 @@
                         </div>
                         <!--E statistic -->
 
-                        <!-- Sales Revenue -->
-                        <div class="flex-shrink max-w-full px-4 w-full mb-6">
-                            <div class="bg-white dark:bg-color-primary-75 rounded-lg shadow-lg h-full p-6">
-                                <div class="flex pb-6">
-                                    <div class="flex flex-col">
-                                        <h3 class="text-base font-bold">Sales Revenue</h3>
-                                    </div>
-                                </div>
-                                <div class="relative">
-                                    <canvas class="max-w-100" id="ChartKpi"></canvas>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Net profits -->
-                        <div class="flex-shrink max-w-full px-4 w-full lg:w-1/2 mb-6">
-                            <div class="bg-white dark:bg-color-primary-75 rounded-lg shadow-lg h-full p-6">
-                                <div class="flex pb-6">
-                                    <div class="flex flex-col">
-                                        <h3 class="text-base font-bold">Net profits</h3>
-                                    </div>
-                                </div>
-                                <div class="relative">
-                                    <canvas class="max-w-100" id="BarProfit"></canvas>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Up/Cross Sell -->
-                        <div class="flex-shrink max-w-full px-4 w-full lg:w-1/2 mb-6">
-                            <div class="bg-white dark:bg-color-primary-75 rounded-lg shadow-lg h-full p-6">
-                                <div class="flex pb-6">
-                                    <div class="flex flex-col">
-                                        <h3 class="text-base font-bold">Up/Cross Sell</h3>
-                                    </div>
-                                </div>
-                                <div class="flex flex-row">
-                                    <div class="flex-shrink max-w-full w-1/2">
-                                        <canvas class="max-w-100" id="Chartcross"></canvas>
-                                    </div>
-                                    <div class="flex-shrink max-w-full w-1/2">
-                                        <div class="text-left ml-6">
-                                            <div class="flex flex-row items-center justify-between">
-                                                <h3 class="semibold text-sm">Up Sell</h3>
-                                                <span class="text-sm text-green-500">+14%</span>
-                                            </div>
-                                            <p class="text-2xl font-bold text-indigo-500 mb-1">$6,300</p>
-                                            <div class="border-t border-gray-100 dark:border-gray-700 w-full my-2">
-                                            </div>
-                                            <div class="flex flex-row items-center justify-between">
-                                                <h3 class="semibold text-sm">Cross Sell</h3>
-                                                <span class="text-sm text-red-500">-3%</span>
-                                            </div>
-                                            <p class="text-2xl font-bold text-indigo-500 mb-1">$3,400</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Cost Breakdown -->
-                        <div class="flex-shrink max-w-full px-4 w-full lg:w-1/2 mb-6">
-                            <div class="bg-white dark:bg-color-primary-75 rounded-lg shadow-lg h-full p-6">
-                                <div class="flex pb-6">
-                                    <div class="flex flex-col">
-                                        <h3 class="text-base font-bold">Cost Breakdown</h3>
-                                    </div>
-                                </div>
-                                <div class="flex flex-row">
-                                    <div class="flex-shrink max-w-full w-1/2">
-                                        <canvas class="max-w-100" id="ChartCost"></canvas>
-                                    </div>
-                                    <div class="flex-shrink max-w-full w-1/2">
-                                        <div class="text-left ml-6">
-                                            <div class="flex flex-row items-center justify-between border-b border-gray-100 dark:border-gray-700 py-4">
-                                                <h3 class="font-semibold text-sm">Marketing</h3>
-                                                <p class="font-semibold text-indigo-500">$3,100</p>
-                                            </div>
-                                            <div class="flex flex-row items-center justify-between border-b border-gray-100 dark:border-gray-700 py-4">
-                                                <h3 class="font-semibold text-sm">Sales</h3>
-                                                <p class="font-semibold text-indigo-500">$2,350</p>
-                                            </div>
-                                            <div class="flex flex-row items-center justify-between border-b border-gray-100 dark:border-gray-700 py-4">
-                                                <h3 class="font-semibold text-sm">Maintenance</h3>
-                                                <p class="font-semibold text-indigo-500">$1,260</p>
-                                            </div>
-                                            <div class="flex flex-row items-center justify-between border-b border-gray-100 dark:border-gray-700 py-4">
-                                                <h3 class="font-semibold text-sm">Others</h3>
-                                                <p class="font-semibold text-indigo-500">$980</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Incremental Sales -->
-                        <div class="flex-shrink max-w-full px-4 w-full lg:w-1/2 mb-6">
-                            <div class="bg-white dark:bg-color-primary-75 rounded-lg shadow-lg h-full p-6">
-                                <div class="flex pb-6">
-                                    <div class="flex flex-col">
-                                        <h3 class="text-base font-bold">Incremental Sales</h3>
-                                    </div>
-                                </div>
-                                <div class="relative">
-                                    <canvas class="max-w-100" id="ChartIncremental"></canvas>
-                                </div>
-                            </div>
-                        </div>
-
                         <!-- Sales Leaderboard -->
                         <div class="flex-shrink max-w-full px-4 w-full mb-6">
                             <div class="bg-white dark:bg-color-primary-75 rounded-lg shadow-lg h-full p-6">
                                 <div class="flex flex-row justify-between pb-3">
                                     <div class="flex flex-col">
-                                        <h3 class="text-base font-bold">Sales Leaderboard</h3>
+                                        <h3 class="text-base font-bold">Users</h3>
                                     </div>
                                 </div>
                                 <div class="relative">
-                                    <div class="overflow-x-auto">
-                                        <table class="table-bordered-bottom table-sm w-full ltr:text-left rtl:text-right text-sm">
-                                            <thead>
-                                                <tr>
-                                                    <th class="hidden lg:block">Rank</th>
-                                                    <th>Name</th>
-                                                    <th>Activity</th>
-                                                    <th>Sales</th>
-                                                    <th>Revenue</th>
-                                                    <th>Profit</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="hidden lg:table-cell">
-                                                        <div>#1</div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="flex flex-wrap flex-row items-center">
-                                                            <img class="rounded-full shadow w-12 h-12 max-w-full border-2 border-gray-200 bg-gray-300 dark:bg-gray-900 dark:border-gray-700 hidden lg:flex" src="assets/img/avatar/avatar.png" alt="Image Description">
-                                                            <div class="lg:ml-4">
-                                                                <div class="font-bold text-gray-900 dark:text-gray-300 flex-shrink max-w-full mb-1">
-                                                                    John Thomas
-                                                                </div>
-                                                                <div class="italic text-gray-500 flex-shrink max-w-full">
-                                                                    Target: $2,500 <span class="text-green-500">achieved</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div>8/10</div>
-                                                    </td>
-                                                    <td>
-                                                        <div>101</div>
-                                                    </td>
-                                                    <td>
-                                                        <div>$2,860</div>
-                                                    </td>
-                                                    <td>
-                                                        <div>$860</div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="hidden lg:table-cell">
-                                                        <div>#2</div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="flex flex-wrap flex-row items-center">
-                                                            <img class="rounded-full shadow w-12 h-12 max-w-full border-2 border-gray-200 bg-gray-300 dark:bg-gray-900 dark:border-gray-700 hidden lg:flex" src="assets/img/avatar/avatar2.png" alt="Image Description">
-                                                            <div class="lg:ml-4">
-                                                                <div class="font-bold text-gray-900 dark:text-gray-300 flex-shrink max-w-full mb-1">
-                                                                    Carlos Garcia
-                                                                </div>
-                                                                <div class="italic text-gray-500 flex-shrink max-w-full">
-                                                                    Target: $2,500 <span class="text-green-500">achieved</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div>8/10</div>
-                                                    </td>
-                                                    <td>
-                                                        <div>98</div>
-                                                    </td>
-                                                    <td>
-                                                        <div>$2,660</div>
-                                                    </td>
-                                                    <td>
-                                                        <div>$760</div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="hidden lg:table-cell">
-                                                        <div>#3</div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="flex flex-wrap flex-row items-center">
-                                                            <img class="rounded-full shadow w-12 h-12 max-w-full border-2 border-gray-200 bg-gray-300 dark:bg-gray-900 dark:border-gray-700 hidden lg:flex" src="assets/img/avatar/avatar3.png" alt="Image Description">
-                                                            <div class="lg:ml-4">
-                                                                <div class="font-bold text-gray-900 dark:text-gray-300 flex-shrink max-w-full mb-1">
-                                                                    Daniel Esteban
-                                                                </div>
-                                                                <div class="italic text-gray-500 flex-shrink max-w-full">
-                                                                    Target: $2,500 <span class="text-green-500">achieved</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div>8/10</div>
-                                                    </td>
-                                                    <td>
-                                                        <div>96</div>
-                                                    </td>
-                                                    <td>
-                                                        <div>$2,640</div>
-                                                    </td>
-                                                    <td>
-                                                        <div>$746</div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="hidden lg:table-cell">
-                                                        <div>#4</div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="flex flex-wrap flex-row items-center">
-                                                            <img class="rounded-full shadow w-12 h-12 max-w-full border-2 border-gray-200 bg-gray-300 dark:bg-gray-900 dark:border-gray-700 hidden lg:flex" src="assets/img/avatar/avatar4.png" alt="Image Description">
-                                                            <div class="lg:ml-4">
-                                                                <div class="font-bold text-gray-900 dark:text-gray-300 flex-shrink max-w-full mb-1">
-                                                                    Steven Rey
-                                                                </div>
-                                                                <div class="italic text-gray-500 flex-shrink max-w-full">
-                                                                    Target: $2,500 <span class="text-red-500">not reached</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div>7/10</div>
-                                                    </td>
-                                                    <td>
-                                                        <div>86</div>
-                                                    </td>
-                                                    <td>
-                                                        <div>$2,360</div>
-                                                    </td>
-                                                    <td>
-                                                        <div>$660</div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="hidden lg:table-cell">
-                                                        <div>#5</div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="flex flex-wrap flex-row items-center">
-                                                            <img class="rounded-full shadow w-12 h-12 max-w-full border-2 border-gray-200 bg-gray-300 dark:bg-gray-900 dark:border-gray-700 hidden lg:flex" src="assets/img/avatar/avatar5.png" alt="Image Description">
-                                                            <div class="lg:ml-4">
-                                                                <div class="font-bold text-gray-900 dark:text-gray-300 flex-shrink max-w-full mb-1">
-                                                                    Roman Davis
-                                                                </div>
-                                                                <div class="italic text-gray-500 flex-shrink max-w-full">
-                                                                    Target: $2,500 <span class="text-red-500">not reached</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div>6/10</div>
-                                                    </td>
-                                                    <td>
-                                                        <div>67</div>
-                                                    </td>
-                                                    <td>
-                                                        <div>$1,860</div>
-                                                    </td>
-                                                    <td>
-                                                        <div>$560</div>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                                    {{-- Modal add --}}
+                                    <div x-data='{ open2: false }'>
+                                        <div x-data='{ open: false }'>
+                                            {{-- dataTable --}}
+                                            <div class="bg-white p-8 dark:bg-color-primary-75 h-fit">
+                                                <table class="table-sorter table-bordered w-full ltr:text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                    <thead>
+                                                        <tr class="bg-gray-200 dark:bg-gray-700 dark:bg-opacity-40 uppercase">
+                                                            <th>#</th>
+                                                            <th>Fullname</th>
+                                                            <th>Email</th>
+                                                            <th>Status</th>
+                                                            <th>Actions</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach ($user as $key => $item)
+                                                            <tr>
+                                                                <td>{{ $key + 1 }}</td>
+                                                                <td>
+                                                                    <a href="#">
+                                                                        <img class="object-cover inline-block rounded-full shadow-xl w-12 h-12 max-w-full bg-gray-300 border-gray-200 dark:bg-gray-800 border-2 dark:border-gray-600" src="{{ URL::asset($item->profile_photo_path) }}"
+                                                                            alt="Image Description">
+                                                                    </a>
+                                                                    {{ $item->name }}
+                                                                </td>
+                                                                <td>{{ $item->email }}</td>
+                                                                <td>{{ $item->status }}</td>
+                                                                <td>Action</td>
+                                                            </tr>
+                                                        @endforeach
 
-                        <!-- Product Performance -->
-                        <div class="flex-shrink max-w-full px-4 w-full lg:w-1/2 mb-6">
-                            <div class="p-6 bg-white dark:bg-color-primary-75 rounded-lg shadow-lg h-full">
-                                <table class="table-sm text-sm ltr:text-left rtl:text-right w-full">
-                                    <thead>
-                                        <tr class="border-b dark:border-gray-700">
-                                            <th>
-                                                <p class="text-base font-bold">Product Performance</p>
-                                            </th>
-                                            <th>
-                                                Sales
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <a href="#" class="hover:text-indigo-500">
-                                                    <div class="flex items-center">
-                                                        <div class="flex-shrink-0 h-10 w-10">
-                                                            <img class="h-10 w-10 rounded-full" src="assets/img/products/product1.jpg" alt="product images">
-                                                        </div>
-                                                        <div class="ltr:ml-4 rtl:mr-4">
-                                                            <div class="leading-5">
-                                                                Nike Women's Race Running Shoe
-                                                            </div>
-                                                            <div class="text-xs leading-5 text-gray-500">
-                                                                Women shoes
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <div class="leading-5 text-green-700">$4,345</div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <a href="#" class="hover:text-indigo-500">
-                                                    <div class="flex items-center">
-                                                        <div class="flex-shrink-0 h-10 w-10">
-                                                            <img class="h-10 w-10 rounded-full" src="assets/img/products/product2.jpg" alt="product images">
-                                                        </div>
-                                                        <div class="ltr:ml-4 rtl:mr-4">
-                                                            <div class="leading-5">
-                                                                Nike Womens Free RN Flyknit 2018
-                                                            </div>
-                                                            <div class="text-xs leading-5 text-gray-500">
-                                                                Women shoes
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <div class="leading-5 text-green-700">$3,235</div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <a href="#" class="hover:text-indigo-500">
-                                                    <div class="flex items-center">
-                                                        <div class="flex-shrink-0 h-10 w-10">
-                                                            <img class="h-10 w-10 rounded-full" src="assets/img/products/product3.jpg" alt="product images">
-                                                        </div>
-                                                        <div class="ltr:ml-4 rtl:mr-4">
-                                                            <div class="leading-5">
-                                                                Nike Women's Sneaker Running Shoes
-                                                            </div>
-                                                            <div class="text-xs leading-5 text-gray-500">
-                                                                Women shoes
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <div class="leading-5 text-green-700">$1,545</div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <a href="#" class="hover:text-indigo-500">
-                                                    <div class="flex items-center">
-                                                        <div class="flex-shrink-0 h-10 w-10">
-                                                            <img class="h-10 w-10 rounded-full" src="assets/img/products/product4.jpg" alt="product images">
-                                                        </div>
-                                                        <div class="ltr:ml-4 rtl:mr-4">
-                                                            <div class="leading-5">
-                                                                Nike Women's Gymnastics Tennis Shoes
-                                                            </div>
-                                                            <div class="text-xs leading-5 text-gray-500">
-                                                                Women shoes
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <div class="leading-5 text-green-700">$1,045</div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                        <!-- Sales Pipeline -->
-                        <div class="flex-shrink max-w-full px-4 w-full lg:w-1/2 mb-6">
-                            <div class="bg-white dark:bg-color-primary-75 rounded-lg shadow-lg h-full p-6">
-                                <div class="flex pb-6">
-                                    <div class="flex flex-col">
-                                        <h3 class="text-base font-bold">Monthly Sales Target</h3>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="relative">
-                                    <canvas class="max-w-100" id="ChartTarget"></canvas>
                                 </div>
                             </div>
                         </div>

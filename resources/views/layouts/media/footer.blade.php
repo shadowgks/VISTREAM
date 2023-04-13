@@ -43,7 +43,7 @@
         </div>
         <hr class="my-6 border-2 border-color-three lg:my-8" />
         <div class="sm:flex sm:items-center sm:justify-between">
-            <span class="text-sm sm:text-center text-gray-400">© 2023 <a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.
+            <span class="text-sm sm:text-center text-gray-400">© 2023 <a href="#" class="hover:underline">VISTREAM™</a>. All Rights Reserved.
             </span>
             <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
                 <a href="#" class="text-gray-500 hover:text-white">

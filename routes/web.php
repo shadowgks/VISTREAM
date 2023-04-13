@@ -38,7 +38,7 @@ Route::get('/live-search', [HomeMediaController::class, 'search'])->name('search
 Route::get('/filter', [HomeMediaController::class, 'filter'])->name('filter.media');
 Route::get('/actors', [ActorMediaController::class, 'index'])->name('actors.index');
 Route::get('/profile-actor/{name}', [ActorMediaController::class, 'profileActor'])->name('actor.profile');
-Route::get('/statistics', [StatisticController::class, 'index'])->name('statistics.index');
+// Route::get('/statistics', [StatisticController::class, 'index'])->name('statistics.index');
 Route::get('/movies', [MovieMediaController::class, 'index'])->name('movies.index');
 Route::get('/series', [SerieMediaController::class, 'index'])->name('series.index');
 Route::get('/movie/{slug}', [PlayMovieController::class, 'show'])->name('play-movie.show');
@@ -56,6 +56,7 @@ Route::resource('/dashboard/user', UserController::class);
 Route::resource('/dashboard/type', TypeController::class);
 Route::resource('/dashboard/slider', SliderController::class);
 Route::resource('/dashboard/serie', SerieController::class);
+Route::resource('/dashboard/statistics', StatisticController::class);
 
 //Auth
 Route::middleware([

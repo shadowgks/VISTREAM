@@ -50,7 +50,7 @@
 
                 <!-- menu -->
                 <ul class="flex ltr:ml-auto rtl:mr-auto mt-2">
-                    <!-- messages -->
+                    {{-- <!-- messages -->
                     <li x-data="{ open: false }" class="relative">
                         <a href="#" class="py-3 px-4 flex text-sm rounded-full focus:outline-none"
                             id="messages" @click="open = ! open">
@@ -364,7 +364,7 @@
                                 <a href="#" class="hover:underline">Show all Notifications</a>
                             </div>
                         </div>
-                    </li>
+                    </li> --}}
 
                     <!-- profile -->
                     <li x-data="{ open: false }" class="relative">
