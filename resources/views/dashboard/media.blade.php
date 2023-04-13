@@ -54,7 +54,23 @@
                                                 {{ $item->name }}
                                             </td>
                                         </a>
-                                        <td>{{ $item->status }}</td>
+                                        <td class="text-center">
+                                            @if ($item->status == 0)
+                                                <div class="inline-block">
+                                                    <span class="relative flex h-5 w-5">
+                                                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                                                        <span class="relative inline-flex rounded-full h-5 w-5 bg-red-500"></span>
+                                                    </span>
+                                                </div>
+                                            @else
+                                                <div class="inline-block">
+                                                    <span class="relative flex h-5 w-5">
+                                                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                                        <span class="relative inline-flex rounded-full h-5 w-5 bg-green-500"></span>
+                                                    </span>
+                                                </div>
+                                            @endif
+                                        </td>
                                         <td>{{ $item->qualitie->name }}</td>
                                         <td>{{ $item->duration }}</td>
                                         <td>{{ $item->countries->name }}</td>

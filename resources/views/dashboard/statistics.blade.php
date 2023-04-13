@@ -25,7 +25,7 @@
                         <div class="flex-shrink max-w-full px-4 w-full sm:w-1/2 lg:w-1/4 mb-6">
                             <div class="bg-white dark:bg-color-primary-75 rounded-lg shadow-lg h-full p-6 relative overflow-hidden">
                                 <h3 class="text-base font-bold mb-2">Users</h3>
-                                <h2 class="text-3xl font-bold mb-4">0</h2>
+                                <h2 class="text-3xl font-bold mb-4">{{$users_count}}</h2>
 
                                 <!-- bg circle -->
                                 <div class="absolute -right-16  -top-16">
@@ -43,7 +43,7 @@
                         <div class="flex-shrink max-w-full px-4 w-full sm:w-1/2 lg:w-1/4 mb-6">
                             <div class="bg-white dark:bg-color-primary-75 rounded-lg shadow-lg h-full p-6 relative overflow-hidden">
                                 <h3 class="text-base font-bold mb-2">Media</h3>
-                                <h2 class="text-3xl font-bold mb-4">0</h2>
+                                <h2 class="text-3xl font-bold mb-4">{{ $media }}</h2>
 
                                 <!-- bg circle -->
                                 <div class="absolute -right-16  -top-16">
@@ -61,7 +61,7 @@
                         <div class="flex-shrink max-w-full px-4 w-full sm:w-1/2 lg:w-1/4 mb-6">
                             <div class="bg-white dark:bg-color-primary-75 rounded-lg shadow-lg h-full p-6 relative overflow-hidden">
                                 <h3 class="text-base font-bold mb-2">Movies</h3>
-                                <h2 class="text-3xl font-bold mb-4">0</h2>
+                                <h2 class="text-3xl font-bold mb-4">{{ $movies }}</h2>
 
                                 <!-- bg circle -->
                                 <div class="absolute -right-16  -top-16">
@@ -79,7 +79,7 @@
                         <div class="flex-shrink max-w-full px-4 w-full sm:w-1/2 lg:w-1/4 mb-6">
                             <div class="bg-white dark:bg-color-primary-75 rounded-lg shadow-lg h-full p-6 relative overflow-hidden">
                                 <h3 class="text-base font-bold mb-2">Series</h3>
-                                <h2 class="text-3xl font-bold mb-4">0</h2>
+                                <h2 class="text-3xl font-bold mb-4">{{ $series }}</h2>
 
                                 <!-- bg circle -->
                                 <div class="absolute -right-16  -top-16">
@@ -97,7 +97,7 @@
                         <div class="flex-shrink max-w-full px-4 w-full sm:w-1/2 lg:w-1/4 mb-6">
                             <div class="bg-white dark:bg-color-primary-75 rounded-lg shadow-lg h-full p-6 relative overflow-hidden">
                                 <h3 class="text-base font-bold mb-2">Genres</h3>
-                                <h2 class="text-3xl font-bold mb-4">0</h2>
+                                <h2 class="text-3xl font-bold mb-4">{{ $genres }}</h2>
 
                                 <!-- bg circle -->
                                 <div class="absolute -right-16  -top-16">
@@ -115,7 +115,7 @@
                         <div class="flex-shrink max-w-full px-4 w-full sm:w-1/2 lg:w-1/4 mb-6">
                             <div class="bg-white dark:bg-color-primary-75 rounded-lg shadow-lg h-full p-6 relative overflow-hidden">
                                 <h3 class="text-base font-bold mb-2">Actors</h3>
-                                <h2 class="text-3xl font-bold mb-4">0</h2>
+                                <h2 class="text-3xl font-bold mb-4">{{ $actors }}</h2>
 
                                 <!-- bg circle -->
                                 <div class="absolute -right-16  -top-16">
@@ -133,7 +133,7 @@
                         <div class="flex-shrink max-w-full px-4 w-full sm:w-1/2 lg:w-1/4 mb-6">
                             <div class="bg-white dark:bg-color-primary-75 rounded-lg shadow-lg h-full p-6 relative overflow-hidden">
                                 <h3 class="text-base font-bold mb-2">Countries</h3>
-                                <h2 class="text-3xl font-bold mb-4">0</h2>
+                                <h2 class="text-3xl font-bold mb-4">{{ $countries }}</h2>
 
                                 <!-- bg circle -->
                                 <div class="absolute -right-16  -top-16">
@@ -151,7 +151,7 @@
                         <div class="flex-shrink max-w-full px-4 w-full sm:w-1/2 lg:w-1/4 mb-6">
                             <div class="bg-white dark:bg-color-primary-75 rounded-lg shadow-lg h-full p-6 relative overflow-hidden">
                                 <h3 class="text-base font-bold mb-2">Qualities</h3>
-                                <h2 class="text-3xl font-bold mb-4">0</h2>
+                                <h2 class="text-3xl font-bold mb-4">{{ $qualities }}</h2>
 
                                 <!-- bg circle -->
                                 <div class="absolute -right-16  -top-16">
@@ -169,7 +169,7 @@
                         <div class="flex-shrink max-w-full px-4 w-full sm:w-1/2 lg:w-1/4 mb-6">
                             <div class="bg-white dark:bg-color-primary-75 rounded-lg shadow-lg h-full p-6 relative overflow-hidden">
                                 <h3 class="text-base font-bold mb-2">Sliders</h3>
-                                <h2 class="text-3xl font-bold mb-4">0</h2>
+                                <h2 class="text-3xl font-bold mb-4">{{ $sliders }}</h2>
 
                                 <!-- bg circle -->
                                 <div class="absolute -right-16  -top-16">
@@ -178,6 +178,24 @@
                                 </div>
                                 <div class="absolute -right-4 rtl:-left-4 -top-24">
                                     <div class="bg-red-500 opacity-10 w-36 h-36 rounded-full shadow-lg shadow-indigo-500/10">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- target widget -->
+                        <div class="flex-shrink max-w-full px-4 w-full sm:w-1/2 lg:w-1/4 mb-6">
+                            <div class="bg-white dark:bg-color-primary-75 rounded-lg shadow-lg h-full p-6 relative overflow-hidden">
+                                <h3 class="text-base font-bold mb-2">Types</h3>
+                                <h2 class="text-3xl font-bold mb-4">{{ $types }}</h2>
+
+                                <!-- bg circle -->
+                                <div class="absolute -right-16  -top-16">
+                                    <div class="bg-sky-500 opacity-10 w-36 h-36 rounded-full shadow-lg shadow-indigo-500/10">
+                                    </div>
+                                </div>
+                                <div class="absolute -right-4 rtl:-left-4 -top-24">
+                                    <div class="bg-sky-500 opacity-10 w-36 h-36 rounded-full shadow-lg shadow-indigo-500/10">
                                     </div>
                                 </div>
                             </div>
@@ -209,7 +227,7 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        @foreach ($user as $key => $item)
+                                                        @foreach ($users as $key => $item)
                                                             <tr>
                                                                 <td>{{ $key + 1 }}</td>
                                                                 <td>
