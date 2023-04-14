@@ -358,7 +358,6 @@
         <!-- profile -->
         <li x-data="{ open: false }" class="relative">
             <a href="javascript:;" class="px-3 flex text-sm rounded-full focus:outline-none" id="user-menu-button" @click="open = ! open">
-
                 <div class="relative">
                     @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                         <img class="h-10 w-10 object-cover rounded-full border border-gray-700 bg-gray-700" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}">

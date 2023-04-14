@@ -24,9 +24,41 @@
                 </div>
             </form>
             <!-- user -->
-            <a href="">
-                <i class="fa-solid fa-circle-user text-white text-2xl md:text-3xl"></i>
-            </a>
+            @if (Auth::user())
+                @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
+                    <img id="avatarButton" type="button" data-dropdown-toggle="userDropdown" data-dropdown-placement="bottom-start" class="w-10 h-10 rounded-full cursor-pointer" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}">
+                @else
+                    <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                    </svg>
+                @endif
+                <!-- Dropdown menu -->
+                <div id="userDropdown" class="z-10 hidden bg-color-primary-75 divide-y divide-gray-500 rounded-lg shadow w-44">
+                    <div class="px-4 py-3 text-sm text-white">
+                        <div class="uppercase">{{ Auth::user()->name }}</div>
+                        <div class="font-medium truncate">Admin</div>
+                    </div>
+                    <ul class="py-2 text-sm text-gray-200" aria-labelledby="avatarButton">
+                        <li>
+                            <a href="{{ route('dashboard.index') }}" class="block px-4 py-2 hover:bg-gray-100 hover:text-black">Dashboard </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('profile.show') }}" class="block px-4 py-2 hover:bg-gray-100 hover:text-black">Settings</a>
+                        </li>
+                    </ul>
+                    <div class="py-1">
+                        <form action="{{ route('logout') }}" class="flex" method="post">
+                            @csrf
+                            <button type="submit" class="block flex-1 text-start px-4 py-2 text-sm text-gray-100 hover:bg-gray-100 hover:text-black">Sign out</button>
+                        </form>
+                    </div>
+                </div>
+            @else
+                <a href="{{ route('login') }}">
+                    <i class="fa-solid fa-circle-user text-white text-2xl md:text-3xl"></i>
+                </a>
+            @endif
+
 
             <button data-collapse-toggle="navbar-search" type="button" class="inline-flex items-center p-2 text-sm text-white rounded-lg md:hidden " aria-controls="navbar-search" aria-expanded="false">
                 <span class="sr-only">Open menu</span>
