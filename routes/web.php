@@ -18,6 +18,7 @@ use App\Http\Controllers\SliderController;
 use App\Http\Controllers\StatisticController;
 use App\Http\Controllers\TypeController;
 use App\Http\Controllers\TypeQualityController;
+use App\Http\Controllers\WatchListController;
 use GuzzleHttp\Psr7\ServerRequest;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -45,6 +46,13 @@ Route::get('/movie/{slug}', [PlayMovieController::class, 'show'])->name('play-mo
 Route::get('/serie/{slug}/{Seasson}-{Episode}', [PlaySerieController::class, 'show'])->name('play-serie.show');
 Route::get('/country/{name}', [CountryMediaController::class, 'show'])->name('media.country.show');
 Route::get('/genre/{name}', [GenreMediaController::class, 'show'])->name('media.genre.show');
+
+//Watchlist
+Route::controller(WatchListController::class)->group(function() {
+    Route::get('/watchlist', 'index')->name('media.watchlist');
+    // Route::put('profile', 'updateProfile');
+    // Route::delete('profile', 'deleteProfile');
+});
 
 //Ressources Dashboard
 Route::resource('/dashboard/country', CountryController::class);

@@ -54,7 +54,7 @@ $(".date_flatpickr").flatpickr({
 //E data flapickr
 
 //ajax
-$('#search-navbar').on('keyup', function () {
+$('.search-navbar').on('keyup', function () {
     var value = $(this).val();
     var url_route = $(this).data('url');
 
