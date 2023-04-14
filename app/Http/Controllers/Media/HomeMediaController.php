@@ -33,6 +33,7 @@ class HomeMediaController extends Controller
         if ($request->ajax()) {
             $results = Media
                 ::where('name', 'like', '%' . $request->name . '%')
+                ->where('status', 1)
                 ->limit(5)
                 ->get();
 
