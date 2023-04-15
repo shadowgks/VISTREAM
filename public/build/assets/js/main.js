@@ -53,7 +53,8 @@ $(".date_flatpickr").flatpickr({
 });
 //E data flapickr
 
-//ajax
+//B ajax
+//B search
 $('.search-navbar').on('keyup', function () {
     var value = $(this).val();
     var url_route = $(this).data('url');
@@ -67,6 +68,25 @@ $('.search-navbar').on('keyup', function () {
         },
     })
 })
+//E search
+$('.btn_watchlist').on('click', function(e){
+    e.preventDefault();
+    var media_slug = $(this).data('media');
+    var route = $(this).data('route');
 
+    $.ajax({
+        url: route,
+        method: 'POST',
+        data: {
+            media: media_slug
+        },
+        success: function(data){
+            console.log(data);
+        }
+    })
+})
+//B watchlist
+//E watchlist
+//E ajax
 
 

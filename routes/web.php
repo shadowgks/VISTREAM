@@ -3,6 +3,7 @@
 use App\Http\Controllers\ActorController;
 use App\Http\Controllers\Auth\UserController;
 use App\Http\Controllers\CountryController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\Media\ActorMediaController;
 use App\Http\Controllers\Media\CountryMediaController;
@@ -15,7 +16,6 @@ use App\Http\Controllers\Media\SerieMediaController;
 use App\Http\Controllers\MediaController;
 use App\Http\Controllers\SerieController;
 use App\Http\Controllers\SliderController;
-use App\Http\Controllers\StatisticController;
 use App\Http\Controllers\TypeController;
 use App\Http\Controllers\TypeQualityController;
 use App\Http\Controllers\WatchListController;
@@ -47,12 +47,6 @@ Route::get('/serie/{slug}/{Seasson}-{Episode}', [PlaySerieController::class, 'sh
 Route::get('/country/{name}', [CountryMediaController::class, 'show'])->name('media.country.show');
 Route::get('/genre/{name}', [GenreMediaController::class, 'show'])->name('media.genre.show');
 
-//Watchlist
-Route::controller(WatchListController::class)->group(function() {
-    Route::get('/watchlist', 'index')->name('media.watchlist');
-    // Route::put('profile', 'updateProfile');
-    // Route::delete('profile', 'deleteProfile');
-});
 
 //Ressources Dashboard
 Route::resource('/dashboard/country', CountryController::class);
@@ -68,8 +62,17 @@ Route::resource('/dashboard/serie', SerieController::class);
 //Auth
 Route::middleware([
     'auth:sanctum',
-    config('jetstream.auth_session'),
+    // config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::resource('/dashboard', StatisticController::class);
+    //dashboard
+    Route::resource('/dashboard', DashboardController::class);
+
+    //Media
+    //Watchlist
+    Route::controller(WatchListController::class)->group(function () {
+        Route::get('/watchlist', 'index')->name('media.watchlist');
+        Route::post('/watchlist/{media}', 'store')->name('add.watchlist');
+        // Route::delete('profile', 'deleteProfile');
+    });
 });

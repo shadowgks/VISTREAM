@@ -63,4 +63,12 @@ class Media extends Model
         return $this->belongsToMany(Genre::class, 'genre_media')
             ->withTimestamps();
     }
+
+    function users()
+    {
+        return $this->belongsToMany(Media::class, 'watchlists')->withPivot('status')
+            ->withTimestamps();
+    }
+
+
 }

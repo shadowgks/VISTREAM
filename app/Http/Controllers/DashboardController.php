@@ -10,10 +10,10 @@ use App\Models\Slider;
 use App\Models\Type;
 use App\Models\TypeQuality;
 use App\Models\User;
-use FFI;
+
 use Illuminate\Http\Request;
 
-class StatisticController extends Controller
+class DashboardController extends Controller
 {
     function index()
     {

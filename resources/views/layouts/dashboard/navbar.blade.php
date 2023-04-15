@@ -385,7 +385,7 @@
                     <hr class="border-t border-gray-200 dark:border-gray-700 my-0">
                 </li>
                 <li class="relative">
-                    <a class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-500" href="{{ route('profile.show') }}">
+                    <a href="{{ route('profile.show') }}" class="block w-full py-2 px-6 clear-both whitespace-nowrap hover:text-indigo-500">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="inline ltr:mr-2 rtl:ml-2 w-4 h-4 bi bi-gear" viewBox="0 0 16 16">
                             <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z" />
                             <path

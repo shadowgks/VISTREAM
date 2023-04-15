@@ -4,7 +4,19 @@
         <div class="relative">
             <img src="{{ asset($item->picture) }}" alt="random imgee" class="img-media w-full object-cover object-center rounded-lg shadow-md hover:saturate-50 hover:scale-105 hover:duration-500 duration-300">
             <span class="bg-color-secondary text-white text-xs font-bold mr-2 px-2.5 py-0.5 absolute top-0 right-0 my-4 uppercase">{{ $item->qualitie->name }}</span>
-            <a href="" class="absolute text-white left-3 top-3 text-2xl hover:text-red-500 duration-500"><i class="fa-solid fa-heart"></i></a>
+            @if (!Auth::user())
+                <a href="{{ route('login') }}" class="absolute text-white left-3 top-3 text-2xl hover:text-color-secondary duration-500"><i class="fa-solid fa-heart"></i></a>
+            @else
+                <form action="#">
+                    @csrf
+                    {{-- <input type="text" id="btn_watchlist"> --}}
+                    <a data-route="{{route('add.watchlist', $item->slug)}}" data-media="{{$item->slug}}"
+                        class="btn_watchlist absolute text-white left-3 top-3 text-2xl hover:text-color-secondary duration-500">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </form>
+            @endif
+
         </div>
         <div class="my-2">
             <p class="text-lg font-bold text-white">{{ $item->name }}</p>

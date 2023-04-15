@@ -29,6 +29,12 @@ class User extends Authenticatable
         'password',
     ];
 
+    function media()
+    {
+        return $this->belongsToMany(Media::class, 'watchlists')->withPivot('status')
+            ->withTimestamps();
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

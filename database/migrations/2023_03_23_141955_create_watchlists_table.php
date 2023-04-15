@@ -26,6 +26,7 @@ return new class extends Migration
                 ->constrained('media')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
+            $table->boolean('status')->default(1);
             $table->timestamps();
         });
     }
