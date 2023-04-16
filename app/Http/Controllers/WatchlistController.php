@@ -11,10 +11,11 @@ class WatchListController extends Controller
     function index()
     {
         // Get a user's watch list
-        $user = Auth::user();
-        $watchlist = $user->media->get();
-        dd($watchlist);
-        return view('media.watchlist');
+        $watchlist = Media::with(['users' => function($query){
+            $query->id = Auth::user()->id;
+        }])->get();
+        // dd($watchlist[0]->users);
+        return view('media.watchlist', compact('watchlist'));
     }
 
     function store($slug)
