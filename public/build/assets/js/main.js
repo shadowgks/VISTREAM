@@ -69,7 +69,10 @@ $('.search-navbar').on('keyup', function () {
     })
 })
 //E search
-$('.btn_watchlist').on('click', function(e){
+
+//B Watchlist
+//B stor
+$('.btn_watchlist').on('click', function (e) {
     e.preventDefault();
     var media_slug = $(this).data('media');
     var route = $(this).data('route');
@@ -80,12 +83,26 @@ $('.btn_watchlist').on('click', function(e){
         data: {
             media: media_slug
         },
-        success: function(data){
+        success: function (data) {
             console.log(data);
         }
     })
 })
-//B watchlist
+//E stor
+
+//B count
+function count() {
+    $.ajax({
+        method: "GET",
+        url: "/watchlist/count",
+        success: function (data) {
+            $('.watchlist_count ').html(data.count);
+        }
+    });
+}
+count();
+//E count
+
 //E watchlist
 //E ajax
 

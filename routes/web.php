@@ -72,6 +72,7 @@ Route::middleware([
     //Watchlist
     Route::controller(WatchListController::class)->group(function () {
         Route::get('/watchlist', 'index')->name('media.watchlist');
+        Route::get('/watchlist/count', 'count')->name('watchlist_count');
         Route::post('/watchlist/{media}', 'store')->name('add.watchlist');
         // Route::delete('profile', 'deleteProfile');
     });

@@ -39,7 +39,7 @@
                                 </g>
                             </g>
                         </svg>
-                        <div class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-4 border-white rounded-full -top-2 -left-2 dark:border-gray-900">8</div>
+                        <div class="watchlist_count absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-4 border-white rounded-full -top-2 -left-2 dark:border-gray-900">0</div>
                     </a>
 
                 </div>

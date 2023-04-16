@@ -11,10 +11,9 @@ class WatchListController extends Controller
 {
     function index()
     {
-        // Get a user's watch list
+        // Get a user's watch lists
         $watchlist = User::where('id', Auth::user()->id)
         ->with('media')->get();
-        // dd($watchlist);
         return view('media.watchlist', compact('watchlist'));
     }
 
@@ -25,5 +24,13 @@ class WatchListController extends Controller
 
         $this_user->media()
             ->syncWithoutDetaching($this_media);
+    }
+
+    function count()
+    {
+        $watchlist = User::where('id', Auth::user()->id)
+        ->with('media')->first();
+        $count = $watchlist->media->count();
+        return response()->json(['count'=>$count]);
     }
 }
