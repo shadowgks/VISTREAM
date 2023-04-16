@@ -14,9 +14,16 @@ class HomeMediaController extends Controller
         $recommended = Media
             ::where('status', 1)
             ->orderBy('click', 'DESC')
+            ->with('users')
             ->limit(12)
             ->get();
 
+            // if($recommended[1]->users->count() === 0 ){
+            //     dd('$recommended[1]');
+            // }else{
+            //     dd($recommended[6]->users);
+            // }
+            // dd($recommended[6]->users);
         //Latest
         $latest = Media
             ::where('status', 1)

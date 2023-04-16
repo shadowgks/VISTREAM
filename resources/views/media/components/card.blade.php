@@ -9,7 +9,6 @@
             @else
                 <form action="#">
                     @csrf
-                    {{-- <input type="text" id="btn_watchlist"> --}}
                     <a data-route="{{route('add.watchlist', $item->slug)}}" data-media="{{$item->slug}}"
                         class="btn_watchlist absolute text-white left-3 top-3 text-2xl hover:text-color-secondary duration-500">
                         <i class="fa-solid fa-heart"></i>
