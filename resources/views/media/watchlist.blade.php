@@ -95,13 +95,12 @@
                                                 </div> -->
                     </div> --}}
 
-                    @foreach ($watchlist as $item)
+                    @foreach ($watchlist as $relation)
                         <!-- recommended movie-->
-                        @if ($item->count() > 0)
-                            @if ($item->users->count() != 0)
+                        @if ($relation->media->count() > 0)
+                            @foreach ($relation->media as $item)
                                 @include('media.components.card')
-                            @endif
-                        @else
+                            @endforeach
                             {{-- is empty 'SOON' --}}
                         @endif
                     @endforeach
