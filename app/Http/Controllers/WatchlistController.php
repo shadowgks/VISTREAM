@@ -13,7 +13,7 @@ class WatchListController extends Controller
     {
         // Get a user's watch lists
         $watchlist = User::where('id', Auth::user()->id)
-        ->with('media')->get();
+        ->with('media')->first();
         return view('media.watchlist', compact('watchlist'));
     }
 

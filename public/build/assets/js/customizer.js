@@ -6,7 +6,7 @@
    *   Only for demo purpose
    * ------------------------------------------------------------------------
    */
-  
+
   // Demo Theme skin (Customizer)
   // load dark mode from local Storage
   if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -27,7 +27,7 @@
       });
     }
   }
-  
+
   // Sidebar Light and Dark (Customizer)
   const mySidelight = function () {
     const sidecolor = document.querySelector("#sidecolor");
@@ -80,7 +80,7 @@
       });
     }
   }
-  
+
   // Switch RTL mode (Customizer)
   const myRtl = function () {
     const rtlmode = document.querySelector("#rtlmode");

@@ -87,6 +87,7 @@ $('.btn_watchlist').on('click', function (e) {
             console.log(data);
         }
     })
+    count();
 })
 //E stor
 
