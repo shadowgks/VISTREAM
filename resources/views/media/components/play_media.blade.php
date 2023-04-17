@@ -93,21 +93,15 @@
                 </label>
             </div>
         </div>
+        {{-- comment disqus --}}
+        @include('media.components.disqus')
+        {{-- @include('media.components.talk_hyvor') --}}
     </div>
 
     <!-- The button to open modal -->
-    <!-- Put this part before </body> tag -->
-    <input type="checkbox" id="my-modal-4" class="modal-toggle" />
-    <label for="my-modal-4" class="modal cursor-pointer">
-        <label class="modal-box relative" id="modal-trailer" for="">
-            @php
-                $url = $media_play->trailer;
-                $value_url = substr(parse_url($url, PHP_URL_QUERY), 2); //PHP_URL_QUERY - after the question mark ?
-            @endphp
-            <iframe width="100%" height="350" src="https://www.youtube.com/embed/{{ $value_url }}" allowfullscreen></iframe>
-        </label>
-    </label>
+    @include('media.components.trailer')
 
     <!-- You may also like -->
     @include('media.components.you_may_also_like')
 </div>
+

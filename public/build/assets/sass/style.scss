@@ -27,17 +27,32 @@
 :root {
     --plyr-color-main: #88188f;
 }
-.plyr--full-ui.plyr--video .plyr__control--overlaid{
+
+.plyr--full-ui.plyr--video .plyr__control--overlaid {
     background-color: $color-secondary;
 }
 
 //modal DaisyUI
-#btn-modal-trailer{
+#btn-modal-trailer {
     background-color: $color-secondary;
     color: $color-white;
     border-radius: 5px;
 }
-#modal-trailer{
+
+#modal-trailer {
     padding: 0;
     border-radius: 0;
+}
+
+//disqus fix dark mode
+#disqus_thread {
+    a {
+        color: red;
+    }
+}
+
+#disqus_thread {
+    iframe {
+        color-scheme: light;
+    }
 }

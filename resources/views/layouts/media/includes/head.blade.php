@@ -13,6 +13,5 @@
 <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.5/dist/full.css" rel="stylesheet" type="text/css" />
 
 @vite(['resources/css/app.css'])
-
 {{-- if you need ad more links --}}
 @yield('link')
