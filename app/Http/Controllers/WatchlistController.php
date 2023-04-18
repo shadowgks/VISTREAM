@@ -31,12 +31,12 @@ class WatchListController extends Controller
         if ($watchItem == null) {
             $this_user->media()
                 ->syncWithoutDetaching($this_media);
-            return 'Stored';
+            return 'stored';
         } else {
             DB::table('watchlists')
                 ->where('id', $watchItem->id)
                 ->delete();
-            return 'Deleted';
+            return 'deleted';
         }
     }
 

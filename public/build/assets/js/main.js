@@ -59,6 +59,8 @@ $('.btn_watchlist').on('click', function (e) {
     var media_slug = $(this).data('media');
     var route = $(this).data('route');
     var heart = $(this);
+    var page_watchlist_load = $('.load_div');
+    console.log(page_watchlist_load);
 
     $.ajax({
         url: route,
@@ -68,12 +70,13 @@ $('.btn_watchlist').on('click', function (e) {
         },
 
         success: function (data) {
-            if(data == 'Stored'){
+            if(data == 'stored'){
                 heart.removeClass('text-white');
                 heart.addClass('text-red-500');
             }else{
                 heart.removeClass('text-red-500');
                 heart.addClass('text-white');
+                $('.load_div').load(location.href + ' .load_div');
             }
 
             console.log(data);
