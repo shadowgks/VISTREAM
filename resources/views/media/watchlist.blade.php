@@ -65,8 +65,7 @@
                 </div>
 
                 <!-- cards movies & series -->
-                <div class="load_div">
-                    <div class=" items-media grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3 mt-10 my-4">
+                    <div class="items-media grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3 mt-10 my-4">
                         {{-- <div class="cursor-pointer" data-popover-target="popover-media" data-popover-placement="right">
                             <!-- content Card -->
                             <div class="relative">
@@ -97,8 +96,7 @@
                                                         <div data-popper-arrow></div>
                                                     </div> -->
                         </div> --}}
-
-                        @if ($watchlist->media->count() > 0)
+                        @if ($watchlist->media->count() != 0)
                             @foreach ($watchlist->media as $item)
                                 @include('media.components.card')
                             @endforeach
@@ -107,8 +105,6 @@
                         @endif
 
                     </div>
-                </div>
-
             </div>
         </section>
 

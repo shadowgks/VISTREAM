@@ -76,9 +76,7 @@ $('.btn_watchlist').on('click', function (e) {
             }else{
                 heart.removeClass('text-red-500');
                 heart.addClass('text-white');
-                $('.load_div').load(location.href + ' .load_div');
             }
-
             console.log(data);
         }
     })

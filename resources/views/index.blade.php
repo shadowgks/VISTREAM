@@ -27,12 +27,11 @@
                                         <a class="decoration-slice font-semibold text-sm text-gray-200 mr-2" href="#">{{ $item2->name }}</a>
                                     @endforeach
                                 </p>
-                                <p class="text-lg mt-3 text-gray-300 mb-10 leading-none truncate">{{ $item->description }}</p>
-                                {{-- {{ route('play.show', $item->slug) }} --}}
-                                <a href="{{ $item->type_id == 1 ? route('play-movie.show', $item->slug) : route('play-serie.show', [$item->slug, 1, 1]) }}" class="text-[8px] bg-color-secondary py-2 px-8 text-white rounded-full font-bold uppercase md:text-sm hover:bg-gray-200 hover:text-gray-800"><i class="fa-brands fa-google-play"></i> Watch
+                                <p class="text-lg mt-3 text-gray-300 mb-6 leading-none truncate">{{ $item->description }}</p>
+                                <a href="{{ $item->type_id == 1 ? route('play-movie.show', $item->slug) : route('play-serie.show', [$item->slug, 1, 1]) }}" class="bg-color-secondary py-2 px-8 text-white rounded-full font-bold uppercase md:text-sm hover:bg-gray-200 hover:text-gray-800"><i class="fa-brands fa-google-play"></i> Watch
                                     Now</a>
-                                <a href="#" class="text-[8px] bg-transparent border border-color-three py-2 px-8 text-white rounded-full font-bold uppercase md:text-sm hover:bg-gray-200 hover:text-gray-800"><i class="fa-regular fa-heart"></i> Add
-                                    to list</a>
+                                {{-- <a href="#" class="text-[8px] bg-transparent border border-color-three py-2 px-8 text-white rounded-full font-bold uppercase md:text-sm hover:bg-gray-200 hover:text-gray-800"><i class="fa-regular fa-heart"></i> Add
+                                    to list</a> --}}
                             </div>
                         </div> <!-- container -->
                     </div>

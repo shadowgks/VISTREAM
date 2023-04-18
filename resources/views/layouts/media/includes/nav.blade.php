@@ -4,23 +4,10 @@
             <img src="{{ asset('build/assets/images/logo/VISTREAM.png') }}" class="h-12 mr-3 sm:h-14" alt="VISTREAM" />
         </a>
 
-        <!-- search -->
+
         <div class="relative flex items-center md:order-2 md:gap-5">
-            <form action="" method="">
-                <div class="relative hidden md:block">
-                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                        <svg class="w-5 h-5 text-gray-500" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
-                        </svg>
-                        <span class="sr-only">Search icon</span>
-                    </div>
-
-                    <input type="text" data-url="{{ route('search.media') }}" class="search-navbar block w-full p-2 pl-10 text-sm outline-none rounded-lg bg-gray-700 border-gray-600 placeholder-gray-400 text-white hover:bg-white hover:text-black duration-500"
-                        placeholder="Search...">
-
-                    @include('layouts.media.includes.components.results_search')
-                </div>
-            </form>
+            <!-- search -->
+            @include('layouts.media.includes.components.search')
 
             <!-- user -->
             @if (Auth::user())
@@ -55,7 +42,7 @@
                     <div id="userDropdown" class="z-10 hidden bg-color-primary-75 divide-y divide-gray-500 rounded-lg shadow w-44">
                         <div class="px-4 py-3 text-sm text-white">
                             <div class="uppercase">{{ Auth::user()->name }}</div>
-                            <div class="font-medium truncate">Admin</div>
+                            <div class="font-medium truncate">{{ Auth::user()->status == 1 ? 'Admin' : 'Visitor' }}</div>
                         </div>
                         <ul class="py-2 text-sm text-gray-200" aria-labelledby="avatarButton">
                             <li>
@@ -102,7 +89,7 @@
                         <input type="text" data-url="{{ route('search.media') }}" class="search-navbar block w-full p-2 pl-10 text-sm outline-none rounded-lg bg-gray-700 border-gray-600 placeholder-gray-400 text-white hover:bg-white hover:text-black duration-500"
                             placeholder="Search...">
 
-                        @include('layouts.media.includes.components.results_search')
+                        {{-- @include('layouts.media.includes.components.results_search') --}}
                     </div>
                 </form>
             </div>

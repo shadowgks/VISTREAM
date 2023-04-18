@@ -223,7 +223,7 @@
                                                             <th>Fullname</th>
                                                             <th>Email</th>
                                                             <th>Status</th>
-                                                            <th>Actions</th>
+                                                            {{-- <th>Actions</th> --}}
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -238,8 +238,8 @@
                                                                     {{ $item->name }}
                                                                 </td>
                                                                 <td>{{ $item->email }}</td>
-                                                                <td>{{ $item->status }}</td>
-                                                                <td>Action</td>
+                                                                <td>{{ ($item->status == 1 ? 'Admin' : 'Visitor') }}</td>
+                                                                {{-- <td>Action</td> --}}
                                                             </tr>
                                                         @endforeach
 
