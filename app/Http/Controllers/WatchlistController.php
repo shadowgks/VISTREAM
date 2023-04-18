@@ -23,15 +23,19 @@ class WatchListController extends Controller
         $this_media = Media::where('slug', $slug)->first();
         $this_user = Auth::user();
 
-        if ($this_media->users->count() == 0) {
+        $watchItem = DB::table('watchlists')
+            ->where('user_id', $this_user->id)
+            ->where('media_id', $this_media->id)
+            ->first();
+        // dd(!$watchItem);
+        if ($watchItem == null) {
             $this_user->media()
                 ->syncWithoutDetaching($this_media);
             return 'Stored';
-        }else{
-            $this_watchlist = DB::table('watchlists')
-            ->where('user_id', $this_user->id)
-            ->where('media_id', $this_media->id)
-            ->delete();
+        } else {
+            DB::table('watchlists')
+                ->where('id', $watchItem->id)
+                ->delete();
             return 'Deleted';
         }
     }

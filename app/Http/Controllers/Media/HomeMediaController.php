@@ -21,14 +21,7 @@ class HomeMediaController extends Controller
             }]);
         }
         $recommended = $recommended_query->limit(12)->get();
-        // dd($recommended[1]->users);
 
-        // if($recommended[1]->users->count() === 0 ){
-        //     dd('$recommended[1]');
-        // }else{
-        //     dd($recommended[5]->users);
-        // }
-        // dd($recommended[6]->users);
         //Latest
         $latest_query = Media
             ::where('status', 1)
