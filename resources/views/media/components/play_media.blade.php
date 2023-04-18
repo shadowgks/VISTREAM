@@ -95,7 +95,6 @@
         </div>
         {{-- comment disqus --}}
         @include('media.components.disqus')
-        {{-- @include('media.components.talk_hyvor') --}}
     </div>
 
     <!-- The button to open modal -->

@@ -41,18 +41,20 @@
         <!-- section movies and menu -->
         <section class="my-10 lg:flex lg:gap-4 lg:justify-center">
             <div class="lg:w-[20%] bg-color-primary-75 rounded py-7 px-5 order-2 text-center mb-4 rounded">
-                <a href=""
+                <a href="{{ route('profile.show') }}"
                     class="relative w-full inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-800">
                     <span class="relative w-full px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
                         <i class="fa-solid fa-user mr-3"></i> Edit Profile
                     </span>
                 </a>
-                <a href=""
-                    class="relative w-full inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-800">
-                    <span class="relative w-full px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                        <i class="fa-solid fa-right-from-bracket mr-3"></i> Sign out
-                    </span>
-                </a>
+                <form method="POST" action="{{ route('logout') }}" x-data>
+                    <a href="{{ route('logout') }}"
+                        class="relative w-full inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-800">
+                        <span class="relative w-full px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                            <i class="fa-solid fa-right-from-bracket mr-3"></i> Sign out
+                        </span>
+                    </a>
+                </form>
             </div>
             <div class="lg:w-[80%]">
                 <!-- heading -->

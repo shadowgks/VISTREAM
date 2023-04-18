@@ -47,10 +47,9 @@
 //disqus fix dark mode
 #disqus_thread {
     a {
-        color: red;
+        color: $color-secondary;
     }
 }
-
 #disqus_thread {
     iframe {
         color-scheme: light;

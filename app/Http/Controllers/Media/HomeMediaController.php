@@ -5,31 +5,40 @@ namespace App\Http\Controllers\Media;
 use App\Http\Controllers\Controller;
 use App\Models\Media;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeMediaController extends Controller
 {
     function index()
     {
         //Recommended
-        $recommended = Media
+        $recommended_query = Media
             ::where('status', 1)
-            ->orderBy('click', 'DESC')
-            ->with('users')
-            ->limit(12)
-            ->get();
+            ->orderBy('click', 'DESC');
+        if (Auth::check()) {
+            $recommended_query = $recommended_query->with(['users' => function ($query) {
+                $query->where('users.id', Auth::user()->id);
+            }]);
+        }
+        $recommended = $recommended_query->limit(12)->get();
+        // dd($recommended[1]->users);
 
-            // if($recommended[1]->users->count() === 0 ){
-            //     dd('$recommended[1]');
-            // }else{
-            //     dd($recommended[6]->users);
-            // }
-            // dd($recommended[6]->users);
+        // if($recommended[1]->users->count() === 0 ){
+        //     dd('$recommended[1]');
+        // }else{
+        //     dd($recommended[5]->users);
+        // }
+        // dd($recommended[6]->users);
         //Latest
-        $latest = Media
+        $latest_query = Media
             ::where('status', 1)
-            ->limit(12)
-            ->latest()
-            ->get();
+            ->limit(12);
+            if (Auth::check()) {
+                $latest_query = $latest_query->with(['users' => function ($query) {
+                    $query->where('users.id', Auth::user()->id);
+                }]);
+            }
+        $latest = $latest_query->latest()->get();
 
         return view('index', compact('recommended', 'latest'));
     }

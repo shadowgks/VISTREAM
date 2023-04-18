@@ -1,3 +1,4 @@
+
 //B swiper
 const swiper = new Swiper('.swiper', {
     // Optional parameters
@@ -57,6 +58,7 @@ $('.btn_watchlist').on('click', function (e) {
     e.preventDefault();
     var media_slug = $(this).data('media');
     var route = $(this).data('route');
+    var heart = $(this);
 
     $.ajax({
         url: route,
@@ -64,7 +66,16 @@ $('.btn_watchlist').on('click', function (e) {
         data: {
             media: media_slug
         },
+
         success: function (data) {
+            if(data == 'Stored'){
+                heart.removeClass('text-white');
+                heart.addClass('text-red-500');
+            }else{
+                heart.removeClass('text-red-500');
+                heart.addClass('text-white');
+            }
+
             console.log(data);
         }
     })

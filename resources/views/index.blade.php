@@ -54,7 +54,7 @@
     <!-- Main Movies & Series -->
     <div class="mx-6 bg-fixed">
         <!-- Recommended -->
-        <section>
+        <section class="">
             <!-- heading -->
             <div class="md:flex md:items-center gap-10">
                 <h2 class="text-white font-bold text-3xl">Recommended
@@ -98,7 +98,7 @@
         </section>
 
         <!-- Latest Movies -->
-        <section class="mt-14">
+        <section class="mt-14 ">
             <!-- heading -->
             <div class="flex items-center justify-between text-bold">
                 <h2 class="text-white font-bold text-3xl">Latest Movies

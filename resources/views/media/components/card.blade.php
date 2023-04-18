@@ -7,12 +7,17 @@
             @if (!Auth::user())
                 <a href="{{ route('login') }}" class="absolute text-white left-3 top-3 text-2xl hover:text-color-secondary duration-500"><i class="fa-solid fa-heart"></i></a>
             @else
-                <form action="#">
+                <form action="#" class="form_btn_watchlist" id="form_heart">
                     @csrf
-                    <a data-route="{{route('add.watchlist', $item->slug)}}" data-media="{{$item->slug}}"
-                        class="btn_watchlist absolute text-white left-3 top-3 text-2xl hover:text-color-secondary duration-500">
-                        <i class="fa-solid fa-heart"></i>
-                    </a>
+                        @if ($item->users->count() == 0)
+                            <a id="heart-{{$item->id}}" data-route="{{ route('add.watchlist', $item->slug) }}" data-media="{{ $item->slug }}" class="btn_watchlist absolute text-white left-3 top-3 text-2xl hover:text-color-secondary duration-500">
+                                <i class="fa-solid fa-heart"></i>
+                            </a>
+                        @else
+                            <a data-route="{{ route('add.watchlist', $item->slug) }}" data-media="{{ $item->slug }}" class="btn_watchlist absolute left-3 top-3 text-2xl text-red-500 duration-500">
+                                <i class="fa-solid fa-heart"></i>
+                            </a>
+                        @endif
                 </form>
             @endif
 

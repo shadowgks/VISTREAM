@@ -66,7 +66,7 @@ class Media extends Model
 
     function users()
     {
-        return $this->belongsToMany(Media::class, 'watchlists')->withPivot('status')
+        return $this->belongsToMany(User::class, 'watchlists')->withPivot('status')
             ->withTimestamps();
     }
 
