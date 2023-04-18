@@ -26,11 +26,11 @@ class HomeMediaController extends Controller
         $latest_query = Media
             ::where('status', 1)
             ->limit(12);
-            if (Auth::check()) {
-                $latest_query = $latest_query->with(['users' => function ($query) {
-                    $query->where('users.id', Auth::user()->id);
-                }]);
-            }
+        if (Auth::check()) {
+            $latest_query = $latest_query->with(['users' => function ($query) {
+                $query->where('users.id', Auth::user()->id);
+            }]);
+        }
         $latest = $latest_query->latest()->get();
 
         return view('index', compact('recommended', 'latest'));

@@ -151,9 +151,9 @@
                 <li>
                     <a href="{{ route('actors.index') }}" class="block py-2 pl-3 pr-4 text-gray-400 @yield('link_actors_active') rounded md:hover:bg-transparent hover:text-color-links md:p-0">Actors</a>
                 </li>
-                <li>
+                {{-- <li>
                     <a href="#" class="block py-2 pl-3 pr-4 text-gray-400 @yield('link_about_active') rounded md:hover:bg-transparent hover:text-color-links md:p-0">About us</a>
-                </li>
+                </li> --}}
             </ul>
         </div>
     </div>
