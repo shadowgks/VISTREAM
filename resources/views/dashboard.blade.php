@@ -25,7 +25,7 @@
                         <div class="flex-shrink max-w-full px-4 w-full sm:w-1/2 lg:w-1/4 mb-6">
                             <div class="bg-white dark:bg-color-primary-75 rounded-lg shadow-lg h-full p-6 relative overflow-hidden">
                                 <h3 class="text-base font-bold mb-2">Users</h3>
-                                <h2 class="text-3xl font-bold mb-4">{{$users_count}}</h2>
+                                <h2 class="text-3xl font-bold mb-4">{{ $users_count }}</h2>
 
                                 <!-- bg circle -->
                                 <div class="absolute -right-16  -top-16">
@@ -231,14 +231,17 @@
                                                             <tr>
                                                                 <td>{{ $key + 1 }}</td>
                                                                 <td>
-                                                                    <a href="#">
-                                                                        <img class="object-cover inline-block rounded-full shadow-xl w-12 h-12 max-w-full bg-gray-300 border-gray-200 dark:bg-gray-800 border-2 dark:border-gray-600" src="{{ URL::asset($item->profile_photo_path) }}"
-                                                                            alt="Image Description">
-                                                                    </a>
+                                                                    @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
+                                                                        <img class="object-cover inline-block rounded-full shadow-xl w-12 h-12 max-w-full bg-gray-300 border-gray-200 dark:bg-gray-800 border-2 dark:border-gray-600" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}">
+                                                                    @else
+                                                                        <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                                                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                                                        </svg>
+                                                                    @endif
                                                                     {{ $item->name }}
                                                                 </td>
                                                                 <td>{{ $item->email }}</td>
-                                                                <td>{{ ($item->status == 1 ? 'Admin' : 'Visitor') }}</td>
+                                                                <td>{{ $item->status == 1 ? 'Admin' : 'User' }}</td>
                                                                 {{-- <td>Action</td> --}}
                                                             </tr>
                                                         @endforeach

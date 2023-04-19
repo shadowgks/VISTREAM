@@ -250,6 +250,7 @@ const route_destroy_media = document.querySelector("#route_destroy_media");
 // edie & update
 function modalMediaEdit(id, name, duration, link_media, link_imdb, description, released_year, director, production, trailer, status, genres, actors, country_id, quality_id, type_id) {
     //btn save
+    console.log('here', id, name)
     form_media.save.innerHTML = "Saves Changes";
 
     // set inputs
@@ -487,7 +488,7 @@ function modalSerieEdit(id, name, num_season, array_ep, array_url, array_id) {
 
 //B Delete
 const route_destroy_serie = document.getElementById('route_destroy_serie');
-function modalSerieTrash(id){
+function modalSerieTrash(id) {
     console.log(form_serie_delete.action = route_destroy_serie.value.concat("/" + id));
 }
 //E Delete

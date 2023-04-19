@@ -17,6 +17,7 @@ class DashboardController extends Controller
 {
     function index()
     {
+
         $users = User::get();
         $users_count = $users->count();
         $sliders = Slider::count();

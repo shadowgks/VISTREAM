@@ -23,7 +23,7 @@
 
         </div>
         <div class="my-2">
-            <p class="text-lg font-bold text-white">{{ $item->name }}</p>
+            <p class="text-lg font-bold text-white truncate" title="{{ $item->name }}">{{ $item->name }}</p>
             <div class="flex justify-between items-center text-gray-500">
                 <!-- date & min -->
                 <div class="flex">

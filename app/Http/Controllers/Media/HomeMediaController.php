@@ -61,7 +61,7 @@ class HomeMediaController extends Controller
                             <div class="flex flex-wrap flex-row items-center border-b border-gray-700 !bg-red-900 bg-opacity-40 py-2">
                                 <div class="flex-shrink max-w-full px-2 w-1/4 text-center">
                                     <div class="relative">
-                                        <img src="' . asset($item->picture) . '" class="h-14 w-14 mx-auto object-cover" alt="Carlos Garcia">
+                                        <img src="' . asset($item->picture) . '" class="h-12 w-12 mx-auto object-cover" alt="Carlos Garcia">
                                     </div>
                                 </div>
                                 <div class="flex-shrink max-w-full px-2 w-3/4">

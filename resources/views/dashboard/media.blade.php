@@ -49,9 +49,9 @@
                                     <tr>
                                         <td>{{ $key + 1 }}</td>
                                         <a href="{{ $item->link_media }}">
-                                            <td>
+                                            <td class="flex items-center gap-2 sm:flex-row  flex-col">
                                                 <img class="object-cover inline-block rounded-full shadow-xl w-12 h-12 max-w-full bg-gray-300 border-gray-200 dark:bg-gray-800 border-2 dark:border-gray-600" src="{{ URL::asset($item->picture) }}" alt="Image Description">
-                                                {{ $item->name }}
+                                                <span class="w-16 block flex-none truncate" title="{{ $item->name }}">{{ $item->name }}</span>
                                             </td>
                                         </a>
                                         <td class="text-center">
@@ -89,7 +89,7 @@
                                                 $tags_genres[$key] = $item2->id;
                                             }
                                             $convert_genres = implode(' ', $tags_genres);
-
+                                            
                                             //==================
                                             //actors
                                             $tags_actors = [];

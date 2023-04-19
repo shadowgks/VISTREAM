@@ -54,7 +54,10 @@ class SerieController extends Controller
     {
         //season
         $this_season = Season
-            ::updateOrCreate($request->except(['_token', 'season_id', 'num_ep', 'url', 'save']));
+            ::updateOrCreate([
+                'media_id' => $request->media_id,
+                'num_season' => $request->num_season
+            ]);
 
         //episode
         //add multipple data
@@ -102,7 +105,6 @@ class SerieController extends Controller
      */
     public function edit($id)
     {
-        //
     }
 
     /**
@@ -130,7 +132,7 @@ class SerieController extends Controller
             ]);
             if ($update) {
                 Session::flash('success', 'Updated Episodes Season Successfully');
-            }else{
+            } else {
                 Session::flash('failed', 'Updated Failed!');
             }
         }
@@ -149,7 +151,7 @@ class SerieController extends Controller
         $season = Season::find($id);
         if ($season->delete()) {
             Session::flash('success', 'Deleted Season Successfully');
-        }else{
+        } else {
             Session::flash('failed', 'Deleted Failed!');
         }
         return redirect()->back();
