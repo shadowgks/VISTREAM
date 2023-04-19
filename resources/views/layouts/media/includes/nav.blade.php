@@ -45,9 +45,11 @@
                             <div class="font-medium truncate">{{ Auth::user()->status == 1 ? 'Admin' : 'Visitor' }}</div>
                         </div>
                         <ul class="py-2 text-sm text-gray-200" aria-labelledby="avatarButton">
-                            <li>
-                                <a href="{{ route('dashboard.index') }}" class="block px-4 py-2 hover:bg-gray-100 hover:text-black">Dashboard </a>
-                            </li>
+                            @if (Auth::user()->status == 1)
+                                <li>
+                                    <a href="{{ route('dashboard.index') }}" class="block px-4 py-2 hover:bg-gray-100 hover:text-black">Dashboard </a>
+                                </li>
+                            @endif
                             <li>
                                 <a href="{{ route('profile.show') }}" class="block px-4 py-2 hover:bg-gray-100 hover:text-black">Settings</a>
                             </li>

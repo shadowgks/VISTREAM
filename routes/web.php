@@ -47,33 +47,31 @@ Route::get('/serie/{slug}/{Seasson}-{Episode}', [PlaySerieController::class, 'sh
 Route::get('/country/{name}', [CountryMediaController::class, 'show'])->name('media.country.show');
 Route::get('/genre/{name}', [GenreMediaController::class, 'show'])->name('media.genre.show');
 
+//Media Watchlist
+Route::controller(WatchListController::class)->group(function () {
+    Route::get('/watchlist', 'index')->name('media.watchlist');
+    Route::get('/watchlist/count', 'count')->name('watchlist_count');
+    Route::post('/watchlist/{media}', 'toggle')->name('add.watchlist');
+});
 
-//Ressources Dashboard
-Route::resource('/dashboard/country', CountryController::class);
-Route::resource('/dashboard/actor', ActorController::class);
-Route::resource('/dashboard/quality', TypeQualityController::class);
-Route::resource('/dashboard/genre', GenreController::class);
-Route::resource('/dashboard/media', MediaController::class);
-Route::resource('/dashboard/user', UserController::class);
-Route::resource('/dashboard/type', TypeController::class);
-Route::resource('/dashboard/slider', SliderController::class);
-Route::resource('/dashboard/serie', SerieController::class);
 
 //Auth
 Route::middleware([
     'auth:sanctum',
-    // config('jetstream.auth_session'),
-    'verified'
+    'auth',
+    'admin'
 ])->group(function () {
     //dashboard
     Route::resource('/dashboard', DashboardController::class);
 
-    //Media
-    //Watchlist
-    Route::controller(WatchListController::class)->group(function () {
-        Route::get('/watchlist', 'index')->name('media.watchlist');
-        Route::get('/watchlist/count', 'count')->name('watchlist_count');
-        Route::post('/watchlist/{media}', 'toggle')->name('add.watchlist');
-        // Route::delete('profile', 'deleteProfile');
-    });
+    //Ressources Dashboard
+    Route::resource('/dashboard/country', CountryController::class);
+    Route::resource('/dashboard/actor', ActorController::class);
+    Route::resource('/dashboard/quality', TypeQualityController::class);
+    Route::resource('/dashboard/genre', GenreController::class);
+    Route::resource('/dashboard/media', MediaController::class);
+    Route::resource('/dashboard/user', UserController::class);
+    Route::resource('/dashboard/type', TypeController::class);
+    Route::resource('/dashboard/slider', SliderController::class);
+    Route::resource('/dashboard/serie', SerieController::class);
 });
