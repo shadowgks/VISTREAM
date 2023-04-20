@@ -19,8 +19,6 @@ class SliderController extends Controller
     {
         $slider = Slider::with('media')->get();
 
-        // dd($slider);
-
         $media = Media
         ::where('status',1)
         ->with('sliders')

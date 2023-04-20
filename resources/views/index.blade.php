@@ -13,11 +13,11 @@
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
             <!-- Slides -->
-            @foreach ($recommended as $item)
-                @if (!$item->sliders == null)
+            @foreach ($sliders as $item)
+                @if ($item->sliders != null)
                     <div class="swiper-slide">
                         <div class="flex items-center h-screen bg-cover text-white px-10 bg-bottom" style="background-image: url({{ asset($item->sliders->picture) }})">
-                            <div class="md:w-1/2 mb-32 md:ml-14 m-2 text-start backdrop-brightness-50 bg-color-primary bg-transparent backdrop-blur-sm px-4 py-8 rounded-xl">
+                            <div class="w-80 md:w-1/2 mb-32 md:ml-14 m-2 text-start backdrop-brightness-50 bg-color-primary bg-transparent backdrop-blur-sm px-4 py-8 rounded-xl">
                                 <span class="font-semibold text-base uppercase">{{ $item->types->name }}</span>
                                 <span class="text-sm pl-2 pr-2 text-gray-300">{{ $item->duration }} min</span>
                                 <span class="bg-color-secondary text-color-links text-xs font-medium mr-2 px-2.5 py-0.5 rounded uppercase">{{ $item->qualitie->name }}</span>

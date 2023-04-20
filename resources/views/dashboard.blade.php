@@ -231,13 +231,6 @@
                                                             <tr>
                                                                 <td>{{ $key + 1 }}</td>
                                                                 <td>
-                                                                    @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-                                                                        <img class="object-cover inline-block rounded-full shadow-xl w-12 h-12 max-w-full bg-gray-300 border-gray-200 dark:bg-gray-800 border-2 dark:border-gray-600" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}">
-                                                                    @else
-                                                                        <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                                                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                                                                        </svg>
-                                                                    @endif
                                                                     {{ $item->name }}
                                                                 </td>
                                                                 <td>{{ $item->email }}</td>

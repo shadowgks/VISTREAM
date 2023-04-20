@@ -33,7 +33,13 @@ class HomeMediaController extends Controller
         }
         $latest = $latest_query->latest()->get();
 
-        return view('index', compact('recommended', 'latest'));
+        //slider
+        $sliders = Media
+            ::with('sliders')
+            ->where('status', 1)
+            ->get();
+
+        return view('index', compact('recommended', 'latest', 'sliders'));
     }
 
     function search(Request $request)
