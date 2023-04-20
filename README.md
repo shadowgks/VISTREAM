@@ -1,66 +1,87 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Video Streaming | VISTRAM
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+---
 
-## About Laravel
+# **Cahier des charges**
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## **1 - Présentation d’ensemble du projet**
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### **1.1- Présentation :**
 
-## Learning Laravel
+- Une application de streaming de films et de séries, nous avons mis au point un concept innovant pour attirer les utilisateurs du monde entier. Cette application propose un accès instantané à une vaste bibliothèque de films et de séries, que vous pouvez regarder n'importe où et à tout moment. Vous pouvez parcourir notre catalogue en ligne, sélectionner les films et séries de votre choix, et les regarder sur votre appareil. Notre application offre une expérience de streaming rapide et fluide, pour que vous puissiez profiter de vos films et séries préférés sans interruption.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### ****1.2- Les objectifs du site :****
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- En fournissant des statistiques utiles, cette application aidera les utilisateurs à sélectionner leur prochain film et de séries à regarder.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### **1.3- La cible adressée par le site :**
 
-## Laravel Sponsors
+1. **Expérience de diffusion en continu :**
+C'est gratuit, rapide et transparent. Normalement, vous ne pouvez en choisir qu'un, mais **VISTREAM**  coche les trois cases. Bien que le site Web soit gratuit, vous bénéficiez en fait d'une expérience de visionnage premium avec des temps de chargement rapides et peu ou pas de mise en mémoire tampon.
+2. **Compatibilité des appareils :
+VISTREAM** est compatible avec les appareils mobiles et prend en charge Chromecast afin que vous puissiez diffuser des films et des émissions de télévision avec n'importe quel appareil disponible.
+3. **Annonces et popups :**
+Ils sont vitaux pour la survie de tout site de streaming, mais **VISTREAM** ne semble pas gourmand. Vous rencontrerez des publicités et des popups ici et là, mais dans l'ensemble, l'expérience de visionnage est assez transparente.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+### **1.4- Objectifs quantitatifs après 1 an :**
 
-### Premium Partners
+- Les users du maroc connaîtront le site et pourront y accéder.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+### **1.5- Périmètre du projet :**
 
-## Contributing
+- Le site sera intégralement “Responsive Design”.
+- L’ensemble des fonctionnalités détaillées dans ce document seront accessibles  depuis un mobile.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 2 **- Présentation d’ensemble du projet**
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### **2.1- Charte graphique :**
 
-## Security Vulnerabilities
+![52ce8b58-ec15-498d-8849-6feb92c6c7f1-cover.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e76dab23-92a4-4134-a43e-9af56c04293e/52ce8b58-ec15-498d-8849-6feb92c6c7f1-cover.png)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### **2.3- Logo :**
 
-## License
+![Black Minimalist Fire Gaming logo (250 × 150 px).png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8cd105e4-4a94-4c0f-be6f-5e8db51bebd2/Black_Minimalist_Fire_Gaming_logo_(250__150_px).png)
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 3 **- Description fonctionnelle et technique**
+
+---
+
+### **3.1 Arborescence du site  :**
+
+- Home
+- Genre
+- Country
+- Movies
+- TV-Series
+- Actors
+- Watchlist
+
+### **3.2 Description fonctionnelle du site :**
+
+✔️ CRUD Movies et Series
+
+✔️ User can create an account
+
+✔️ Individuals can make their own watch lists.
+
+✔️ On the home page, users can view all of the most recent movies.
+
+✔️ To view all other movies, scroll down and sort by release date.
+
+✔️ Any movie can be clicked on by the user to get to its own independent page.
+
+✔️ The user may then view all information about each individual movie page's actors, about.
+
+### **3.3 les technologies utilisées :**
+
+- HTML
+- CSS
+- TAILWIND CSS
+- JS
+- LARAVEL
+- JQUERY
+- MYSQL
