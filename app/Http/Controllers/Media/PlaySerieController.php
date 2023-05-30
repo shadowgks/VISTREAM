@@ -58,6 +58,7 @@ class PlaySerieController extends Controller
                 $query->orderBy('num_ep', 'ASC');
             }])
             ->first();
+        $season_episode->episodes->sortBy('num_ep');
         // dd($season_episode);
         return view('media.play-serie', compact('media_play', 'url_media', 'this_media_like', 'season_episode'));
     }
