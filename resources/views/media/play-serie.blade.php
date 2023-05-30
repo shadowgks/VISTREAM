@@ -47,26 +47,24 @@
             <!-- tab links Session-->
             <div class="mb-4 border-b dark:border-gray-700">
                 <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
-                    @foreach ($season_episode as $season)
                         <li class="mr-2" role="presentation">
-                            <button class="inline-block p-4 border-b-2 rounded-t-lg text-color-links" data-tabs-target="#session{{ $season->num_season }}" type="button" role="tab">Session {{ $season->num_season }}</button>
+                            <button class="inline-block p-4 border-b-2 rounded-t-lg text-color-links" data-tabs-target="#session{{ $season_episode->num_season }}" type="button" role="tab">Session {{ $season_episode->num_season }}</button>
                         </li>
-                    @endforeach
                 </ul>
             </div>
 
             <!-- Episode -->
             <div id="myTabContent">
                 <p class="text-gray-400 font-bold text-lg text-center uppercase mb-4">Episodes</p>
-                @foreach ($season_episode as $season)
-                    <div class="grid sm:grid-cols-7 hidden py-14 px-4 rounded-lg text-center bg-color-primary-75" id="session{{ $season->num_season }}" role="tabpanel" aria-labelledby="session-tab">
-                        @foreach ($season->episodes as $ep)
-                            <a href="{{ route('play-serie.show', [$season->media->slug, $season->num_season, $ep->num_ep]) }}"
+                    <div class="grid sm:grid-cols-7 py-14 px-4 rounded-lg text-center bg-color-primary-75" id="session{{ $season_episode->num_season }}" role="tabpanel" aria-labelledby="session-tab">
+                        @foreach ($season_episode->episodes as $ep)
+                            {{-- @dd($season->episodes) --}}
+                            {{-- @dd($season->episodes) --}}
+                            <a href="{{ route('play-serie.show', [$season_episode->media->slug, $season_episode->num_season, $ep->num_ep]) }}"
                                 class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-14 py-2.5 mr-2 mb-2">Episode
                                 {{ $ep->num_ep }}</a>
                         @endforeach
                     </div>
-                @endforeach
             </div>
         </div>
 
