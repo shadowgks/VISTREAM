@@ -20,7 +20,7 @@
 }
 
 .swiper {
-  height: 60vh;
+  height: 65vh;
 }
 
 .img-media {
@@ -50,7 +50,6 @@
 #disqus_thread a {
   color: #88188f;
 }
-
 #disqus_thread iframe {
   color-scheme: light;
 }/*# sourceMappingURL=style.css.map */

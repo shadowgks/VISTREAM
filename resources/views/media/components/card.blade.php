@@ -2,7 +2,7 @@
     <!-- content Card -->
     <a href="{{ $item->type_id == 1 ? route('play-movie.show', $item->slug) : route('play-serie.show', [$item->slug, 1, 1]) }}">
         <div class="relative">
-            <img src="{{ asset($item->picture) }}" alt="random imgee" class="img-media w-full object-cover object-center rounded-lg shadow-md hover:saturate-50 hover:scale-105 hover:duration-500 duration-300">
+            <img src="{{ asset($item->picture) }}" class="img-media w-full rounded-lg shadow-md hover:saturate-50 hover:scale-105 hover:duration-500 duration-300">
             <span class="bg-color-secondary text-white text-xs font-bold mr-2 px-2.5 py-0.5 absolute top-0 right-0 my-4 uppercase">{{ $item->qualitie->name }}</span>
             @if (!Auth::user())
                 <a href="{{ route('login') }}" class="absolute text-white left-3 top-3 text-2xl hover:text-color-secondary duration-500"><i class="fa-solid fa-heart"></i></a>

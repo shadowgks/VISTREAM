@@ -14,7 +14,8 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                sans: ['font-mono', ...defaultTheme.fontFamily.sans],
+                Fjalla: ['Fjalla One']
             },
             colors: {
                 'color-primary': '#111620',

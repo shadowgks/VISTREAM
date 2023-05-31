@@ -3,7 +3,7 @@
 
 //B swiper carousel
 .swiper {
-    height: 60vh;
+    height: 65vh;
 }
 
 .swiper-button-prev:after,
@@ -49,9 +49,8 @@
     a {
         color: $color-secondary;
     }
-}
-#disqus_thread {
     iframe {
         color-scheme: light;
     }
 }
+
