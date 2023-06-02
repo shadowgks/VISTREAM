@@ -4,7 +4,7 @@ const swiper = new Swiper('.swiper', {
     // Optional parameters
     loop: true,
     autoplay: {
-        delay: 5000,
+        delay: 3000,
     },
 
     // If we need pagination
